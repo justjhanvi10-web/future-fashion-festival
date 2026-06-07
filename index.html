@@ -1,0 +1,2330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Future Fashion Festival — by Nineteen</title>
+  <meta name="description" content="India's next-generation fashion movement. Future Fashion Festival brings together designers, creators, brands, models, students, innovators, and industry leaders to shape the future of fashion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --off-white: #f5f5f3;
+      --silver: #c0c0c0;
+      --silver-light: #e8e8e8;
+      --silver-dark: #888888;
+      --red: #cc0000;
+      --red-dark: #990000;
+      --grey-100: #111111;
+      --grey-200: #1a1a1a;
+      --grey-300: #2a2a2a;
+      --grey-400: #444444;
+      --grey-500: #666666;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Inter', sans-serif;
+      --mono: 'Space Grotesk', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--red); }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+    .label--red { color: var(--red); }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+    }
+    .section-title em { font-style: italic; color: var(--silver); }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--red);
+      margin: 24px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 32px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+    }
+    .btn--primary {
+      background: var(--white);
+      color: var(--black);
+    }
+    .btn--primary:hover { background: var(--silver-light); transform: translateY(-1px); }
+    .btn--outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn--outline:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+    .btn--red {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn--red:hover { background: var(--red-dark); transform: translateY(-1px); }
+
+    .btn-arrow { font-size: 14px; transition: transform 0.3s ease; }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s ease, padding 0.4s ease;
+    }
+    nav.scrolled {
+      background: rgba(0,0,0,0.95);
+      padding: 14px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(20px);
+    }
+    @media (max-width: 768px) { nav { padding: 16px 24px; } nav.scrolled { padding: 12px 24px; } }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+    .nav-logo-main {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+    .nav-logo-sub {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-cta { display: flex; gap: 12px; }
+    @media (max-width: 600px) { .nav-cta .btn--outline { display: none; } }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    @media (max-width: 900px) { .hamburger { display: flex; } }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--white);
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: var(--black);
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu a {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 300;
+    }
+    .mobile-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-size: 28px;
+      cursor: pointer;
+      color: var(--white);
+      background: none;
+      border: none;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-video-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero-video-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.3) 0%,
+        rgba(0,0,0,0.5) 50%,
+        rgba(0,0,0,0.85) 100%
+      );
+    }
+    /* Cinematic background substitute — animated gradient */
+    .hero-bg-canvas {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(80,0,0,0.4) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(40,40,60,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse at 60% 80%, rgba(20,20,30,0.6) 0%, transparent 50%),
+        linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 50%, #0a0a0a 100%);
+      animation: heroShift 12s ease-in-out infinite alternate;
+    }
+    @keyframes heroShift {
+      0% { filter: brightness(0.9) hue-rotate(0deg); }
+      100% { filter: brightness(1.1) hue-rotate(5deg); }
+    }
+
+    /* Grain texture */
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 24px;
+    }
+
+    .hero-edition {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+    }
+    .hero-edition::before,
+    .hero-edition::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--silver-dark);
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+    }
+    .hero-headline .line-2 {
+      font-style: italic;
+      color: var(--silver);
+    }
+
+    .hero-sub {
+      font-size: clamp(0.85rem, 1.5vw, 1rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.8;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll span {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--silver-dark), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(1.2); }
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--red);
+      padding: 12px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-inner {
+      display: inline-flex;
+      gap: 0;
+      animation: tickerScroll 25s linear infinite;
+    }
+    @keyframes tickerScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--white);
+      padding: 0 32px;
+    }
+    .ticker-dot {
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── SECTION SPACING ── */
+    section { padding: 120px 0; }
+    @media (max-width: 768px) { section { padding: 80px 0; } }
+
+    /* ── ABOUT ── */
+    #about { background: var(--black); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-left .section-title { margin-bottom: 24px; }
+    .about-body {
+      color: rgba(255,255,255,0.65);
+      font-size: 1rem;
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+
+    .pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 48px;
+    }
+    .pillar {
+      background: var(--grey-200);
+      padding: 28px 24px;
+      transition: background 0.3s ease;
+      cursor: default;
+    }
+    .pillar:hover { background: var(--grey-300); }
+    .pillar-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .pillar-name {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .stat-card {
+      background: var(--grey-200);
+      padding: 40px 32px;
+      transition: background 0.3s;
+    }
+    .stat-card:hover { background: var(--grey-300); }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      line-height: 1;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .stat-num span { color: var(--red); }
+    .stat-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--grey-100); }
+
+    .experience-header { margin-bottom: 80px; }
+    .experience-header .section-title { max-width: 600px; }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px;
+    }
+
+    .exp-card {
+      background: var(--grey-200);
+      padding: 48px 40px;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
+    }
+    .exp-card:hover::before { transform: scaleX(1); }
+    .exp-card:hover { background: var(--grey-300); transform: translateY(-4px); }
+
+    .exp-icon {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      display: block;
+    }
+    .exp-num {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      margin-bottom: 16px;
+    }
+    .exp-title {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .exp-body {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    /* ── COMPETITIONS ── */
+    #competitions { background: var(--black); }
+
+    .competitions-intro { max-width: 600px; margin-bottom: 80px; }
+
+    .comp-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2px;
+      flex-wrap: wrap;
+    }
+    .comp-tab {
+      padding: 14px 24px;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      cursor: pointer;
+      background: var(--grey-200);
+      color: var(--silver-dark);
+      border: none;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .comp-tab:hover { background: var(--grey-300); color: var(--white); }
+    .comp-tab.active { background: var(--red); color: var(--white); }
+
+    .comp-panels { position: relative; }
+    .comp-panel {
+      display: none;
+      background: var(--grey-200);
+      padding: 60px;
+    }
+    @media (max-width: 768px) { .comp-panel { padding: 32px 24px; } }
+    .comp-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    @media (max-width: 768px) { .comp-panel.active { grid-template-columns: 1fr; gap: 32px; } }
+
+    .comp-panel-title {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 12px;
+    }
+    .comp-panel-subtitle {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 32px;
+    }
+
+    .comp-detail h4 {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .comp-detail p, .comp-detail ul {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+    .comp-detail ul { padding-left: 20px; }
+    .comp-detail ul li { margin-bottom: 4px; }
+
+    /* ── TALKS ── */
+    #talks { background: var(--grey-100); }
+
+    .talks-intro { max-width: 600px; margin-bottom: 80px; }
+
+    .topics-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 80px;
+    }
+    .topic-pill {
+      padding: 8px 20px;
+      border: 1px solid var(--grey-400);
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      transition: all 0.2s;
+    }
+    .topic-pill:hover { border-color: var(--white); color: var(--white); }
+
+    .speakers-label { margin-bottom: 40px; }
+
+    .speakers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 2px;
+    }
+
+    .speaker-card {
+      background: var(--grey-200);
+      padding: 32px 24px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+    .speaker-card:hover { background: var(--grey-300); }
+    .speaker-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--grey-400);
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      color: var(--silver);
+      border: 1px solid var(--grey-400);
+    }
+    .speaker-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .speaker-role {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 8px;
+    }
+    .speaker-topic {
+      font-size: 0.75rem;
+      color: var(--red);
+      font-style: italic;
+      font-family: var(--serif);
+    }
+    .speaker-tba {
+      opacity: 0.4;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+    }
+
+    /* ── RUNWAY ── */
+    #runway { background: var(--black); }
+
+    .runway-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .runway-layout { grid-template-columns: 1fr; gap: 48px; } }
+
+    .runway-visual {
+      position: relative;
+      aspect-ratio: 3/4;
+      background: var(--grey-200);
+      overflow: hidden;
+    }
+    .runway-visual-inner {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 30%, rgba(80,0,0,0.3) 0%, transparent 60%),
+        linear-gradient(135deg, #0f0f0f 0%, #1a0808 100%);
+      display: flex;
+      align-items: flex-end;
+      padding: 40px;
+    }
+    .runway-tag {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+    }
+
+    .runway-content .section-title { margin-bottom: 24px; }
+    .runway-body {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+
+    .runway-features {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 40px;
+    }
+    .runway-feature {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--grey-200);
+      padding: 20px 24px;
+      transition: background 0.2s;
+    }
+    .runway-feature:hover { background: var(--grey-300); }
+    .runway-feature-icon { color: var(--red); font-size: 1.2rem; }
+    .runway-feature-text {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    /* ── AWARDS ── */
+    #awards { background: var(--grey-100); }
+
+    .awards-intro { max-width: 600px; margin-bottom: 80px; }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2px;
+    }
+
+    .award-card {
+      background: var(--grey-200);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .award-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--silver), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .award-card:hover::after { opacity: 1; }
+    .award-card:hover { background: var(--grey-300); transform: translateY(-4px); }
+
+    .award-icon {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .award-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .award-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+    }
+
+    /* ── SPONSORS ── */
+    #sponsors { background: var(--black); }
+
+    .sponsors-header { margin-bottom: 80px; }
+
+    .sponsor-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      margin-bottom: 80px;
+    }
+    .benefit-card {
+      background: var(--grey-200);
+      padding: 32px 28px;
+      transition: background 0.3s;
+    }
+    .benefit-card:hover { background: var(--grey-300); }
+    .benefit-icon { font-size: 1.5rem; margin-bottom: 16px; display: block; }
+    .benefit-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .benefit-desc { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    .tiers-label { margin-bottom: 32px; }
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2px;
+      margin-bottom: 60px;
+    }
+    .tier-card {
+      padding: 32px 28px;
+      border: 1px solid var(--grey-400);
+      transition: all 0.3s;
+      position: relative;
+    }
+    .tier-card:hover { border-color: var(--silver-dark); }
+    .tier-card.featured {
+      background: var(--red);
+      border-color: var(--red);
+    }
+    .tier-badge {
+      font-family: var(--mono);
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 8px;
+    }
+    .tier-card.featured .tier-badge { color: rgba(255,255,255,0.8); }
+    .tier-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .tier-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
+    .tier-card.featured .tier-desc { color: rgba(255,255,255,0.85); }
+
+    .sponsors-cta {
+      text-align: center;
+      padding: 80px 40px;
+      background: var(--grey-200);
+    }
+    .sponsors-cta .section-title { margin-bottom: 16px; }
+    .sponsors-cta p {
+      color: rgba(255,255,255,0.55);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      font-size: 0.9rem;
+    }
+
+    /* ── COMMUNITY ── */
+    #community { background: var(--grey-100); }
+
+    .community-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    @media (max-width: 900px) { .community-layout { grid-template-columns: 1fr; } }
+
+    .community-features {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 48px;
+    }
+    .comm-feature {
+      background: var(--grey-200);
+      padding: 28px 32px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      transition: background 0.2s;
+    }
+    .comm-feature:hover { background: var(--grey-300); }
+    .comm-feature-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+    .comm-feature-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+    .comm-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+
+    .community-quote {
+      background: var(--grey-200);
+      padding: 60px 48px;
+      position: relative;
+    }
+    @media (max-width: 768px) { .community-quote { padding: 40px 32px; } }
+    .community-quote::before {
+      content: '"';
+      font-family: var(--serif);
+      font-size: 8rem;
+      color: var(--red);
+      opacity: 0.3;
+      position: absolute;
+      top: 20px;
+      left: 40px;
+      line-height: 1;
+    }
+    .community-quote blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 32px;
+      padding-top: 40px;
+    }
+    .community-quote cite {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      font-style: normal;
+    }
+
+    /* ── TIMELINE ── */
+    #timeline { background: var(--black); }
+
+    .timeline-intro { max-width: 500px; margin-bottom: 80px; }
+
+    .timeline-track {
+      position: relative;
+      padding-left: 60px;
+    }
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--grey-400) 10%, var(--grey-400) 90%, transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2px;
+      background: var(--grey-200);
+      padding: 32px 40px;
+      transition: background 0.2s;
+    }
+    .timeline-item:hover { background: var(--grey-300); }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -52px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--grey-400);
+      border: 2px solid var(--grey-400);
+      transition: all 0.2s;
+    }
+    .timeline-item:hover::before { background: var(--red); border-color: var(--red); }
+    .timeline-item.highlight::before { background: var(--red); border-color: var(--red); }
+
+    .timeline-phase {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .timeline-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .timeline-desc {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* ── GALLERY ── */
+    #gallery { background: var(--grey-100); overflow: hidden; }
+
+    .gallery-intro { max-width: 500px; margin-bottom: 60px; }
+
+    .gallery-masonry {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 200px);
+      gap: 2px;
+    }
+    @media (max-width: 900px) { .gallery-masonry { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(6, 180px); } }
+    @media (max-width: 500px) { .gallery-masonry { grid-template-columns: 1fr 1fr; grid-template-rows: auto; } }
+
+    .gallery-item {
+      background: var(--grey-200);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .gallery-item:nth-child(4) { grid-column: span 2; }
+    .gallery-item:nth-child(7) { grid-column: span 2; }
+
+    .gallery-item-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.6s ease;
+    }
+    .gallery-item:hover .gallery-item-bg { transform: scale(1.05); }
+
+    .g1 { background: linear-gradient(135deg, #1a0808 0%, #2a1010 100%); }
+    .g2 { background: linear-gradient(135deg, #080808 0%, #181818 100%); }
+    .g3 { background: linear-gradient(135deg, #0a0a12 0%, #151520 100%); }
+    .g4 { background: linear-gradient(135deg, #0f0f0a 0%, #1a1a10 100%); }
+    .g5 { background: linear-gradient(135deg, #100808 0%, #200f0f 100%); }
+    .g6 { background: linear-gradient(135deg, #080810 0%, #101020 100%); }
+    .g7 { background: linear-gradient(135deg, #0a0a0a 0%, #1a1010 100%); }
+    .g8 { background: linear-gradient(135deg, #080f08 0%, #0f1a0f 100%); }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-caption {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver);
+    }
+
+    /* ── FAQ ── */
+    #faq { background: var(--black); }
+
+    .faq-intro { max-width: 500px; margin-bottom: 80px; }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    @media (max-width: 768px) { .faq-grid { grid-template-columns: 1fr; } }
+
+    .faq-item {
+      background: var(--grey-200);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .faq-item:hover { background: var(--grey-300); }
+    .faq-item.open { background: var(--grey-300); }
+
+    .faq-question {
+      padding: 28px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .faq-q-text {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.4;
+    }
+    .faq-toggle {
+      font-size: 1.2rem;
+      color: var(--silver-dark);
+      transition: transform 0.3s, color 0.2s;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); color: var(--red); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer-inner {
+      padding: 0 32px 28px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.8;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--grey-100);
+      border-top: 1px solid var(--grey-300);
+    }
+
+    .footer-top {
+      padding: 80px 0 60px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+    }
+    @media (max-width: 900px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; } }
+    @media (max-width: 600px) { .footer-top { grid-template-columns: 1fr; } }
+
+    .footer-brand .nav-logo-main {
+      font-size: 1.5rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .footer-tagline {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.45);
+      margin: 16px 0 32px;
+    }
+    .footer-socials {
+      display: flex;
+      gap: 12px;
+    }
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--grey-400);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--silver-dark);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: all 0.2s;
+    }
+    .social-btn:hover { border-color: var(--white); color: var(--white); }
+
+    .footer-col h4 {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+      margin-bottom: 24px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col ul a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col ul a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--grey-300);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--silver-dark);
+    }
+
+    /* ── FINAL CTA BAND ── */
+    .cta-band {
+      background: var(--red);
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-band .section-title { color: var(--white); margin-bottom: 16px; }
+    .cta-band p { color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-band .btn--primary { background: var(--white); color: var(--red); }
+    .cta-band .btn--outline { border-color: rgba(255,255,255,0.5); color: var(--white); }
+    .cta-band .btn--outline:hover { border-color: var(--white); }
+
+    /* ── CURSOR DOT ── */
+    .cursor-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--red);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transition: transform 0.1s ease;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      width: 32px;
+      height: 32px;
+      border: 1px solid rgba(200,0,0,0.5);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transition: all 0.15s ease;
+      transform: translate(-50%, -50%);
+    }
+    @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+  </style>
+</head>
+<body>
+
+<!-- CUSTOM CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" id="mobileClose">✕</button>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#competitions" onclick="closeMobileMenu()">Competitions</a>
+  <a href="#runway" onclick="closeMobileMenu()">Runway</a>
+  <a href="#talks" onclick="closeMobileMenu()">Talks</a>
+  <a href="#sponsors" onclick="closeMobileMenu()">Sponsors</a>
+  <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">Future Fashion Festival</span>
+    <span class="nav-logo-sub">by Nineteen</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#competitions">Competitions</a></li>
+    <li><a href="#runway">Runway</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="#sponsors" class="btn btn--outline">Partner With Us</a>
+    <a href="#competitions" class="btn btn--primary">Apply Now <span class="btn-arrow">→</span></a>
+  </div>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video-bg">
+    <div class="hero-bg-canvas"></div>
+    <div class="hero-grain"></div>
+  </div>
+  <div class="hero-content fade-up">
+    <div class="hero-edition">India's Premier Fashion Movement · 2025</div>
+    <h1 class="hero-headline">
+      Where Fashion<br>
+      <span class="line-2">Meets The Future.</span>
+    </h1>
+    <p class="hero-sub">
+      A two-day fashion and innovation festival bringing together designers, creators, brands, models, students, innovators, and industry leaders to shape the future of fashion.
+    </p>
+    <div class="hero-ctas">
+      <a href="#competitions" class="btn btn--primary">Apply Now <span class="btn-arrow">→</span></a>
+      <a href="#sponsors" class="btn btn--outline">Partner With Us</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">Future Fashion Festival</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Runway Showcase</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Future Talks</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Design Competitions</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Innovation Hub</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Awards Gala</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">India's Next Fashion Movement</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Future Fashion Festival</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Runway Showcase</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Future Talks</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Design Competitions</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Innovation Hub</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">Awards Gala</span>
+    <span class="ticker-item ticker-dot">◆</span>
+    <span class="ticker-item">India's Next Fashion Movement</span>
+    <span class="ticker-item ticker-dot">◆</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-left fade-up">
+        <div class="label label--red">About the Festival</div>
+        <div class="divider"></div>
+        <h2 class="section-title">More Than<br><em>An Event.</em></h2>
+        <p class="about-body">
+          Future Fashion Festival is India's most ambitious convergence of fashion, creativity, technology, and emerging talent. We are not just a showcase — we are a platform designed to discover tomorrow's designers, empower young creatives, spark conversations that matter, and create real opportunities that reshape fashion's future.
+        </p>
+        <p class="about-body">
+          Think Fashion Week meets TEDx. Imagine the rigour of Cannes Lions infused with the energy of a luxury startup summit. This is where collections meet code, where aesthetics meet analytics, and where raw talent meets industry authority.
+        </p>
+        <a href="#experience" class="btn btn--outline">Explore the Experience <span class="btn-arrow">→</span></a>
+
+        <div class="pillars fade-up">
+          <div class="pillar"><div class="pillar-num">01</div><div class="pillar-name">Fashion</div></div>
+          <div class="pillar"><div class="pillar-num">02</div><div class="pillar-name">Innovation</div></div>
+          <div class="pillar"><div class="pillar-num">03</div><div class="pillar-name">Sustainability</div></div>
+          <div class="pillar"><div class="pillar-num">04</div><div class="pillar-name">Education</div></div>
+          <div class="pillar"><div class="pillar-num">05</div><div class="pillar-name">Entrepreneurship</div></div>
+          <div class="pillar"><div class="pillar-num">06</div><div class="pillar-name">Community</div></div>
+        </div>
+      </div>
+
+      <div class="about-stats fade-up">
+        <div class="stat-card">
+          <div class="stat-num">2<span>+</span></div>
+          <div class="stat-label">Days of Programming</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">5<span>K+</span></div>
+          <div class="stat-label">Expected Attendees</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">50<span>+</span></div>
+          <div class="stat-label">Industry Speakers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">1<span>st</span></div>
+          <div class="stat-label">Edition — India</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">30<span>+</span></div>
+          <div class="stat-label">Emerging Designers</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">₹25<span>L+</span></div>
+          <div class="stat-label">In Awards & Prizes</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="experience-header fade-up">
+      <div class="label">The Festival Experience</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Five Days.<br><em>Infinite Possibilities.</em></h2>
+    </div>
+    <div class="experience-grid">
+      <div class="exp-card fade-up">
+        <span class="exp-icon">✦</span>
+        <div class="exp-num">01 — Runway</div>
+        <h3 class="exp-title">Runway Showcase</h3>
+        <p class="exp-body">Emerging designers present complete collections on a professional runway before an audience of industry experts, media, buyers, and tastemakers. A career-defining moment for India's next generation of fashion leaders.</p>
+      </div>
+      <div class="exp-card fade-up">
+        <span class="exp-icon">◈</span>
+        <div class="exp-num">02 — Talks</div>
+        <h3 class="exp-title">Future Talks</h3>
+        <p class="exp-body">TED-style keynotes and conversations featuring the sharpest minds in fashion, technology, design, and culture. Visionaries, founders, executives, and disruptors who are actively rewriting the rules of the industry.</p>
+      </div>
+      <div class="exp-card fade-up">
+        <span class="exp-icon">◇</span>
+        <div class="exp-num">03 — Competition</div>
+        <h3 class="exp-title">Design Competitions</h3>
+        <p class="exp-body">National competitions across fashion design, styling, photography, creative direction, and fashion innovation. Judged by industry icons. Witnessed by the country. A platform for talent that refuses to wait.</p>
+      </div>
+      <div class="exp-card fade-up">
+        <span class="exp-icon">⬡</span>
+        <div class="exp-num">04 — Innovation</div>
+        <h3 class="exp-title">Innovation Hub</h3>
+        <p class="exp-body">An immersive showcase of fashion technology, artificial intelligence, sustainable production, and the future of how we create, distribute, and experience fashion. Where the industry meets what's next.</p>
+      </div>
+      <div class="exp-card fade-up">
+        <span class="exp-icon">✧</span>
+        <div class="exp-num">05 — Awards</div>
+        <h3 class="exp-title">Awards Gala</h3>
+        <p class="exp-body">An elegant closing ceremony recognising the most promising talent, groundbreaking ideas, and outstanding contributions to the future of fashion. India's most prestigious night in emerging fashion.</p>
+      </div>
+      <div class="exp-card fade-up" style="background: var(--red);">
+        <span class="exp-icon">→</span>
+        <div class="exp-num" style="color: rgba(255,255,255,0.7);">Apply Today</div>
+        <h3 class="exp-title">Ready to Apply?</h3>
+        <p class="exp-body" style="color: rgba(255,255,255,0.8);">Applications are now open for designers, speakers, models, and competition participants. Secure your place in India's most important fashion event.</p>
+        <br>
+        <a href="#competitions" class="btn btn--primary">Apply Now <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIONS -->
+<section id="competitions">
+  <div class="container">
+    <div class="competitions-intro fade-up">
+      <div class="label label--red">Competitions</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Five Arenas.<br><em>One Stage.</em></h2>
+      <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.8; margin-top: 20px;">National competitions designed to discover, challenge, and elevate India's most extraordinary emerging talent across every discipline of fashion.</p>
+    </div>
+
+    <div class="comp-tabs">
+      <button class="comp-tab active" onclick="switchTab(0)">Designer</button>
+      <button class="comp-tab" onclick="switchTab(1)">Stylist</button>
+      <button class="comp-tab" onclick="switchTab(2)">Photographer</button>
+      <button class="comp-tab" onclick="switchTab(3)">Creative</button>
+      <button class="comp-tab" onclick="switchTab(4)">Innovation</button>
+    </div>
+
+    <div class="comp-panels">
+      <div class="comp-panel active fade-up">
+        <div>
+          <h3 class="comp-panel-title">Future Designer Challenge</h3>
+          <p class="comp-panel-subtitle">For aspiring fashion designers across India.</p>
+          <div class="comp-detail">
+            <h4>Eligibility</h4>
+            <p>Open to fashion design students and emerging designers aged 18–30 from any recognised design institution or self-taught background.</p>
+            <h4>What You'll Present</h4>
+            <ul>
+              <li>A cohesive 3–5 look mini-collection</li>
+              <li>Design portfolio and concept board</li>
+              <li>Sustainability statement</li>
+              <li>Live runway presentation</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="comp-detail">
+            <h4>Judging Criteria</h4>
+            <ul>
+              <li>Design originality and conceptual depth</li>
+              <li>Technical execution and craftsmanship</li>
+              <li>Commercial viability and market awareness</li>
+              <li>Storytelling and presentation</li>
+              <li>Sustainability integration</li>
+            </ul>
+            <h4>Awards</h4>
+            <ul>
+              <li>₹5,00,000 prize + Designer of the Future trophy</li>
+              <li>Brand collaboration opportunity</li>
+              <li>Industry mentorship for 6 months</li>
+              <li>Media feature in leading fashion publications</li>
+            </ul>
+          </div>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Future%20Designer%20Challenge%20Application" class="btn btn--red">Apply as Designer <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="comp-panel fade-up">
+        <div>
+          <h3 class="comp-panel-title">Future Stylist Challenge</h3>
+          <p class="comp-panel-subtitle">For fashion stylists who see the world differently.</p>
+          <div class="comp-detail">
+            <h4>Eligibility</h4>
+            <p>Open to aspiring and emerging stylists aged 18–30. No formal degree required — exceptional vision is the only prerequisite.</p>
+            <h4>What You'll Present</h4>
+            <ul>
+              <li>A complete editorial shoot concept</li>
+              <li>Mood board and styling portfolio</li>
+              <li>Live outfit curation challenge on stage</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="comp-detail">
+            <h4>Judging Criteria</h4>
+            <ul>
+              <li>Creative vision and point of view</li>
+              <li>Styling versatility across aesthetics</li>
+              <li>Trend awareness and cultural relevance</li>
+              <li>Ability to tell a story through clothing</li>
+            </ul>
+            <h4>Awards</h4>
+            <ul>
+              <li>₹2,00,000 prize + Future Stylist Award</li>
+              <li>Editorial shoot with top fashion photographer</li>
+              <li>Mentorship from a celebrity stylist</li>
+            </ul>
+          </div>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Future%20Stylist%20Challenge%20Application" class="btn btn--red">Apply as Stylist <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="comp-panel fade-up">
+        <div>
+          <h3 class="comp-panel-title">Future Photographer Challenge</h3>
+          <p class="comp-panel-subtitle">For visual storytellers who make fashion immortal.</p>
+          <div class="comp-detail">
+            <h4>Eligibility</h4>
+            <p>Open to photographers aged 18–30. All photography backgrounds welcome — fashion, portrait, documentary, or conceptual.</p>
+            <h4>What You'll Submit</h4>
+            <ul>
+              <li>Portfolio of 10 best fashion images</li>
+              <li>On-site live shoot challenge during the festival</li>
+              <li>Behind-the-scenes coverage of runway day</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="comp-detail">
+            <h4>Judging Criteria</h4>
+            <ul>
+              <li>Technical photography skills</li>
+              <li>Artistic vision and storytelling ability</li>
+              <li>Fashion sensibility and aesthetic coherence</li>
+              <li>Live challenge performance</li>
+            </ul>
+            <h4>Awards</h4>
+            <ul>
+              <li>₹2,00,000 prize + Future Photographer Award</li>
+              <li>Published spread in a fashion magazine</li>
+              <li>Collaboration with a fashion brand</li>
+            </ul>
+          </div>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Future%20Photographer%20Challenge%20Application" class="btn btn--red">Apply as Photographer <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="comp-panel fade-up">
+        <div>
+          <h3 class="comp-panel-title">Future Creative Challenge</h3>
+          <p class="comp-panel-subtitle">For branding, marketing, and creative direction talent.</p>
+          <div class="comp-detail">
+            <h4>Eligibility</h4>
+            <p>Open to students and young professionals in branding, marketing, creative direction, or communications aged 18–30.</p>
+            <h4>What You'll Present</h4>
+            <ul>
+              <li>A fashion brand campaign concept</li>
+              <li>Visual identity and creative strategy</li>
+              <li>Pitch presentation to a live jury</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="comp-detail">
+            <h4>Judging Criteria</h4>
+            <ul>
+              <li>Strategic thinking and brand understanding</li>
+              <li>Creative originality and execution quality</li>
+              <li>Presentation clarity and persuasion</li>
+              <li>Commercial viability of the concept</li>
+            </ul>
+            <h4>Awards</h4>
+            <ul>
+              <li>₹2,00,000 prize + Emerging Creative Award</li>
+              <li>Internship with a leading fashion brand</li>
+              <li>Mentorship from industry creative directors</li>
+            </ul>
+          </div>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Future%20Creative%20Challenge%20Application" class="btn btn--red">Apply as Creative <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="comp-panel fade-up">
+        <div>
+          <h3 class="comp-panel-title">Future Innovation Challenge</h3>
+          <p class="comp-panel-subtitle">For sustainability and fashion technology pioneers.</p>
+          <div class="comp-detail">
+            <h4>Eligibility</h4>
+            <p>Open to innovators, entrepreneurs, technologists, and students aged 18–35 working on solutions at the intersection of fashion and technology or sustainability.</p>
+            <h4>What You'll Present</h4>
+            <ul>
+              <li>A working prototype or detailed concept</li>
+              <li>Problem statement and solution pitch</li>
+              <li>Demo at the Innovation Hub</li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <div class="comp-detail">
+            <h4>Judging Criteria</h4>
+            <ul>
+              <li>Innovation and disruption potential</li>
+              <li>Technical feasibility and execution</li>
+              <li>Environmental and social impact</li>
+              <li>Scalability and commercial model</li>
+            </ul>
+            <h4>Awards</h4>
+            <ul>
+              <li>₹5,00,000 prize + Innovation in Fashion Award</li>
+              <li>Accelerator programme access</li>
+              <li>Investor pitch opportunity</li>
+              <li>Incubation support from Nineteen</li>
+            </ul>
+          </div>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Future%20Innovation%20Challenge%20Application" class="btn btn--red">Apply as Innovator <span class="btn-arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALKS -->
+<section id="talks">
+  <div class="container">
+    <div class="talks-intro fade-up">
+      <div class="label label--red">Future Talks</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Ideas That<br><em>Change Everything.</em></h2>
+      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">Visionaries, founders, creators, executives, designers, innovators, and thought leaders take the stage to challenge assumptions, share radical insights, and map the future of fashion — one talk at a time.</p>
+    </div>
+
+    <div class="topics-grid fade-up">
+      <div class="topic-pill">Future of Fashion</div>
+      <div class="topic-pill">AI & Creativity</div>
+      <div class="topic-pill">Sustainable Design</div>
+      <div class="topic-pill">Luxury & Technology</div>
+      <div class="topic-pill">Personal Branding</div>
+      <div class="topic-pill">Entrepreneurship</div>
+      <div class="topic-pill">Fashion Media</div>
+      <div class="topic-pill">The Creator Economy</div>
+      <div class="topic-pill">Inclusive Fashion</div>
+      <div class="topic-pill">Gen Z & Culture</div>
+      <div class="topic-pill">Retail Futures</div>
+      <div class="topic-pill">Fashion Finance</div>
+    </div>
+
+    <div class="label speakers-label fade-up">Speaker Lineup — To Be Announced</div>
+    <div class="speakers-grid fade-up">
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Industry Leader</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Creative Director</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Sustainability Expert</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Founder & Entrepreneur</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Fashion Editor</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Innovator</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Technologist</div>
+      </div>
+      <div class="speaker-card">
+        <div class="speaker-avatar">?</div>
+        <div class="speaker-tba">Speaker TBA</div>
+        <br>
+        <div class="speaker-role">Cultural Voice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RUNWAY -->
+<section id="runway">
+  <div class="container">
+    <div class="runway-layout">
+      <div class="runway-visual fade-up">
+        <div class="runway-visual-inner">
+          <span class="runway-tag">The Runway.</span>
+        </div>
+      </div>
+      <div class="runway-content fade-up">
+        <div class="label label--red">Runway Experience</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Your Collection.<br><em>The World's Stage.</em></h2>
+        <p class="runway-body">
+          The Future Fashion Festival Runway is not a student showcase. It is a professional-grade fashion presentation — lights, production, jury, media, and buyers — designed to launch careers, not just celebrate them.
+        </p>
+        <p class="runway-body">
+          Selected designers will present complete collections to an audience of industry leaders, fashion press, retail buyers, and cultural tastemakers. This is the moment everything becomes real.
+        </p>
+
+        <div class="runway-features">
+          <div class="runway-feature">
+            <span class="runway-feature-icon">◆</span>
+            <span class="runway-feature-text">Designer Applications — Open Now</span>
+          </div>
+          <div class="runway-feature">
+            <span class="runway-feature-icon">◆</span>
+            <span class="runway-feature-text">Model Applications — Open Now</span>
+          </div>
+          <div class="runway-feature">
+            <span class="runway-feature-icon">◆</span>
+            <span class="runway-feature-text">Industry Jury — 10+ Senior Professionals</span>
+          </div>
+          <div class="runway-feature">
+            <span class="runway-feature-icon">◆</span>
+            <span class="runway-feature-text">Media Coverage — Press & Digital</span>
+          </div>
+          <div class="runway-feature">
+            <span class="runway-feature-icon">◆</span>
+            <span class="runway-feature-text">Collection Showcase — Live & Streamed</span>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="mailto:thenineteen.in@gmail.com?subject=Runway%20Designer%20Application" class="btn btn--primary">Apply as Designer <span class="btn-arrow">→</span></a>
+          <a href="mailto:thenineteen.in@gmail.com?subject=Runway%20Model%20Application" class="btn btn--outline">Apply as Model</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="awards-intro fade-up">
+      <div class="label label--red">Awards Gala</div>
+      <div class="divider"></div>
+      <h2 class="section-title">The Night<br><em>That Defines Careers.</em></h2>
+      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">India's most prestigious night in emerging fashion. Seven awards recognising the extraordinary — the designers, innovators, and creatives who are writing tomorrow's story today.</p>
+    </div>
+    <div class="awards-grid fade-up">
+      <div class="award-card">
+        <span class="award-icon">🏆</span>
+        <h3 class="award-name">Designer of the Future</h3>
+        <p class="award-desc">The festival's highest honour. Awarded to the emerging designer whose collection, craft, and vision most powerfully represents the future of Indian fashion.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">🌿</span>
+        <h3 class="award-name">Sustainable Fashion Award</h3>
+        <p class="award-desc">Recognising the designer or innovator who has most thoughtfully integrated sustainability — environmental, social, and circular — into their fashion practice.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">⚡</span>
+        <h3 class="award-name">Innovation in Fashion Award</h3>
+        <p class="award-desc">For the boldest technological, digital, or systemic innovation presented at the festival — from AI-designed collections to zero-waste production methods.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">✦</span>
+        <h3 class="award-name">Emerging Creative Award</h3>
+        <p class="award-desc">Celebrating the most outstanding creative direction, brand strategy, or marketing concept presented by an emerging talent at the festival.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">◈</span>
+        <h3 class="award-name">Future Stylist Award</h3>
+        <p class="award-desc">Awarded to the competition's most visionary stylist — one who demonstrated an exceptional eye, strong point of view, and the ability to transform a look into a story.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">◎</span>
+        <h3 class="award-name">Future Photographer Award</h3>
+        <p class="award-desc">For the visual storyteller whose work captured the festival's spirit with the most artistry, technical skill, and fashion intelligence.</p>
+      </div>
+      <div class="award-card">
+        <span class="award-icon">♡</span>
+        <h3 class="award-name">People's Choice Award</h3>
+        <p class="award-desc">Voted by the festival audience. The creator, designer, or innovator who inspired the most excitement, conversation, and community love across both festival days.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="container">
+    <div class="sponsors-header fade-up">
+      <div class="label label--red">Partners & Sponsors</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Where Industry<br><em>Meets Impact.</em></h2>
+      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; max-width: 600px; font-size: 0.9rem; line-height: 1.9;">Partner with India's most ambitious fashion and innovation festival. Connect your brand to the next generation of designers, creators, and consumers who will define the decade ahead.</p>
+    </div>
+
+    <div class="sponsor-benefits fade-up">
+      <div class="benefit-card">
+        <span class="benefit-icon">◈</span>
+        <h4 class="benefit-title">Brand Visibility</h4>
+        <p class="benefit-desc">Prime placement across all festival touchpoints — physical, digital, editorial, and broadcast.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">◇</span>
+        <h4 class="benefit-title">Youth Engagement</h4>
+        <p class="benefit-desc">Direct access to India's most creative, fashion-forward 18–30 demographic at peak inspiration.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">✦</span>
+        <h4 class="benefit-title">Industry Positioning</h4>
+        <p class="benefit-desc">Be seen as a champion of creativity, sustainability, and the future of Indian fashion.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">⬡</span>
+        <h4 class="benefit-title">Media Exposure</h4>
+        <p class="benefit-desc">Coverage across fashion media, digital platforms, and influencer networks reaching millions.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">◎</span>
+        <h4 class="benefit-title">Talent Access</h4>
+        <p class="benefit-desc">First look at India's most promising emerging designers, creatives, and fashion entrepreneurs.</p>
+      </div>
+      <div class="benefit-card">
+        <span class="benefit-icon">✧</span>
+        <h4 class="benefit-title">Innovation Association</h4>
+        <p class="benefit-desc">Align your brand with cutting-edge fashion technology, sustainability, and cultural leadership.</p>
+      </div>
+    </div>
+
+    <div class="label tiers-label fade-up">Sponsorship Tiers</div>
+    <div class="tiers-grid fade-up">
+      <div class="tier-card featured">
+        <div class="tier-badge">Presenting Partner</div>
+        <h4 class="tier-name">Title Partner</h4>
+        <p class="tier-desc">The festival's highest partnership tier. Your brand name is woven into the festival identity itself, with maximum visibility across every channel, surface, and moment.</p>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Principal Sponsor</div>
+        <h4 class="tier-name">Powered By Partner</h4>
+        <p class="tier-desc">Co-headline the festival with premium positioning across brand communications, the main stage, and all primary marketing.</p>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Hub Sponsor</div>
+        <h4 class="tier-name">Innovation Partner</h4>
+        <p class="tier-desc">Own the Innovation Hub — the festival's technology and future-of-fashion showcase. Ideal for tech brands, platforms, and forward-thinking enterprises.</p>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Values Partner</div>
+        <h4 class="tier-name">Sustainability Partner</h4>
+        <p class="tier-desc">Lead the festival's sustainability pillar. Perfect for brands committed to environmental and social responsibility in fashion.</p>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">People Partner</div>
+        <h4 class="tier-name">Community Partner</h4>
+        <p class="tier-desc">Support the festival's community, education, and talent development programmes. Build deep loyalty with emerging creatives nationwide.</p>
+      </div>
+      <div class="tier-card">
+        <div class="tier-badge">Press Partner</div>
+        <h4 class="tier-name">Media Partner</h4>
+        <p class="tier-desc">Join as an official media partner to amplify festival reach, access exclusive content, and shape how the story gets told.</p>
+      </div>
+    </div>
+
+    <div class="sponsors-cta fade-up">
+      <h2 class="section-title">Ready to Partner<br><em>With the Future?</em></h2>
+      <p>Contact our partnerships team to receive the full sponsor deck, availability details, and custom partnership proposals.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <a href="mailto:thenineteen.in@gmail.com" class="btn btn--primary">Get the Sponsor Deck <span class="btn-arrow">→</span></a>
+        <a href="mailto:thenineteen.in@gmail.com" class="btn btn--outline">Email Us Directly</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMMUNITY -->
+<section id="community">
+  <div class="container">
+    <div class="community-layout">
+      <div class="fade-up">
+        <div class="label label--red">Community</div>
+        <div class="divider"></div>
+        <h2 class="section-title">Beyond the<br><em>Festival Days.</em></h2>
+        <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9; margin-bottom: 8px;">Future Fashion Festival is not a moment — it is a movement. A year-round community of the most passionate, creative, and driven individuals in Indian fashion.</p>
+        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.9;">Once you are part of this community, you have access to a network, a support system, and a stage that doesn't go dark when the festival ends.</p>
+
+        <div class="community-features">
+          <div class="comm-feature">
+            <span class="comm-feature-icon">◈</span>
+            <div>
+              <div class="comm-feature-title">Workshops & Masterclasses</div>
+              <div class="comm-feature-desc">Monthly sessions with industry experts covering design, business, technology, and creative skills.</div>
+            </div>
+          </div>
+          <div class="comm-feature">
+            <span class="comm-feature-icon">◇</span>
+            <div>
+              <div class="comm-feature-title">Networking Events</div>
+              <div class="comm-feature-desc">Curated networking experiences connecting talent with brands, buyers, investors, and collaborators.</div>
+            </div>
+          </div>
+          <div class="comm-feature">
+            <span class="comm-feature-icon">✦</span>
+            <div>
+              <div class="comm-feature-title">Mentorship Programme</div>
+              <div class="comm-feature-desc">One-on-one mentorship pairing emerging talent with established industry professionals for six months.</div>
+            </div>
+          </div>
+          <div class="comm-feature">
+            <span class="comm-feature-icon">⬡</span>
+            <div>
+              <div class="comm-feature-title">Collaboration Projects</div>
+              <div class="comm-feature-desc">Community-driven collaborations between designers, photographers, stylists, and brands throughout the year.</div>
+            </div>
+          </div>
+          <div class="comm-feature">
+            <span class="comm-feature-icon">◎</span>
+            <div>
+              <div class="comm-feature-title">Creator Community</div>
+              <div class="comm-feature-desc">A private digital community for festival alumni — share work, find collaborators, get feedback, stay connected.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-up">
+        <div class="community-quote">
+          <blockquote>"The future of fashion isn't being designed in Paris or Milan. It's being designed right here, by a generation that refuses to wait for permission."</blockquote>
+          <cite>— Future Fashion Festival by Nineteen</cite>
+        </div>
+        <div style="margin-top: 2px; background: var(--grey-200); padding: 40px 48px;">
+          <div class="label" style="margin-bottom: 24px;">Join the Community</div>
+          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 28px;">Be the first to hear about festival updates, application openings, and community events.</p>
+          <div style="display: flex; gap: 0;">
+            <input type="email" placeholder="Your email address" style="flex: 1; background: var(--grey-300); border: 1px solid var(--grey-400); border-right: none; padding: 14px 20px; color: var(--white); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; outline: none;" />
+            <button class="btn btn--red" style="white-space: nowrap; border-left: none;">Join →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <div class="timeline-intro fade-up">
+      <div class="label label--red">Festival Timeline</div>
+      <div class="divider"></div>
+      <h2 class="section-title">The Journey<br><em>To The Stage.</em></h2>
+    </div>
+
+    <div class="timeline-track fade-up">
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 01</div>
+        <div class="timeline-title">Applications Open</div>
+        <div class="timeline-desc">Competitions, runway, speaker, and model applications go live. Early-bird registrations begin.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 02</div>
+        <div class="timeline-title">Shortlisting</div>
+        <div class="timeline-desc">Applications reviewed by the festival jury. Shortlisted candidates notified and briefed on next steps.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-phase">Phase 03</div>
+        <div class="timeline-title">Competition Rounds</div>
+        <div class="timeline-desc">Online elimination rounds. Portfolio reviews. Video submissions. Finalists selected across all categories.</div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-phase">Day 01 — Festival</div>
+        <div class="timeline-title">Future Talks</div>
+        <div class="timeline-desc">Keynotes, panel discussions, and TED-style talks from India's most visionary fashion and innovation leaders.</div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-phase">Day 01 — Festival</div>
+        <div class="timeline-title">Competitions & Innovation Hub</div>
+        <div class="timeline-desc">Live competition rounds. Innovation Hub open to all attendees. Networking evening.</div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-phase">Day 02 — Festival</div>
+        <div class="timeline-title">Runway Showcase</div>
+        <div class="timeline-desc">Emerging designers present full collections on a professional runway. Industry jury, media, and buyers in attendance.</div>
+      </div>
+      <div class="timeline-item highlight">
+        <div class="timeline-phase">Day 02 — Festival</div>
+        <div class="timeline-title">Awards Gala</div>
+        <div class="timeline-desc">India's most prestigious emerging fashion awards ceremony. Seven awards. One unforgettable evening.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-intro fade-up">
+      <div class="label label--red">Gallery</div>
+      <div class="divider"></div>
+      <h2 class="section-title">A Glimpse of<br><em>What's Coming.</em></h2>
+    </div>
+  </div>
+  <div style="padding: 0 40px;" class="fade-up">
+    <div class="gallery-masonry">
+      <div class="gallery-item">
+        <div class="gallery-item-bg g1"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Runway Showcase</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g2"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Future Talks</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g3"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Designer Workroom</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g4"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Competition Finals</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g5"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Innovation Hub</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g6"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Awards Gala</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g7"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Backstage Moments</span></div>
+      </div>
+      <div class="gallery-item">
+        <div class="gallery-item-bg g8"></div>
+        <div class="gallery-overlay"><span class="gallery-caption">Community</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-intro fade-up">
+      <div class="label label--red">FAQ</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Everything<br><em>You Need to Know.</em></h2>
+    </div>
+    <div class="faq-grid fade-up">
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">What is Future Fashion Festival?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Future Fashion Festival by Nineteen is India's next-generation fashion and innovation festival — a two-day event bringing together designers, creators, brands, models, students, innovators, and industry leaders to discover, celebrate, and elevate the future of fashion.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Who can attend the festival?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">The festival is open to anyone passionate about fashion, creativity, and innovation. This includes fashion students, young professionals, industry veterans, brand representatives, press, investors, and general public tickets will be available closer to the event.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How do I apply for the competitions?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Click the "Apply Now" button on any competition section and complete the online application form. You'll need to submit your portfolio, a short bio, and answer a few brief questions about your work and vision. Applications are reviewed on a rolling basis.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Is there an age limit for competitions?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Most competition categories are open to participants aged 18–30. The Innovation Challenge is open up to age 35. There is no lower age exception — all participants must be at least 18 years of age at the time of application.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Do I need a formal degree to apply?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">No. We believe in talent over credentials. Whether you studied at a premier design institution or are completely self-taught, we evaluate all applications on the quality, originality, and potential of your work — not your certificate.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How do I apply as a runway model?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Model applications are open via the Runway section of the website. Submit your comp card or portfolio, measurements, and a brief introduction. Shortlisted models will be contacted for an in-person or virtual casting call.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How do I apply to showcase my collection on the runway?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Designer runway applications are separate from competition entries. Submit your portfolio, a collection concept, and 3–5 sample looks. A jury of industry professionals will review all applications and select designers based on design quality, concept strength, and readiness for professional presentation.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Are there tickets for the general public?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. General public tickets for the Future Talks, Innovation Hub, and Awards Gala will be available closer to the festival date. Join our mailing list to be the first to know when tickets go on sale and to access early-bird pricing.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How can my brand become a sponsor?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Email our partnerships team at thenineteen.in@gmail.com to request the full sponsor deck and initiate a conversation. We offer custom partnership structures and are happy to design a collaboration that aligns with your brand's specific goals and audience.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Where will the festival be held?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">The festival venue will be announced shortly. The first edition will take place in a major Indian metropolitan city. Sign up to our mailing list for the venue reveal and to stay updated on all festival announcements.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Can I apply from outside India?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">While the festival is currently India-focused, we welcome applications from the Indian diaspora and international participants who are working on projects relevant to Indian or South Asian fashion. Final round participation requires physical presence at the festival.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Is there a registration fee for competitions?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">A nominal application fee applies to competition entries to ensure seriousness of participation. Details are available on the individual competition application pages. Shortlisted finalists may be eligible for travel and accommodation support — details announced per competition category.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How are competition winners selected?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">All competitions are judged by a panel of senior industry professionals across fashion, design, technology, and business. Judging criteria are specific to each category and are published on the application pages. The jury's decision is final, with the exception of the People's Choice Award, which is voted by the festival audience.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">Can I apply to speak at Future Talks?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes. Speaker applications are open for individuals who have a compelling story, original insight, or transformative idea at the intersection of fashion and one of our core themes. Submit a speaker proposal including your bio, proposed topic, and a brief talk outline via the contact page.</div></div>
+      </div>
+
+      <div class="faq-item" onclick="toggleFaq(this)">
+        <div class="faq-question">
+          <span class="faq-q-text">How do I stay updated on festival news?</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Join our mailing list, follow us on Instagram and LinkedIn, and subscribe to our YouTube channel for behind-the-scenes content, speaker announcements, competition updates, and ticket information. All major updates are sent to subscribers first.</div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band fade-up">
+  <div class="container">
+    <h2 class="section-title">The Future Is Being<br><em>Designed Today.</em></h2>
+    <p>Don't watch from the outside. Apply now and become part of India's most important fashion movement.</p>
+    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+      <a href="#competitions" class="btn btn--primary">Apply Now <span class="btn-arrow">→</span></a>
+      <a href="#sponsors" class="btn btn--outline">Partner With Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="nav-logo-main">Future Fashion Festival</span>
+        <span class="nav-logo-sub">by Nineteen</span>
+        <p class="footer-tagline">"The Future Is Being Designed Today."</p>
+        <div class="footer-socials">
+          <a href="#" class="social-btn">IG</a>
+          <a href="#" class="social-btn">LI</a>
+          <a href="#" class="social-btn">YT</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#competitions">Competitions</a></li>
+          <li><a href="#runway">Runway</a></li>
+          <li><a href="#talks">Talks</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Festival</h4>
+        <ul>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#community">Community</a></li>
+          <li><a href="#timeline">Timeline</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#sponsors">Partner With Us</a></li>
+          <li><a href="mailto:thenineteen.in@gmail.com">Contact</a></li>
+          <li><a href="mailto:thenineteen.in@gmail.com">Press</a></li>
+          <li><a href="mailto:thenineteen.in@gmail.com">Sponsorship</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2025 Future Fashion Festival by Nineteen. All rights reserved.</span>
+      <span class="footer-copy">India's Next Fashion Movement.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── CURSOR ──
+  const dot = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; dot.style.left = mx + 'px'; dot.style.top = my + 'px'; });
+  function animateRing() {
+    rx += (mx - rx) * 0.12;
+    ry += (my - ry) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top = ry + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // ── NAV SCROLL ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── MOBILE MENU ──
+  document.getElementById('hamburger').onclick = () => document.getElementById('mobileMenu').classList.add('open');
+  document.getElementById('mobileClose').onclick = closeMobileMenu;
+  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // ── FADE IN ON SCROLL ──
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── COMPETITION TABS ──
+  function switchTab(i) {
+    document.querySelectorAll('.comp-tab').forEach((t, j) => t.classList.toggle('active', i === j));
+    document.querySelectorAll('.comp-panel').forEach((p, j) => p.classList.toggle('active', i === j));
+  }
+
+  // ── FAQ ACCORDION ──
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── SMOOTH SCROLL FOR NAV ──
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>
