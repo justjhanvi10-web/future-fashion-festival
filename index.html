@@ -1232,9 +1232,239 @@
       transform: translate(-50%, -50%);
     }
     @media (hover: none) { .cursor-dot, .cursor-ring { display: none; } }
+    /* ════════════════════════════════════ */
+    /* LUXURY UPGRADE LAYER                  */
+    /* ════════════════════════════════════ */
+
+    /* ── PRELOADER ── */
+    #preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--black);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+    #preloader.done { transform: translateY(-100%); }
+    .pre-logo {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      font-weight: 300; letter-spacing: 0.04em;
+      color: var(--white);
+    }
+    .pre-logo em { font-style: italic; color: var(--silver); }
+    .pre-sub {
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: var(--silver-dark); margin-top: 10px;
+    }
+    .pre-track {
+      width: min(280px, 60vw); height: 1px;
+      background: rgba(255,255,255,0.12);
+      margin-top: 36px; position: relative; overflow: hidden;
+    }
+    .pre-fill {
+      position: absolute; inset: 0;
+      background: var(--red);
+      transform: scaleX(0); transform-origin: left;
+    }
+    .pre-count {
+      font-family: var(--mono); font-size: 11px;
+      letter-spacing: 0.2em; color: var(--silver);
+      margin-top: 14px; font-variant-numeric: tabular-nums;
+    }
+
+    /* ── SCROLL PROGRESS ── */
+    #scrollProgress {
+      position: fixed; top: 0; left: 0; right: 0; height: 2px;
+      z-index: 9999; pointer-events: none;
+      background: linear-gradient(90deg, var(--red), #ff3333);
+      transform: scaleX(0); transform-origin: left;
+    }
+
+    /* ── HERO 3D CANVAS ── */
+    #silkCanvas {
+      position: absolute; inset: 0; z-index: 0;
+      width: 100%; height: 100%; display: block;
+    }
+    .hero-content { z-index: 2; }
+    .hero-headline { perspective: 900px; }
+    .hero-headline .ch {
+      display: inline-block;
+      transform-origin: 50% 100%;
+      will-change: transform, opacity;
+    }
+    .hero-headline .ch.sp { width: 0.28em; }
+
+    /* ── SHIMMER ITALICS ── */
+    .section-title em, .runway3d-title em {
+      background: linear-gradient(110deg, var(--silver) 25%, #ffffff 50%, var(--silver) 75%);
+      background-size: 250% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmerText 7s linear infinite;
+    }
+    @keyframes shimmerText {
+      0% { background-position: 125% 0; }
+      100% { background-position: -125% 0; }
+    }
+
+    /* ── TITLE LINE MASK REVEAL ── */
+    .st-line { display: block; overflow: hidden; }
+    .st-inner { display: block; will-change: transform; }
+
+    /* ── BUTTON SHEEN + LIFT ── */
+    .btn { position: relative; overflow: hidden; will-change: transform; }
+    .btn::after {
+      content: '';
+      position: absolute; top: 0; left: -160%;
+      width: 55%; height: 100%;
+      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      pointer-events: none;
+    }
+    .btn:hover::after { left: 160%; }
+
+    /* ── 3D TILT CARDS ── */
+    .tilt {
+      position: relative;
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: box-shadow 0.4s ease;
+    }
+    .tilt:hover { box-shadow: 0 24px 70px rgba(0,0,0,0.55), 0 0 40px rgba(204,0,0,0.07); }
+    .tilt .glare {
+      position: absolute; inset: 0; z-index: 3;
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,0.10), transparent 55%);
+      opacity: 0; transition: opacity 0.35s ease;
+      pointer-events: none;
+    }
+    .tilt:hover .glare { opacity: 1; }
+
+    .award-card { transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.45s, box-shadow 0.45s; }
+    .award-card:hover { transform: translateY(-7px); border-color: rgba(204,0,0,0.5) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(204,0,0,0.08); }
+
+    /* ── 3D RUNWAY SECTION ── */
+    #runway3d { position: relative; height: 260vh; background: var(--black); }
+    .runway3d-sticky {
+      position: sticky; top: 0; height: 100vh;
+      overflow: hidden;
+    }
+    #runwayCanvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%; display: block;
+    }
+    .runway3d-overlay {
+      position: absolute; inset: 0; z-index: 3;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center; pointer-events: none;
+      padding: 0 24px;
+    }
+    .runway3d-eyebrow {
+      font-family: var(--mono); font-size: 10px;
+      letter-spacing: 0.45em; text-transform: uppercase;
+      color: var(--red); margin-bottom: 24px;
+    }
+    .runway3d-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 9vw, 8.5rem);
+      font-weight: 300; line-height: 1.02;
+      letter-spacing: -0.02em; color: var(--white);
+    }
+    .runway3d-hint {
+      position: absolute; bottom: 42px; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--mono); font-size: 9px;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--silver-dark);
+      animation: hintPulse 2.4s ease-in-out infinite;
+    }
+    @keyframes hintPulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 1; } }
+    .runway3d-flash {
+      position: absolute; inset: 0; z-index: 2;
+      background: #ffffff; opacity: 0; pointer-events: none;
+    }
+    .runway3d-vignette {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse at 50% 55%, transparent 35%, rgba(0,0,0,0.75) 100%);
+    }
+    .runway3d-grain {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+    }
+
+    /* ── MEGA MARQUEE ── */
+    .mega-marquee {
+      padding: 100px 0;
+      overflow: hidden;
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; flex-direction: column; gap: 28px;
+    }
+    .mm-row {
+      display: flex; gap: 64px;
+      white-space: nowrap; width: max-content;
+      will-change: transform;
+      animation: mmScroll 42s linear infinite;
+    }
+    .mm-row.rev { animation-direction: reverse; animation-duration: 52s; }
+    .mm-word {
+      font-family: var(--serif);
+      font-size: clamp(3.6rem, 9vw, 8rem);
+      line-height: 1; font-weight: 300;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(192,192,192,0.5);
+      flex-shrink: 0;
+    }
+    .mm-word.it { font-style: italic; }
+    .mm-word.solid {
+      color: var(--red);
+      -webkit-text-stroke: 0px transparent;
+    }
+    @keyframes mmScroll { to { transform: translateX(-50%); } }
+
+    /* ── AMBIENT RED PULSE ON TICKER ── */
+    .ticker { position: relative; }
+    .ticker::after {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: linear-gradient(90deg, rgba(0,0,0,0.35), transparent 20%, transparent 80%, rgba(0,0,0,0.35));
+    }
+
+    /* ── STAT GLOW ── */
+    .stat-card { transition: transform 0.45s cubic-bezier(0.25,0.46,0.45,0.94), border-color 0.45s; }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      .mm-row, .section-title em, .runway3d-title em { animation: none !important; }
+      #preloader { display: none; }
+    }
+    @media (max-width: 768px) {
+      .mega-marquee { padding: 60px 0; gap: 16px; }
+      #runway3d { height: 200vh; }
+    }
   </style>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 </head>
 <body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-logo">Future Fashion <em>Festival</em></div>
+  <div class="pre-sub">by Nineteen — Est. 2025</div>
+  <div class="pre-track"><div class="pre-fill" id="preFill"></div></div>
+  <div class="pre-count" id="preCount">00</div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProgress"></div>
 
 <!-- CUSTOM CURSOR -->
 <div class="cursor-dot" id="cursorDot"></div>
@@ -1278,9 +1508,10 @@
 <section id="hero">
   <div class="hero-video-bg">
     <div class="hero-bg-canvas"></div>
+    <canvas id="silkCanvas"></canvas>
     <div class="hero-grain"></div>
   </div>
-  <div class="hero-content fade-up">
+  <div class="hero-content">
     <div class="hero-edition">India's Premier Fashion Movement · 2025</div>
     <h1 class="hero-headline">
       Where Fashion<br>
@@ -1722,6 +1953,21 @@
 </section>
 
 <!-- RUNWAY -->
+<!-- 3D RUNWAY EXPERIENCE -->
+<section id="runway3d" aria-label="3D runway experience">
+  <div class="runway3d-sticky">
+    <canvas id="runwayCanvas"></canvas>
+    <div class="runway3d-flash" id="runwayFlash"></div>
+    <div class="runway3d-vignette"></div>
+    <div class="runway3d-grain"></div>
+    <div class="runway3d-overlay" id="runwayOverlay">
+      <div class="runway3d-eyebrow">Step Into The Light</div>
+      <h2 class="runway3d-title">The Runway<br><em>Awaits.</em></h2>
+      <div class="runway3d-hint">Keep Scrolling</div>
+    </div>
+  </div>
+</section>
+
 <section id="runway">
   <div class="container">
     <div class="runway-layout">
@@ -2221,6 +2467,34 @@
 </div>
 
 <!-- FOOTER -->
+<!-- MEGA MARQUEE -->
+<div class="mega-marquee" aria-hidden="true">
+  <div class="mm-row">
+    <span class="mm-word">The Future</span>
+    <span class="mm-word it solid">Is Being</span>
+    <span class="mm-word">Designed</span>
+    <span class="mm-word it">Today</span>
+    <span class="mm-word solid">◆</span>
+    <span class="mm-word">The Future</span>
+    <span class="mm-word it solid">Is Being</span>
+    <span class="mm-word">Designed</span>
+    <span class="mm-word it">Today</span>
+    <span class="mm-word solid">◆</span>
+  </div>
+  <div class="mm-row rev">
+    <span class="mm-word it">Runway</span>
+    <span class="mm-word solid">Culture</span>
+    <span class="mm-word">Innovation</span>
+    <span class="mm-word it">Craft</span>
+    <span class="mm-word">◆</span>
+    <span class="mm-word it">Runway</span>
+    <span class="mm-word solid">Culture</span>
+    <span class="mm-word">Innovation</span>
+    <span class="mm-word it">Craft</span>
+    <span class="mm-word">◆</span>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <div class="footer-top">
@@ -2325,6 +2599,529 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+</script>
+
+<!-- ═══════════ LUXURY ANIMATION LAYER ═══════════ -->
+<script>
+(function () {
+  'use strict';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isTouch = matchMedia('(max-width: 900px)').matches || 'ontouchstart' in window;
+
+  /* ───────── PRELOADER (no deps, runs immediately) ───────── */
+  const pre = document.getElementById('preloader');
+  const preFill = document.getElementById('preFill');
+  const preCount = document.getElementById('preCount');
+  let preDone = false;
+  function finishPre() {
+    if (preDone) return;
+    preDone = true;
+    pre.classList.add('done');
+    document.dispatchEvent(new CustomEvent('preloader:done'));
+    setTimeout(() => pre.remove(), 1200);
+  }
+  if (reduced || !pre) { if (pre) pre.remove(); preDone = true; }
+  else {
+    const t0 = performance.now(), DUR = 1500;
+    (function tick(now) {
+      const p = Math.min((now - t0) / DUR, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      preFill.style.transform = 'scaleX(' + eased + ')';
+      preCount.textContent = String(Math.round(eased * 100)).padStart(2, '0');
+      if (p < 1) requestAnimationFrame(tick);
+      else setTimeout(finishPre, 150);
+    })(t0);
+    setTimeout(finishPre, 4000); // failsafe
+  }
+
+  /* ───────── SCROLL PROGRESS ───────── */
+  const prog = document.getElementById('scrollProgress');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    prog.style.transform = 'scaleX(' + (h.scrollTop / (h.scrollHeight - h.clientHeight)) + ')';
+  }, { passive: true });
+
+  /* ═════════ EVERYTHING BELOW NEEDS LIBS — wait for DOMContentLoaded ═════════ */
+  function main() {
+    const hasGSAP = typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined';
+    const hasTHREE = typeof THREE !== 'undefined';
+    if (hasGSAP) gsap.registerPlugin(ScrollTrigger);
+
+    /* ───────── HERO HEADLINE CHAR SPLIT ───────── */
+    const headline = document.querySelector('.hero-headline');
+    if (headline && hasGSAP && !reduced) {
+      (function splitChars(node) {
+        [...node.childNodes].forEach(child => {
+          if (child.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach(part => {
+              if (!part) return;
+              if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+              const w = document.createElement('span');
+              w.style.display = 'inline-block';
+              w.style.whiteSpace = 'nowrap';
+              for (const c of part) {
+                const s = document.createElement('span');
+                s.className = 'ch';
+                s.textContent = c;
+                w.appendChild(s);
+              }
+              frag.appendChild(w);
+            });
+            node.replaceChild(frag, child);
+          } else if (child.nodeType === 1 && child.tagName !== 'BR') splitChars(child);
+        });
+      })(headline);
+
+      const chars = headline.querySelectorAll('.ch');
+      gsap.set(chars, { opacity: 0, yPercent: 70, rotateX: -80 });
+      gsap.set(['.hero-edition', '.hero-sub', '.hero-ctas', '.hero-scroll'], { opacity: 0, y: 26 });
+
+      const heroIntro = () => {
+        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+        tl.to('.hero-edition', { opacity: 1, y: 0, duration: 0.9 }, 0.1)
+          .to(chars, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.2, stagger: 0.024 }, 0.25)
+          .to('.hero-sub', { opacity: 1, y: 0, duration: 1 }, 0.95)
+          .to('.hero-ctas', { opacity: 1, y: 0, duration: 1 }, 1.1)
+          .to('.hero-scroll', { opacity: 1, y: 0, duration: 1 }, 1.3);
+      };
+      if (preDone) heroIntro();
+      else document.addEventListener('preloader:done', heroIntro, { once: true });
+
+      // hero parallax out
+      gsap.to('.hero-content', {
+        yPercent: -16, opacity: 0.15, ease: 'none',
+        scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: 0.6 }
+      });
+    }
+
+    /* ───────── SECTION TITLE LINE REVEALS ───────── */
+    if (hasGSAP && !reduced) {
+      document.querySelectorAll('.section-title').forEach(title => {
+        const lines = [[]];
+        [...title.childNodes].forEach(n => {
+          if (n.nodeType === 1 && n.tagName === 'BR') { lines.push([]); n.remove(); }
+          else lines[lines.length - 1].push(n);
+        });
+        if (lines.length && lines.some(l => l.length)) {
+          title.textContent = '';
+          lines.forEach(group => {
+            if (!group.length) return;
+            const outer = document.createElement('span');
+            outer.className = 'st-line';
+            const inner = document.createElement('span');
+            inner.className = 'st-inner';
+            group.forEach(n => inner.appendChild(n));
+            outer.appendChild(inner);
+            title.appendChild(outer);
+          });
+          gsap.from(title.querySelectorAll('.st-inner'), {
+            yPercent: 115, duration: 1.15, stagger: 0.12, ease: 'power4.out',
+            scrollTrigger: { trigger: title, start: 'top 86%', once: true }
+          });
+        }
+      });
+
+      // divider draw
+      gsap.utils.toArray('.divider').forEach(d => {
+        gsap.from(d, {
+          scaleX: 0, transformOrigin: 'left center', duration: 1.1, ease: 'power3.inOut',
+          scrollTrigger: { trigger: d, start: 'top 90%', once: true }
+        });
+      });
+
+      /* ───────── STAT COUNT-UPS ───────── */
+      document.querySelectorAll('.stat-num').forEach(el => {
+        const textNode = el.childNodes[0];
+        if (!textNode || textNode.nodeType !== 3) return;
+        const raw = textNode.textContent;
+        const m = raw.match(/(\D*)(\d+)/);
+        if (!m) return;
+        const prefix = m[1], end = parseInt(m[2], 10);
+        const obj = { v: 0 };
+        gsap.to(obj, {
+          v: end, duration: 1.8, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          onUpdate: () => { textNode.textContent = prefix + Math.round(obj.v); }
+        });
+      });
+    }
+
+    /* ───────── 3D TILT CARDS ───────── */
+    if (!isTouch && !reduced) {
+      document.querySelectorAll('.exp-card, .stat-card, .award-card, .comm-feature').forEach(card => {
+        card.classList.add('tilt');
+        const glare = document.createElement('div');
+        glare.className = 'glare';
+        card.appendChild(glare);
+        let raf = null;
+        card.addEventListener('mousemove', e => {
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--gx', (px * 100) + '%');
+          card.style.setProperty('--gy', (py * 100) + '%');
+          if (raf) return;
+          raf = requestAnimationFrame(() => {
+            card.style.transform = 'perspective(800px) rotateY(' + ((px - 0.5) * 8) + 'deg) rotateX(' + ((0.5 - py) * 8) + 'deg) translateY(-4px)';
+            raf = null;
+          });
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(800px) rotateY(0deg) rotateX(0deg) translateY(0)';
+        });
+      });
+
+      /* ───────── MAGNETIC BUTTONS ───────── */
+      document.querySelectorAll('.btn').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const x = (e.clientX - r.left - r.width / 2) * 0.25;
+          const y = (e.clientY - r.top - r.height / 2) * 0.35;
+          btn.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+        });
+        btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+      });
+    }
+
+    /* ═════════ THREE.JS — HERO SILK ═════════ */
+    const silkCanvas = document.getElementById('silkCanvas');
+    if (hasTHREE && silkCanvas && !reduced) {
+      try {
+        const renderer = new THREE.WebGLRenderer({ canvas: silkCanvas, antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+        const scene = new THREE.Scene();
+        const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 10);
+        cam.position.set(0, 0.35, 1.7);
+        cam.lookAt(0, 0, 0);
+
+        const seg = isTouch ? [110, 70] : [190, 120];
+        const geo = new THREE.PlaneGeometry(6.4, 3.8, seg[0], seg[1]);
+        const uniforms = {
+          uTime: { value: 0 },
+          uMouse: { value: new THREE.Vector2(0, 0) }
+        };
+        const mat = new THREE.ShaderMaterial({
+          uniforms,
+          vertexShader: `
+            uniform float uTime; uniform vec2 uMouse;
+            varying vec3 vPos; varying vec2 vUv;
+            void main() {
+              vUv = uv;
+              vec3 p = position;
+              float t = uTime;
+              float w = 0.0;
+              w += sin(p.x * 2.1 + t * 0.7) * 0.18;
+              w += sin(p.y * 2.7 - t * 0.55) * 0.14;
+              w += sin((p.x + p.y) * 1.6 + t * 0.9) * 0.12;
+              w += sin(length(p.xy - uMouse * 1.6) * 4.0 - t * 1.5) * 0.09;
+              p.z = w;
+              vPos = p;
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+            }`,
+          fragmentShader: `
+            uniform float uTime;
+            varying vec3 vPos; varying vec2 vUv;
+            void main() {
+              vec3 dx = dFdx(vPos); vec3 dy = dFdy(vPos);
+              vec3 n = normalize(cross(dx, dy));
+              vec3 light = normalize(vec3(0.4, 0.65, 0.8));
+              float diff = max(dot(n, light), 0.0);
+              vec3 viewDir = vec3(0.0, 0.0, 1.0);
+              vec3 h = normalize(light + viewDir);
+              float spec = pow(max(dot(n, h), 0.0), 42.0);
+              float fres = pow(1.0 - max(dot(n, viewDir), 0.0), 2.6);
+              vec3 base = vec3(0.018);
+              vec3 silver = vec3(0.72, 0.73, 0.76);
+              vec3 red = vec3(0.80, 0.0, 0.0);
+              vec3 col = base + diff * vec3(0.085) + spec * silver * 0.85 + fres * red * 0.5;
+              float band = smoothstep(0.0, 0.55, sin(vUv.x * 3.5 + vUv.y * 1.5 - uTime * 0.32)) * 0.06;
+              col += band * silver;
+              float vig = smoothstep(1.3, 0.25, length(vUv - 0.5) * 1.55);
+              col *= vig;
+              gl_FragColor = vec4(col, 1.0);
+            }`
+        });
+        mat.extensions = { derivatives: true };
+        const silk = new THREE.Mesh(geo, mat);
+        silk.rotation.x = -0.42;
+        silk.position.y = -0.55;
+        scene.add(silk);
+
+        // floating dust
+        const dustN = isTouch ? 140 : 320;
+        const dustPos = new Float32Array(dustN * 3);
+        for (let i = 0; i < dustN; i++) {
+          dustPos[i * 3] = (Math.random() - 0.5) * 5.5;
+          dustPos[i * 3 + 1] = (Math.random() - 0.5) * 3;
+          dustPos[i * 3 + 2] = Math.random() * 1.1 + 0.15;
+        }
+        const dustGeo = new THREE.BufferGeometry();
+        dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
+        const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
+          color: 0xc0c0c0, size: 0.012, transparent: true, opacity: 0.55,
+          blending: THREE.AdditiveBlending, depthWrite: false
+        }));
+        scene.add(dust);
+
+        const mouse = { x: 0, y: 0 };
+        if (!isTouch) addEventListener('mousemove', e => {
+          mouse.x = (e.clientX / innerWidth) * 2 - 1;
+          mouse.y = -((e.clientY / innerHeight) * 2 - 1);
+        }, { passive: true });
+
+        function resizeSilk() {
+          const w = silkCanvas.clientWidth, h = silkCanvas.clientHeight;
+          renderer.setSize(w, h, false);
+          cam.aspect = w / h;
+          cam.updateProjectionMatrix();
+        }
+        resizeSilk();
+        addEventListener('resize', resizeSilk);
+
+        let heroVisible = true;
+        new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { rootMargin: '15%' })
+          .observe(document.getElementById('hero'));
+
+        const clock = new THREE.Clock();
+        (function loop() {
+          requestAnimationFrame(loop);
+          if (!heroVisible) return;
+          const t = clock.getElapsedTime();
+          uniforms.uTime.value = t;
+          uniforms.uMouse.value.x += (mouse.x - uniforms.uMouse.value.x) * 0.04;
+          uniforms.uMouse.value.y += (mouse.y - uniforms.uMouse.value.y) * 0.04;
+          const pos = dustGeo.attributes.position;
+          for (let i = 0; i < dustN; i++) {
+            pos.array[i * 3 + 1] += 0.0009;
+            if (pos.array[i * 3 + 1] > 1.6) pos.array[i * 3 + 1] = -1.6;
+          }
+          pos.needsUpdate = true;
+          renderer.render(scene, cam);
+        })();
+      } catch (err) { silkCanvas.remove(); }
+    }
+
+    /* ═════════ THREE.JS — 3D RUNWAY ═════════ */
+    const runwaySection = document.getElementById('runway3d');
+    const runwayCanvas = document.getElementById('runwayCanvas');
+    if (hasTHREE && runwayCanvas && !reduced) {
+      try {
+        const renderer = new THREE.WebGLRenderer({ canvas: runwayCanvas, antialias: true });
+        renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+        renderer.setClearColor(0x000000);
+        const scene = new THREE.Scene();
+        scene.fog = new THREE.FogExp2(0x000000, 0.052);
+        const cam = new THREE.PerspectiveCamera(55, 1, 0.1, 120);
+
+        // floor
+        const floor = new THREE.Mesh(
+          new THREE.PlaneGeometry(160, 160),
+          new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.95, metalness: 0.1 })
+        );
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.y = -0.2;
+        scene.add(floor);
+
+        // catwalk
+        const catwalk = new THREE.Mesh(
+          new THREE.BoxGeometry(4.2, 0.2, 80),
+          new THREE.MeshStandardMaterial({ color: 0x0e0e0e, metalness: 0.85, roughness: 0.22 })
+        );
+        catwalk.position.set(0, -0.1, -20);
+        scene.add(catwalk);
+
+        // center light strip
+        const strip = new THREE.Mesh(
+          new THREE.PlaneGeometry(0.5, 80),
+          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.07, blending: THREE.AdditiveBlending, depthWrite: false })
+        );
+        strip.rotation.x = -Math.PI / 2;
+        strip.position.set(0, 0.005, -20);
+        scene.add(strip);
+
+        // red LED edges
+        const edgeMat = new THREE.MeshBasicMaterial({ color: 0xcc0000, transparent: true });
+        const edgeL = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.07, 80), edgeMat);
+        edgeL.position.set(-2.13, 0.0, -20);
+        const edgeR = edgeL.clone();
+        edgeR.position.x = 2.13;
+        scene.add(edgeL, edgeR);
+
+        // far red portal
+        const portal = new THREE.Group();
+        const pm = new THREE.MeshBasicMaterial({ color: 0xcc0000, transparent: true });
+        const pv1 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 6, 0.12), pm);
+        pv1.position.set(-3.2, 3, 0);
+        const pv2 = pv1.clone(); pv2.position.x = 3.2;
+        const ph = new THREE.Mesh(new THREE.BoxGeometry(6.5, 0.12, 0.12), pm);
+        ph.position.set(0, 6, 0);
+        portal.add(pv1, pv2, ph);
+        portal.position.set(0, 0, -52);
+        scene.add(portal);
+
+        // lights
+        scene.add(new THREE.HemisphereLight(0x26262c, 0x000000, 0.7));
+        const redGlow = new THREE.PointLight(0xcc0000, 1.4, 40);
+        redGlow.position.set(0, 2, -48);
+        scene.add(redGlow);
+
+        const spots = [], cones = [];
+        const coneGeo = new THREE.ConeGeometry(2.5, 7.5, 32, 1, true);
+        const coneMat = new THREE.MeshBasicMaterial({
+          color: 0xffffff, transparent: true, opacity: 0.05,
+          blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
+        });
+        [-6, -20, -34].forEach(z => {
+          const sp = new THREE.SpotLight(0xffffff, 2.4, 30, 0.5, 0.7);
+          sp.position.set(0, 8, z);
+          sp.target.position.set(0, 0, z);
+          scene.add(sp, sp.target);
+          spots.push(sp);
+          const cone = new THREE.Mesh(coneGeo, coneMat.clone());
+          cone.position.set(0, 3.9, z);
+          scene.add(cone);
+          cones.push(cone);
+        });
+
+        // mannequins
+        const figMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, metalness: 0.65, roughness: 0.32 });
+        function makeFigure() {
+          const g = new THREE.Group();
+          const skirt = new THREE.Mesh(new THREE.ConeGeometry(0.36, 0.95, 24), figMat);
+          skirt.position.y = 0.48;
+          const torso = new THREE.Mesh(new THREE.CylinderGeometry(0.15, 0.26, 0.68, 16), figMat);
+          torso.position.y = 1.28;
+          const shoulders = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.52, 10), figMat);
+          shoulders.rotation.z = Math.PI / 2;
+          shoulders.position.y = 1.6;
+          const head = new THREE.Mesh(new THREE.SphereGeometry(0.14, 18, 18), figMat);
+          head.position.y = 1.85;
+          g.add(skirt, torso, shoulders, head);
+          g.scale.setScalar(1.18);
+          return g;
+        }
+        const figures = [];
+        for (let i = 0; i < 5; i++) {
+          const f = makeFigure();
+          f.position.set(0, 0, -6 - i * 10 - Math.random() * 3);
+          f.userData.off = Math.random() * Math.PI * 2;
+          f.userData.speed = 1.7 + Math.random() * 0.5;
+          scene.add(f);
+          figures.push(f);
+        }
+
+        // paparazzi flash points
+        function flashCloud(xSide) {
+          const N = isTouch ? 70 : 130;
+          const pts = new Float32Array(N * 3);
+          for (let i = 0; i < N; i++) {
+            pts[i * 3] = xSide * (3.5 + Math.random() * 6);
+            pts[i * 3 + 1] = 0.4 + Math.random() * 2.6;
+            pts[i * 3 + 2] = -2 - Math.random() * 46;
+          }
+          const g = new THREE.BufferGeometry();
+          g.setAttribute('position', new THREE.BufferAttribute(pts, 3));
+          const m = new THREE.PointsMaterial({
+            color: 0xffffff, size: 0.09, transparent: true, opacity: 0.12,
+            blending: THREE.AdditiveBlending, depthWrite: false
+          });
+          const cloud = new THREE.Points(g, m);
+          scene.add(cloud);
+          return m;
+        }
+        const flashL = flashCloud(-1), flashR = flashCloud(1);
+
+        // scroll choreography
+        let scrollP = 0;
+        if (hasGSAP) {
+          ScrollTrigger.create({
+            trigger: '#runway3d', start: 'top top', end: 'bottom bottom', scrub: 0.5,
+            onUpdate: self => { scrollP = self.progress; }
+          });
+          gsap.to('#runwayOverlay', {
+            opacity: 0, ease: 'none',
+            scrollTrigger: { trigger: '#runway3d', start: 'top top', end: '28% top', scrub: 0.4 }
+          });
+        }
+
+        // DOM camera flash bursts
+        const flashEl = document.getElementById('runwayFlash');
+        let runwayVisible = false;
+        new IntersectionObserver(([e]) => { runwayVisible = e.isIntersecting; }, { rootMargin: '10%' })
+          .observe(runwaySection);
+        (function scheduleFlash() {
+          setTimeout(() => {
+            if (runwayVisible && hasGSAP && !document.hidden) {
+              gsap.fromTo(flashEl, { opacity: 0.4 + Math.random() * 0.2 }, { opacity: 0, duration: 0.3, ease: 'power2.out' });
+              if (Math.random() < 0.35) setTimeout(() =>
+                gsap.fromTo(flashEl, { opacity: 0.3 }, { opacity: 0, duration: 0.25 }), 180);
+            }
+            scheduleFlash();
+          }, 2200 + Math.random() * 2400);
+        })();
+
+        function resizeRunway() {
+          const w = runwayCanvas.clientWidth, h = runwayCanvas.clientHeight;
+          renderer.setSize(w, h, false);
+          cam.aspect = w / h;
+          cam.updateProjectionMatrix();
+        }
+        resizeRunway();
+        addEventListener('resize', resizeRunway);
+
+        const clock = new THREE.Clock();
+        const look = new THREE.Vector3(0, 0.8, -14);
+        (function loop() {
+          requestAnimationFrame(loop);
+          if (!runwayVisible) return;
+          const t = clock.getElapsedTime();
+
+          // camera dolly via scroll
+          cam.position.set(
+            Math.sin(t * 0.18) * 0.25,
+            2.7 - scrollP * 1.15,
+            10.5 - scrollP * 6.2
+          );
+          look.z = -14 + scrollP * 7;
+          cam.lookAt(look);
+
+          // figures walk
+          figures.forEach(f => {
+            f.position.z += f.userData.speed * 0.016;
+            if (f.position.z > 8) f.position.z = -50 - Math.random() * 4;
+            f.position.y = Math.sin(t * 5 + f.userData.off) * 0.025;
+            f.rotation.z = Math.sin(t * 2.6 + f.userData.off) * 0.028;
+            f.rotation.y = Math.sin(t * 0.9 + f.userData.off) * 0.12;
+          });
+
+          // light sweeps
+          spots.forEach((sp, i) => {
+            sp.target.position.x = Math.sin(t * 0.45 + i * 2.1) * 1.8;
+            cones[i].rotation.z = Math.sin(t * 0.45 + i * 2.1) * 0.16;
+            cones[i].material.opacity = 0.04 + Math.sin(t * 1.3 + i) * 0.015;
+          });
+
+          // red pulses
+          const pulse = 0.55 + Math.sin(t * 2.2) * 0.25;
+          edgeMat.opacity = pulse;
+          pm.opacity = 0.5 + Math.sin(t * 1.6) * 0.3;
+          redGlow.intensity = 1.1 + Math.sin(t * 1.6) * 0.5;
+
+          // paparazzi flicker
+          flashL.opacity = Math.random() < 0.07 ? 0.95 : 0.1;
+          flashR.opacity = Math.random() < 0.07 ? 0.95 : 0.1;
+
+          renderer.render(scene, cam);
+        })();
+      } catch (err) { runwaySection.style.display = 'none'; }
+    } else if (runwaySection && (!hasTHREE || reduced)) {
+      runwaySection.style.display = 'none';
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', main);
+  else main();
+})();
 </script>
 </body>
 </html>
