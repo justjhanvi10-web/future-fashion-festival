@@ -2173,10 +2173,11 @@
         <div style="margin-top: 2px; background: var(--grey-200); padding: 40px 48px;">
           <div class="label" style="margin-bottom: 24px;">Join the Community</div>
           <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 28px;">Be the first to hear about festival updates, application openings, and community events.</p>
-          <div style="display: flex; gap: 0;">
-            <input type="email" placeholder="Your email address" style="flex: 1; background: var(--grey-300); border: 1px solid var(--grey-400); border-right: none; padding: 14px 20px; color: var(--white); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; outline: none;" />
-            <button class="btn btn--red" style="white-space: nowrap; border-left: none;">Join →</button>
-          </div>
+          <form id="communityForm" style="display: flex; gap: 0;">
+            <input id="communityEmail" type="email" required placeholder="Your email address" style="flex: 1; background: var(--grey-300); border: 1px solid var(--grey-400); border-right: none; padding: 14px 20px; color: var(--white); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; outline: none;" />
+            <button type="submit" id="communityBtn" class="btn btn--red" style="white-space: nowrap; border-left: none;">Join →</button>
+          </form>
+          <div id="communityMsg" style="display: none; margin-top: 16px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; color: var(--red);"></div>
         </div>
       </div>
     </div>
@@ -2558,6 +2559,35 @@
       if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
     });
   });
+
+  // ── COMMUNITY EMAIL SIGNUP → GOOGLE SHEET ──
+  (function () {
+    const form = document.getElementById('communityForm');
+    if (!form) return;
+    const FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSdaw2IeyWVEN4koqppjt3H0hgyVGxL8YB7m1S-Map2AOc-2oA/formResponse';
+    const FIELD = 'entry.829685410';
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const input = document.getElementById('communityEmail');
+      const btn = document.getElementById('communityBtn');
+      const msg = document.getElementById('communityMsg');
+      const email = (input.value || '').trim();
+      if (!email) return;
+      btn.disabled = true;
+      btn.textContent = 'Joining…';
+      const fd = new FormData();
+      fd.append(FIELD, email);
+      fetch(FORM_ACTION, { method: 'POST', mode: 'no-cors', body: fd })
+        .catch(function () {})
+        .finally(function () {
+          input.value = '';
+          input.style.display = 'none';
+          btn.style.display = 'none';
+          msg.textContent = "✓ You're in. Welcome to the movement.";
+          msg.style.display = 'block';
+        });
+    });
+  })();
 </script>
 
 <!-- ═══════════ LUXURY ANIMATION LAYER ═══════════ -->
