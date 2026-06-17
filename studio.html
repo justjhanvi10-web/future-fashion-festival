@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jhanvi — Editorial Design Studio</title>
+<!--
+  ============================================================
+  HOW TO EDIT THIS PAGE  (search for the word  EDIT  to find every spot)
+  1. Your name / studio name  -> EDIT: WORDMARK
+  2. Contact email & WhatsApp  -> EDIT: CONTACT  (appears 3 times)
+  3. Your work images          -> EDIT: WORK IMAGE 1..6
+        replace  style="--img:none"
+        with     style="--img:url('your-file.jpg')"
+  ============================================================
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#100F0D;
+    --ink-2:#1A1714;
+    --paper:#FBF7EF;
+    --bone:#F1EADC;
+    --gold:#B89150;
+    --gold-lt:#D8BE89;
+    --muted:#6E6557;
+    --line-dark:rgba(216,190,137,.30);
+    --line-lt:rgba(16,15,13,.13);
+    --display:'Bodoni Moda',Georgia,serif;
+    --body:'Hanken Grotesk',system-ui,sans-serif;
+    --wrap:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 32px}
+  .eyebrow{
+    font-size:.72rem;font-weight:600;text-transform:uppercase;
+    letter-spacing:.32em;color:var(--gold);
+  }
+  .section--dark .eyebrow{color:var(--gold-lt)}
+  a{color:inherit}
+
+  /* ---------- header ---------- */
+  header{
+    position:absolute;top:0;left:0;right:0;z-index:20;
+    padding:26px 0;
+  }
+  .bar{display:flex;align-items:center;justify-content:space-between}
+  /* EDIT: WORDMARK — change "JHANVI" below to your name or studio name */
+  .wordmark{
+    font-family:var(--display);font-weight:600;font-size:1.5rem;
+    letter-spacing:.22em;color:var(--paper);text-decoration:none;
+  }
+  .wordmark span{color:var(--gold-lt)}
+  .nav-cta{
+    font-size:.74rem;font-weight:600;text-transform:uppercase;letter-spacing:.22em;
+    color:var(--paper);text-decoration:none;padding:11px 20px;
+    border:1px solid var(--line-dark);border-radius:2px;transition:.25s;
+  }
+  .nav-cta:hover{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;background:var(--ink);color:var(--paper);
+    padding:190px 0 96px;overflow:hidden;
+  }
+  .hero::after{
+    content:"Nº19";position:absolute;right:-12px;bottom:-46px;
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(9rem,22vw,20rem);color:rgba(216,190,137,.06);
+    letter-spacing:-.02em;pointer-events:none;line-height:.8;
+  }
+  .hero .wrap{position:relative;z-index:2}
+  .hero .eyebrow{display:block;margin-bottom:30px}
+  .hero h1{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(2.7rem,6.3vw,5.5rem);line-height:1.02;
+    letter-spacing:-.012em;max-width:14ch;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold-lt)}
+  .hero .lede{
+    margin-top:30px;max-width:50ch;font-size:1.12rem;
+    color:rgba(251,247,239,.78);
+  }
+  .hero-actions{margin-top:42px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+  .btn{
+    font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;
+    text-decoration:none;padding:16px 30px;border-radius:2px;
+    display:inline-block;transition:.25s;
+  }
+  .btn--gold{background:var(--gold);color:var(--ink)}
+  .btn--gold:hover{background:var(--gold-lt)}
+  .btn--ghost{border:1px solid var(--line-dark);color:var(--paper)}
+  .btn--ghost:hover{border-color:var(--gold-lt);color:var(--gold-lt)}
+  .dateline{
+    margin-top:70px;padding-top:22px;border-top:1px solid var(--line-dark);
+    display:flex;gap:36px;flex-wrap:wrap;
+    font-size:.72rem;text-transform:uppercase;letter-spacing:.26em;
+    color:rgba(251,247,239,.5);
+  }
+
+  /* ---------- value strip ---------- */
+  .marquee{
+    background:var(--bone);border-bottom:1px solid var(--line-lt);
+    padding:30px 0;
+  }
+  .marquee .row{
+    display:flex;gap:14px;justify-content:center;align-items:center;flex-wrap:wrap;
+    font-family:var(--display);font-size:clamp(1.05rem,2.4vw,1.6rem);
+    font-style:italic;color:var(--ink);
+  }
+  .marquee .dot{color:var(--gold);font-style:normal;font-size:.7em}
+
+  /* ---------- shared section ---------- */
+  .section{padding:104px 0}
+  .section--dark{background:var(--ink);color:var(--paper)}
+  .sec-head{margin-bottom:54px;max-width:52ch}
+  .sec-head h2{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(2rem,4.4vw,3.2rem);line-height:1.05;letter-spacing:-.01em;
+    margin-top:18px;
+  }
+  .sec-head p{margin-top:18px;color:var(--muted);max-width:48ch}
+  .section--dark .sec-head p{color:rgba(251,247,239,.65)}
+
+  /* ---------- work plates ---------- */
+  .plates{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}
+  .plate{display:block}
+  .plate__link{display:block;text-decoration:none;color:inherit}
+  .plate__link h3{transition:color .25s ease}
+  .plate__link .plate__img{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+  .plate__link:hover .plate__img{transform:translateY(-6px);border-color:var(--gold-lt);box-shadow:0 26px 60px -28px rgba(16,15,13,.7)}
+  .plate__link:hover h3{color:var(--gold)}
+  .plate__img{
+    position:relative;aspect-ratio:3/4;border:1px solid var(--line-dark);
+    background-color:var(--ink);
+    background-image:var(--img,none);background-size:contain;
+    background-position:center;background-repeat:no-repeat;
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;box-shadow:0 18px 50px -28px rgba(16,15,13,.55);
+  }
+  .plate__img::before{
+    content:attr(data-folio);
+    font-family:var(--display);font-style:italic;font-weight:400;
+    font-size:clamp(3.4rem,8vw,5.4rem);color:rgba(16,15,13,.10);
+  }
+  /* hide the placeholder hint once a real image is set is left to the user;
+     the folio number sits behind, so a real cover image fully overlays it */
+  .plate__hint{
+    position:absolute;bottom:16px;left:0;right:0;text-align:center;
+    font-size:.64rem;text-transform:uppercase;letter-spacing:.24em;
+    color:var(--muted);
+  }
+  .plate__cap{display:flex;justify-content:space-between;gap:16px;margin-top:18px}
+  .plate__cap h3{font-family:var(--display);font-weight:500;font-size:1.3rem}
+  .plate__cap span{
+    font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;
+    color:var(--muted);white-space:nowrap;padding-top:6px;
+  }
+
+  /* ---------- rate card ---------- */
+  .rates{display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    border:1px solid var(--line-dark)}
+  .rate{padding:40px 34px;border-right:1px solid var(--line-dark)}
+  .rate:last-child{border-right:none}
+  .rate .tier{font-size:.72rem;text-transform:uppercase;letter-spacing:.24em;color:var(--gold-lt)}
+  .rate .price{font-family:var(--display);font-size:2.3rem;font-weight:500;margin:16px 0 4px}
+  .rate .turn{font-size:.78rem;letter-spacing:.06em;color:rgba(251,247,239,.55);text-transform:uppercase}
+  .rate .desc{margin-top:20px;font-size:.96rem;color:rgba(251,247,239,.8)}
+  .rate--feature{background:rgba(216,190,137,.06)}
+  .terms{margin-top:26px;font-size:.84rem;color:rgba(251,247,239,.55)}
+  .terms b{color:var(--gold-lt);font-weight:600}
+
+  /* ---------- process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .step{border-top:2px solid var(--gold);padding-top:22px}
+  .step .no{font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.1rem}
+  .step h4{font-family:var(--display);font-weight:500;font-size:1.35rem;margin:8px 0 10px}
+  .step p{color:var(--muted);font-size:.96rem}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center}
+  .contact h2{
+    font-family:var(--display);font-weight:500;
+    font-size:clamp(2.2rem,5.2vw,4rem);line-height:1.04;letter-spacing:-.01em;
+    max-width:18ch;margin:0 auto;
+  }
+  .contact h2 em{font-style:italic;color:var(--gold-lt)}
+  .contact p{margin:24px auto 38px;max-width:44ch;color:rgba(251,247,239,.7)}
+  .contact-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink);color:rgba(251,247,239,.5);
+    border-top:1px solid var(--line-dark);padding:34px 0}
+  .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+    font-size:.74rem;text-transform:uppercase;letter-spacing:.2em}
+  .foot a{text-decoration:none;color:var(--gold-lt)}
+
+  /* ---------- motion ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s ease}
+  .reveal.in{opacity:1;transform:none}
+  .hero h1,.hero .eyebrow,.hero .lede,.hero-actions,.hero .dateline{
+    opacity:0;transform:translateY(20px);animation:rise .95s cubic-bezier(.2,.7,.2,1) forwards}
+  .hero .eyebrow{animation-delay:.05s}
+  .hero h1{animation-delay:.16s}
+  .hero .lede{animation-delay:.30s}
+  .hero-actions{animation-delay:.42s}
+  .hero .dateline{animation-delay:.54s}
+  @keyframes rise{to{opacity:1;transform:none}}
+
+  :focus-visible{outline:2px solid var(--gold-lt);outline-offset:3px}
+
+  @media (max-width:760px){
+    .wrap{padding:0 22px}
+    .hero{padding:150px 0 76px}
+    .section{padding:74px 0}
+    .plates,.rates,.steps{grid-template-columns:1fr}
+    .rate{border-right:none;border-bottom:1px solid var(--line-dark)}
+    .rate:last-child{border-bottom:none}
+    .nav-cta{display:none}
+    .dateline{gap:20px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+    .reveal{opacity:1;transform:none}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <!-- EDIT: WORDMARK -->
+    <a href="#top" class="wordmark">JHANVI<span>.</span></a>
+    <!-- EDIT: CONTACT (1 of 3) -->
+    <a href="mailto:gakharjhanvi@gmail.com" class="nav-cta">Start a project</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Pitch decks · Brand brochures · Proposal suites</span>
+    <h1>Brand documents, designed&nbsp;like <em>editorial.</em></h1>
+    <p class="lede">I turn a founder's story into a deck people take seriously — couture-grade layout, sharpened copy, delivered in five days. The kind of document that makes a pitch feel inevitable.</p>
+    <div class="hero-actions">
+      <!-- EDIT: CONTACT (2 of 3) -->
+      <a href="mailto:gakharjhanvi@gmail.com" class="btn btn--gold">Start a project</a>
+      <a href="#work" class="btn btn--ghost">View selected work</a>
+    </div>
+    <div class="dateline">
+      <span>Vol. 01</span><span>Delhi NCR</span><span>5-day turnaround</span><span>By invitation &amp; referral</span>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="wrap row">
+    <span>Editorial eye</span><span class="dot">✦</span>
+    <span>Investment-ready</span><span class="dot">✦</span>
+    <span>Five-day delivery</span><span class="dot">✦</span>
+    <span>Built to convert</span>
+  </div>
+</div>
+
+<section class="section" id="work">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Selected work</span>
+      <h2>A few pieces from the press.</h2>
+      <p>Editorial brand documents — partnership brochures, invitations, and festival strategy — designed end to end for Future Fashion Festival.</p>
+    </div>
+    <div class="plates">
+      <figure class="plate reveal">
+        <a class="plate__link" href="assets/fff-partnership.pdf" target="_blank" rel="noopener">
+          <div class="plate__img" style="--img:url('fff-partnership.png')"></div>
+          <figcaption class="plate__cap"><h3>Partnership Brochure</h3><span>Editorial · PDF</span></figcaption>
+        </a>
+      </figure>
+      <figure class="plate reveal">
+        <a class="plate__link" href="assets/fff-judge.pdf" target="_blank" rel="noopener">
+          <div class="plate__img" style="--img:url('fff-judge.png')"></div>
+          <figcaption class="plate__cap"><h3>Judging Panel Invitation</h3><span>Luxury · Print</span></figcaption>
+        </a>
+      </figure>
+      <figure class="plate reveal">
+        <a class="plate__link" href="assets/fff-eventplan.pdf" target="_blank" rel="noopener">
+          <div class="plate__img" style="--img:url('fff-eventplan.png')"></div>
+          <figcaption class="plate__cap"><h3>The Event Bible</h3><span>Strategy · PDF</span></figcaption>
+        </a>
+      </figure>
+      <figure class="plate reveal">
+        <a class="plate__link" href="assets/fff-sponsorship.pdf" target="_blank" rel="noopener">
+          <div class="plate__img" style="--img:url('fff-sponsorship.png')"></div>
+          <figcaption class="plate__cap"><h3>Sponsorship Deck</h3><span>Pitch · PDF</span></figcaption>
+        </a>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">The rate card</span>
+      <h2>Simple, premium, no surprises.</h2>
+    </div>
+    <div class="rates reveal">
+      <div class="rate">
+        <div class="tier">Signature</div>
+        <div class="price">from ₹18,000</div>
+        <div class="turn">5-day delivery</div>
+        <p class="desc">One custom pitch deck or brand brochure, up to ~15 pages, designed end to end in your style.</p>
+      </div>
+      <div class="rate rate--feature">
+        <div class="tier">Bespoke Suite</div>
+        <div class="price">from ₹35,000</div>
+        <div class="turn">7-day delivery</div>
+        <p class="desc">Deck + matching one-pager + proposal PDF, with copy polished to read as sharply as it looks.</p>
+      </div>
+      <div class="rate">
+        <div class="tier">Express</div>
+        <div class="price">+40–50%</div>
+        <div class="turn">48-hour turnaround</div>
+        <p class="desc">Need it for a deadline this week? Skip the queue. Added to either package above.</p>
+      </div>
+    </div>
+    <p class="terms"><b>Terms</b> — 50% to confirm the booking, balance on delivery. Paid via Razorpay link or UPI.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How it runs</span>
+      <h2>From brief to final file.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="no">i.</div>
+        <h4>Brief</h4>
+        <p>You share the goal, the audience, and whatever rough content exists. I confirm scope and the booking advance.</p>
+      </div>
+      <div class="step">
+        <div class="no">ii.</div>
+        <h4>Design</h4>
+        <p>I build the document — layout, hierarchy, and copy refined together — and send a first cut for one round of notes.</p>
+      </div>
+      <div class="step">
+        <div class="no">iii.</div>
+        <h4>Deliver</h4>
+        <p>Final files in print-ready PDF and editable source, on the agreed day. Balance settled, and you're ready to pitch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark contact" id="contact">
+  <div class="wrap">
+    <span class="eyebrow">Commissions open</span>
+    <h2 style="margin-top:18px">Have something to <em>pitch?</em></h2>
+    <p>Tell me what you're building and when you need it. I'll send a couple of samples and a quick quote the same day.</p>
+    <div class="contact-actions">
+      <!-- EDIT: CONTACT (3 of 3) — set your email and WhatsApp number -->
+      <a href="mailto:gakharjhanvi@gmail.com" class="btn btn--gold">Email me</a>
+      <a href="https://wa.me/919870108588" class="btn btn--ghost">WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Jhanvi — Editorial Design Studio</span>
+    <span>Delhi NCR · <a href="mailto:gakharjhanvi@gmail.com">gakharjhanvi@gmail.com</a></span>
+  </div>
+</footer>
+
+<script>
+  if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    const io=new IntersectionObserver((es)=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:.16});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  }else{
+    document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+  }
+</script>
+</body>
+</html>
