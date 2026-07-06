@@ -7,27 +7,39 @@
   <meta name="description" content="India's next-generation fashion movement. Future Fashion Festival brings together designers, creators, brands, models, students, innovators, and industry leaders to shape the future of fashion." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@200;300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F7F1E6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='46' font-weight='700' text-anchor='middle' fill='%235E1F2A'%3EF%3C/text%3E%3C/svg%3E" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --black: #000000;
-      --white: #ffffff;
-      --off-white: #f5f5f3;
-      --silver: #c0c0c0;
-      --silver-light: #e8e8e8;
-      --silver-dark: #888888;
-      --red: #cc0000;
-      --red-dark: #990000;
-      --grey-100: #111111;
-      --grey-200: #1a1a1a;
-      --grey-300: #2a2a2a;
-      --grey-400: #444444;
-      --grey-500: #666666;
+      /* Wine & Blush — Old Money Editorial
+         Semantic roles preserved: --black = primary surface, --white = primary ink,
+         --grey-100 = alt (blush) surface, --grey-200 = card, --grey-300 = card hover,
+         --grey-400 = hairline, --red = accent, --silver = emphasis ink. */
+      --ivory: #F7F1E6;
+      --blush: #F0D5D3;
+      --wine: #722F37;
+      --wine-deep: #5E1F2A;
+      --wine-dark: #4A1620;
+
+      --black: #F7F1E6;          /* primary surface -> ivory */
+      --white: #5E1F2A;          /* primary ink -> deep wine */
+      --off-white: #FBF7EF;
+      --silver: #722F37;         /* emphasis ink -> wine */
+      --silver-light: #F0D5D3;   /* blush */
+      --silver-dark: #8A4A52;    /* muted wine for labels/captions (AA on ivory & blush) */
+      --red: #722F37;            /* accent -> wine */
+      --red-dark: #4A1620;       /* accent hover -> deep wine */
+      --grey-100: #F0D5D3;       /* alternate section surface -> blush */
+      --grey-200: #FCF8F0;       /* card surface -> raised ivory */
+      --grey-300: #F0D5D3;       /* card hover -> blush wash */
+      --grey-400: rgba(94,31,42,0.22); /* hairline -> wine 22% */
+      --grey-500: rgba(94,31,42,0.35);
       --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Inter', sans-serif;
-      --mono: 'Space Grotesk', monospace;
+      --display: 'Playfair Display', Georgia, serif;
+      --sans: 'Jost', 'Cormorant Garamond', sans-serif;
+      --mono: 'Jost', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
@@ -99,9 +111,9 @@
     .btn--outline {
       background: transparent;
       color: var(--white);
-      border: 1px solid rgba(255,255,255,0.3);
+      border: 1px solid rgba(94,31,42,0.3);
     }
-    .btn--outline:hover { border-color: var(--white); background: rgba(255,255,255,0.05); }
+    .btn--outline:hover { border-color: var(--white); background: rgba(94,31,42,0.05); }
     .btn--red {
       background: var(--red);
       color: var(--white);
@@ -133,9 +145,9 @@
       transition: background 0.4s ease, padding 0.4s ease;
     }
     nav.scrolled {
-      background: rgba(0,0,0,0.95);
+      background: rgba(94,31,42,0.95);
       padding: 14px 40px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(94,31,42,0.06);
       backdrop-filter: blur(20px);
     }
     @media (max-width: 768px) { nav { padding: 16px 24px; } nav.scrolled { padding: 12px 24px; } }
@@ -251,9 +263,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(0,0,0,0.3) 0%,
-        rgba(0,0,0,0.5) 50%,
-        rgba(0,0,0,0.85) 100%
+        rgba(94,31,42,0.3) 0%,
+        rgba(94,31,42,0.5) 50%,
+        rgba(94,31,42,0.85) 100%
       );
     }
     /* Cinematic background substitute — animated gradient */
@@ -326,7 +338,7 @@
     .hero-sub {
       font-size: clamp(0.85rem, 1.5vw, 1rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.65);
+      color: rgba(94,31,42,0.65);
       max-width: 600px;
       margin: 0 auto 48px;
       line-height: 1.8;
@@ -393,7 +405,7 @@
       padding: 0 32px;
     }
     .ticker-dot {
-      color: rgba(255,255,255,0.5);
+      color: rgba(94,31,42,0.5);
     }
 
     /* ── SECTION SPACING ── */
@@ -413,7 +425,7 @@
 
     .about-left .section-title { margin-bottom: 24px; }
     .about-body {
-      color: rgba(255,255,255,0.65);
+      color: rgba(94,31,42,0.65);
       font-size: 1rem;
       line-height: 1.9;
       margin-bottom: 32px;
@@ -527,7 +539,7 @@
     }
     .exp-body {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(94,31,42,0.55);
       line-height: 1.8;
     }
 
@@ -576,7 +588,7 @@
     }
     .comp-panel-subtitle {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(94,31,42,0.5);
       margin-bottom: 32px;
     }
 
@@ -590,7 +602,7 @@
     }
     .comp-detail p, .comp-detail ul {
       font-size: 0.875rem;
-      color: rgba(255,255,255,0.65);
+      color: rgba(94,31,42,0.65);
       line-height: 1.8;
       margin-bottom: 28px;
     }
@@ -697,7 +709,7 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%),
+        linear-gradient(to top, rgba(94,31,42,0.8) 0%, transparent 50%),
         radial-gradient(ellipse at 50% 30%, rgba(80,0,0,0.3) 0%, transparent 60%),
         linear-gradient(135deg, #0f0f0f 0%, #1a0808 100%);
       display: flex;
@@ -709,12 +721,12 @@
       font-size: 2rem;
       font-weight: 300;
       font-style: italic;
-      color: rgba(255,255,255,0.8);
+      color: rgba(94,31,42,0.8);
     }
 
     .runway-content .section-title { margin-bottom: 24px; }
     .runway-body {
-      color: rgba(255,255,255,0.65);
+      color: rgba(94,31,42,0.65);
       font-size: 0.95rem;
       line-height: 1.9;
       margin-bottom: 40px;
@@ -790,7 +802,7 @@
     }
     .award-desc {
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(94,31,42,0.5);
       line-height: 1.7;
     }
 
@@ -817,7 +829,7 @@
       font-size: 1.1rem;
       margin-bottom: 8px;
     }
-    .benefit-desc { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .benefit-desc { font-size: 0.8rem; color: rgba(94,31,42,0.5); line-height: 1.7; }
 
     .tiers-label { margin-bottom: 32px; }
     .tiers-grid {
@@ -845,15 +857,15 @@
       color: var(--silver-dark);
       margin-bottom: 8px;
     }
-    .tier-card.featured .tier-badge { color: rgba(255,255,255,0.8); }
+    .tier-card.featured .tier-badge { color: rgba(94,31,42,0.8); }
     .tier-name {
       font-family: var(--serif);
       font-size: 1.5rem;
       font-weight: 400;
       margin-bottom: 12px;
     }
-    .tier-desc { font-size: 0.8rem; color: rgba(255,255,255,0.55); line-height: 1.7; }
-    .tier-card.featured .tier-desc { color: rgba(255,255,255,0.85); }
+    .tier-desc { font-size: 0.8rem; color: rgba(94,31,42,0.55); line-height: 1.7; }
+    .tier-card.featured .tier-desc { color: rgba(94,31,42,0.85); }
 
     .sponsors-cta {
       text-align: center;
@@ -862,7 +874,7 @@
     }
     .sponsors-cta .section-title { margin-bottom: 16px; }
     .sponsors-cta p {
-      color: rgba(255,255,255,0.55);
+      color: rgba(94,31,42,0.55);
       max-width: 500px;
       margin: 0 auto 40px;
       font-size: 0.9rem;
@@ -900,7 +912,7 @@
       font-size: 1.1rem;
       margin-bottom: 6px;
     }
-    .comm-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.7; }
+    .comm-feature-desc { font-size: 0.82rem; color: rgba(94,31,42,0.5); line-height: 1.7; }
 
     .community-quote {
       background: var(--grey-200);
@@ -925,7 +937,7 @@
       font-weight: 300;
       font-style: italic;
       line-height: 1.5;
-      color: rgba(255,255,255,0.85);
+      color: rgba(94,31,42,0.85);
       margin-bottom: 32px;
       padding-top: 40px;
     }
@@ -997,7 +1009,7 @@
     }
     .timeline-desc {
       font-size: 0.82rem;
-      color: rgba(255,255,255,0.5);
+      color: rgba(94,31,42,0.5);
     }
 
     /* ── GALLERY ── */
@@ -1043,7 +1055,7 @@
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+      background: linear-gradient(to top, rgba(94,31,42,0.8) 0%, transparent 60%);
       display: flex;
       align-items: flex-end;
       padding: 24px;
@@ -1110,7 +1122,7 @@
     .faq-answer-inner {
       padding: 0 32px 28px;
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(94,31,42,0.55);
       line-height: 1.8;
     }
 
@@ -1138,7 +1150,7 @@
       font-family: var(--serif);
       font-style: italic;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(94,31,42,0.45);
       margin: 16px 0 32px;
     }
     .footer-socials {
@@ -1173,7 +1185,7 @@
     .footer-col ul li { margin-bottom: 12px; }
     .footer-col ul a {
       font-size: 0.875rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(94,31,42,0.55);
       text-decoration: none;
       transition: color 0.2s;
     }
@@ -1203,9 +1215,9 @@
       text-align: center;
     }
     .cta-band .section-title { color: var(--white); margin-bottom: 16px; }
-    .cta-band p { color: rgba(255,255,255,0.8); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .cta-band p { color: rgba(94,31,42,0.8); margin-bottom: 40px; max-width: 500px; margin-left: auto; margin-right: auto; }
     .cta-band .btn--primary { background: var(--white); color: var(--red); }
-    .cta-band .btn--outline { border-color: rgba(255,255,255,0.5); color: var(--white); }
+    .cta-band .btn--outline { border-color: rgba(94,31,42,0.5); color: var(--white); }
     .cta-band .btn--outline:hover { border-color: var(--white); }
 
     /* ── CURSOR DOT ── */
@@ -1259,7 +1271,7 @@
     }
     .pre-track {
       width: min(280px, 60vw); height: 1px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(94,31,42,0.12);
       margin-top: 36px; position: relative; overflow: hidden;
     }
     .pre-fill {
@@ -1319,7 +1331,7 @@
       content: '';
       position: absolute; top: 0; left: -160%;
       width: 55%; height: 100%;
-      background: linear-gradient(105deg, transparent, rgba(255,255,255,0.35), transparent);
+      background: linear-gradient(105deg, transparent, rgba(94,31,42,0.35), transparent);
       transform: skewX(-20deg);
       transition: left 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       pointer-events: none;
@@ -1333,17 +1345,17 @@
       will-change: transform;
       transition: box-shadow 0.4s ease;
     }
-    .tilt:hover { box-shadow: 0 24px 70px rgba(0,0,0,0.55), 0 0 40px rgba(204,0,0,0.07); }
+    .tilt:hover { box-shadow: 0 24px 70px rgba(94,31,42,0.55), 0 0 40px rgba(204,0,0,0.07); }
     .tilt .glare {
       position: absolute; inset: 0; z-index: 3;
-      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255,255,255,0.10), transparent 55%);
+      background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(94,31,42,0.10), transparent 55%);
       opacity: 0; transition: opacity 0.35s ease;
       pointer-events: none;
     }
     .tilt:hover .glare { opacity: 1; }
 
     .award-card { transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94), border-color 0.45s, box-shadow 0.45s; }
-    .award-card:hover { transform: translateY(-7px); border-color: rgba(204,0,0,0.5) !important; box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(204,0,0,0.08); }
+    .award-card:hover { transform: translateY(-7px); border-color: rgba(204,0,0,0.5) !important; box-shadow: 0 20px 60px rgba(94,31,42,0.5), 0 0 30px rgba(204,0,0,0.08); }
 
     /* ── 3D RUNWAY SECTION ── */
     #runway3d { position: relative; height: 260vh; background: var(--black); }
@@ -1388,7 +1400,7 @@
     }
     .runway3d-vignette {
       position: absolute; inset: 0; z-index: 1; pointer-events: none;
-      background: radial-gradient(ellipse at 50% 55%, transparent 35%, rgba(0,0,0,0.75) 100%);
+      background: radial-gradient(ellipse at 50% 55%, transparent 35%, rgba(94,31,42,0.75) 100%);
     }
     .runway3d-grain {
       position: absolute; inset: 0; z-index: 2; pointer-events: none;
@@ -1402,8 +1414,8 @@
       padding: 100px 0;
       overflow: hidden;
       background: var(--black);
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-top: 1px solid rgba(94,31,42,0.06);
+      border-bottom: 1px solid rgba(94,31,42,0.06);
       display: flex; flex-direction: column; gap: 28px;
     }
     .mm-row {
@@ -1433,7 +1445,7 @@
     .ticker::after {
       content: '';
       position: absolute; inset: 0; pointer-events: none;
-      background: linear-gradient(90deg, rgba(0,0,0,0.35), transparent 20%, transparent 80%, rgba(0,0,0,0.35));
+      background: linear-gradient(90deg, rgba(94,31,42,0.35), transparent 20%, transparent 80%, rgba(94,31,42,0.35));
     }
 
     /* ── STAT GLOW ── */
@@ -1447,6 +1459,346 @@
     @media (max-width: 768px) {
       .mega-marquee { padding: 60px 0; gap: 16px; }
       #runway3d { height: 200vh; }
+    }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* WINE & BLUSH — OLD MONEY EDITORIAL — OVERRIDE LAYER      */
+    /* ═══════════════════════════════════════════════════════ */
+
+    /* Paper-grain texture on the whole page */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      opacity: 0.035; mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 220px;
+    }
+    body { font-family: var(--sans); font-weight: 300; color: var(--wine-deep); }
+    ::selection { background: var(--blush); color: var(--wine-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--wine); }
+
+    /* Display serif for every headline */
+    .section-title, .hero-headline, .runway3d-title, .pre-logo,
+    .comp-panel-title, .award-name, .exp-title, .speaker-name,
+    .benefit-title, .tier-name, .comm-feature-title, .timeline-title,
+    .faq-q-text, .community-quote blockquote, .mm-word, .stat-num, .box-logo {
+      font-family: var(--display) !important;
+    }
+    .section-title { letter-spacing: -0.015em; font-weight: 500; }
+    .hero-headline { letter-spacing: -0.02em; font-weight: 600; }
+    .section-title em, .hero-headline .line-2, .runway3d-title em {
+      font-style: italic; font-weight: 400;
+      color: var(--wine); -webkit-text-fill-color: var(--wine);
+      background: none; animation: none;
+    }
+
+    /* Small caps labels */
+    .label, .nav-links a, .btn, .hero-edition, .hero-scroll span,
+    .ticker-item, .comp-tab, .topic-pill, .footer-col h4, .social-btn,
+    .nav-logo-sub, .lookbook-col-title, .gallery-caption, .timeline-phase {
+      font-family: var(--mono) !important;
+      letter-spacing: 0.2em; text-transform: uppercase;
+    }
+
+    /* ── BUTTONS — flat editorial ── */
+    .btn { border-radius: 2px; box-shadow: none !important; font-weight: 500; transition: all 0.3s ease; }
+    .btn--primary, .btn--red {
+      background: var(--wine); color: var(--ivory);
+      border: 1px solid var(--wine);
+    }
+    .btn--primary:hover, .btn--red:hover {
+      background: var(--wine-dark); border-color: var(--wine-dark);
+      color: var(--ivory); transform: none;
+    }
+    .btn--outline {
+      background: transparent; color: var(--wine); border: 1px solid var(--wine);
+    }
+    .btn--outline:hover { background: var(--wine); color: var(--ivory); border-color: var(--wine); }
+    .btn::after { background: linear-gradient(105deg, transparent, rgba(247,241,230,0.35), transparent); }
+
+    /* ── NAV — ivory ── */
+    nav.scrolled {
+      background: rgba(247,241,230,0.94);
+      border-bottom: 1px solid var(--grey-400);
+      backdrop-filter: blur(16px);
+    }
+    .nav-logo-main { color: var(--wine-deep); }
+    .nav-links a { color: var(--wine); }
+    .nav-links a:hover { color: var(--wine-deep); }
+    .mobile-menu { background: var(--ivory); }
+    .mobile-menu a { color: var(--wine-deep); }
+    .mobile-menu a:hover { color: var(--wine); }
+    .hamburger span { background: var(--wine); }
+
+    /* ── HERO — ivory with floating 3D shapes ── */
+    #silkCanvas { position: absolute; inset: 0; z-index: 1; }
+    .hero-content { position: relative; z-index: 2; }
+    .hero-bg-canvas {
+      background:
+        radial-gradient(ellipse at 25% 30%, rgba(240,213,211,0.7) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(240,213,211,0.5) 0%, transparent 55%),
+        var(--ivory) !important;
+      animation: none !important;
+    }
+    .hero-video-bg::after {
+      background: linear-gradient(to bottom, transparent 0%, rgba(247,241,230,0.2) 60%, rgba(247,241,230,0.65) 100%) !important;
+    }
+    .hero-headline { color: var(--wine-deep); }
+    .hero-grain { opacity: 0.03; mix-blend-mode: multiply; }
+
+    /* ── TICKER — wine band, ivory type ── */
+    .ticker { background: var(--wine); }
+    .ticker-item { color: var(--ivory); opacity: 0.9; }
+    .ticker::after { display: none; }
+
+    /* ── COMPETITION TABS ── */
+    .comp-tab { color: var(--wine); border: 1px solid var(--grey-400); background: transparent; }
+    .comp-tab:hover { background: var(--blush); color: var(--wine-deep); }
+    .comp-tab.active { background: var(--wine); color: var(--ivory); border-color: var(--wine); }
+    .topic-pill { border-color: var(--grey-400); color: var(--wine); }
+    .topic-pill:hover { border-color: var(--wine); color: var(--wine-deep); background: var(--blush); }
+
+    /* ── CARDS — flat, wine hairline ── */
+    .stat-card, .exp-card, .speaker-card, .award-card, .benefit-card,
+    .comm-feature, .faq-item, .runway-feature, .tier-card, .pillar,
+    .timeline-item, .comp-panel {
+      border: 1px solid var(--grey-400) !important;
+      box-shadow: none !important;
+    }
+    .award-card:hover, .exp-card:hover, .stat-card:hover, .benefit-card:hover,
+    .comm-feature:hover, .speaker-card:hover {
+      border-color: rgba(94,31,42,0.5) !important;
+      box-shadow: none !important;
+    }
+    .tilt:hover { box-shadow: none !important; }
+
+    /* ── DIVIDERS with ornament ── */
+    .divider { position: relative; background: var(--wine); height: 1px; }
+
+    /* ── FOOTER — deep wine ── */
+    footer { background: var(--wine-dark); border-top: 1px solid var(--wine); }
+    footer .nav-logo-main, .footer-brand .nav-logo-main { color: var(--ivory); }
+    footer .nav-logo-sub, .footer-tagline { color: rgba(247,241,230,0.6); }
+    .footer-col h4 { color: rgba(247,241,230,0.5); }
+    .footer-col a, .footer-links a { color: rgba(247,241,230,0.75); }
+    .footer-col a:hover, .footer-links a:hover { color: var(--blush); }
+    .social-btn { border-color: rgba(247,241,230,0.25); color: rgba(247,241,230,0.7); }
+    .social-btn:hover { border-color: var(--blush); color: var(--blush); }
+    .footer-copy { color: rgba(247,241,230,0.45); }
+    .footer-bottom, .footer-top { border-color: rgba(247,241,230,0.12) !important; }
+
+    /* ── IMAGE TREATMENT — gallery print framing ── */
+    img { filter: sepia(0.15) saturate(0.9); border: 1px solid var(--grey-400); }
+    .nav-logo img, .footer-logo-img, .loader-logo-img { filter: none; border: none; }
+
+    /* Gallery tiles -> blush/wine editorial gradients */
+    .g1 { background: linear-gradient(135deg, #E9C4C2 0%, #C98A90 100%) !important; }
+    .g2 { background: linear-gradient(135deg, #F0D5D3 0%, #D8A9AC 100%) !important; }
+    .g3 { background: linear-gradient(135deg, #C98A90 0%, #722F37 100%) !important; }
+    .g4 { background: linear-gradient(135deg, #F0D5D3 0%, #B57D82 100%) !important; }
+    .g5 { background: linear-gradient(135deg, #D8A9AC 0%, #5E1F2A 100%) !important; }
+    .g6 { background: linear-gradient(135deg, #E9C4C2 0%, #8A4A52 100%) !important; }
+    .g7 { background: linear-gradient(135deg, #722F37 0%, #4A1620 100%) !important; }
+    .g8 { background: linear-gradient(135deg, #EAD9C4 0%, #C98A90 100%) !important; }
+    .gallery-item-bg { filter: none; border: none; }
+    .gallery-caption { color: var(--ivory); }
+
+    /* ── SCROLL PROGRESS ── */
+    #scrollProgress { background: linear-gradient(90deg, var(--wine), var(--blush)) !important; }
+
+    /* ── PRELOADER ── */
+    .pre-logo { color: var(--wine-deep); }
+    .pre-logo em { color: var(--wine); }
+    .pre-sub, .pre-count { color: var(--silver-dark); }
+    .pre-track { background: rgba(94,31,42,0.15); }
+    .pre-fill { background: var(--wine); }
+    .loader-line { background: var(--wine); }
+
+    /* ── MEGA MARQUEE — wine stroke ── */
+    .mm-word { color: transparent; -webkit-text-stroke: 1px rgba(94,31,42,0.45); }
+    .mm-word.solid { color: var(--wine); -webkit-text-stroke: 0; }
+
+    /* ── CURSOR ── */
+    .cursor-dot { background: var(--wine); mix-blend-mode: normal; }
+    .cursor-ring { border-color: rgba(94,31,42,0.5); mix-blend-mode: normal; }
+
+    /* ── 3D RUNWAY overlay copy ── */
+    .runway3d-eyebrow { color: var(--wine); }
+    .runway3d-title { color: var(--wine-deep); }
+    .runway3d-hint { color: var(--silver-dark); }
+    .runway3d-vignette { background: radial-gradient(ellipse at 50% 55%, transparent 40%, rgba(247,241,230,0.55) 100%); }
+    .runway3d-grain { mix-blend-mode: multiply; }
+    .runway3d-flash { background: var(--wine); }
+
+    /* ── Generous editorial spacing ── */
+    .container { max-width: 1100px; position: relative; z-index: 1; }
+    section { position: relative; z-index: 2; }
+
+    /* ═══════════════════════════════════════════════════════ */
+    /* WHIMSY LAYER — bounce, tilt, float, sparkle              */
+    /* ═══════════════════════════════════════════════════════ */
+    :root { --spring: cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+    /* Bouncy pop-in entrances */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(34px) scale(0.94) rotate(-1deg);
+      transition: opacity 0.65s ease, transform 0.75s var(--spring);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+
+    /* Cards rest slightly tilted like scattered polaroids, straighten on hover */
+    .exp-card:nth-child(odd), .award-card:nth-child(odd), .benefit-card:nth-child(odd),
+    .comm-feature:nth-child(odd), .stat-card:nth-child(3n) { rotate: -1.2deg; }
+    .exp-card:nth-child(even), .award-card:nth-child(even), .benefit-card:nth-child(even),
+    .comm-feature:nth-child(even), .stat-card:nth-child(3n+1) { rotate: 1.1deg; }
+    .exp-card, .award-card, .benefit-card, .comm-feature, .stat-card, .speaker-card, .tier-card {
+      transition: rotate 0.45s var(--spring), transform 0.45s var(--spring),
+                  border-color 0.3s ease, background 0.3s ease !important;
+    }
+    .exp-card:hover, .award-card:hover, .benefit-card:hover,
+    .comm-feature:hover, .stat-card:hover {
+      rotate: 0deg; transform: translateY(-8px) scale(1.025) !important;
+    }
+
+    /* Gallery tiles: scattered print wall */
+    .gallery-item:nth-child(odd) { rotate: -1.4deg; }
+    .gallery-item:nth-child(even) { rotate: 1.2deg; }
+    .gallery-item { transition: rotate 0.45s var(--spring), transform 0.45s var(--spring); }
+    .gallery-item:hover { rotate: 0deg; transform: scale(1.03); z-index: 3; }
+
+    /* Ticker: tilted sticker band */
+    .ticker {
+      transform: rotate(-1.3deg) scale(1.02);
+      width: 104%; margin-left: -2%;
+      box-shadow: 0 6px 0 rgba(94,31,42,0.12);
+    }
+
+    /* Marquee solid words become blush sticker pills */
+    .mm-word.solid {
+      background: var(--blush); color: var(--wine-deep);
+      padding: 0.05em 0.45em; border-radius: 999px;
+      rotate: -2deg; display: inline-block;
+    }
+    .mm-row .mm-word:nth-child(3) { rotate: 1.5deg; display: inline-block; }
+
+    /* Jelly buttons */
+    .btn { transition: all 0.35s var(--spring) !important; }
+    .btn:hover { transform: scale(1.05) rotate(-1deg) !important; }
+    .btn:active { transform: scale(0.94) rotate(0.5deg) !important; }
+
+    /* Tabs get the jelly too */
+    .comp-tab { transition: all 0.35s var(--spring); }
+    .comp-tab:hover { transform: scale(1.06) rotate(-1.5deg); }
+    .comp-tab.active { transform: rotate(-1deg) scale(1.04); }
+
+    /* Icon wiggle on card hover */
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-12deg) scale(1.15); }
+      60% { transform: rotate(9deg) scale(1.1); }
+    }
+    .exp-card:hover .exp-icon, .award-card:hover .award-icon,
+    .comm-feature:hover .comm-feature-icon, .benefit-card:hover .benefit-icon {
+      display: inline-block; animation: wiggle 0.5s var(--spring);
+    }
+
+    /* Floating decorative glyphs in the hero (spawned by JS) */
+    .whimsy-glyph {
+      position: absolute; z-index: 1; pointer-events: none;
+      font-family: var(--display); color: var(--wine);
+      opacity: 0.35; user-select: none;
+      animation: glyphFloat 7s ease-in-out infinite;
+    }
+    .whimsy-glyph.blush { color: #C98A90; opacity: 0.5; }
+    @keyframes glyphFloat {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-22px) rotate(8deg); }
+    }
+
+    /* Squiggle underline beneath the hero subline */
+    .hero-sub {
+      color: rgba(94,31,42,0.85); font-weight: 400;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'%3E%3Cpath d='M0 6 Q10 1 20 6 T40 6 T60 6 T80 6 T100 6 T120 6' fill='none' stroke='%23722F37' stroke-width='2' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 120px 10px;
+      padding-bottom: 20px;
+    }
+
+    /* Soft morphing blush blobs behind alternating sections */
+    @keyframes blobMorph {
+      0%, 100% { border-radius: 42% 58% 55% 45% / 50% 44% 56% 50%; transform: rotate(0deg) scale(1); }
+      50% { border-radius: 58% 42% 45% 55% / 44% 56% 44% 56%; transform: rotate(8deg) scale(1.06); }
+    }
+    #about::before, #talks::before, #awards::before, #community::before, #faq::before {
+      content: '';
+      position: absolute; z-index: 0; pointer-events: none;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(201,138,144,0.18), transparent 70%);
+      animation: blobMorph 14s ease-in-out infinite;
+    }
+    #about::before { top: 8%; right: -140px; }
+    #talks::before { bottom: 5%; left: -160px; animation-delay: -4s; }
+    #awards::before { top: 12%; left: -120px; animation-delay: -7s; }
+    #community::before { bottom: 10%; right: -150px; animation-delay: -2s; }
+    #faq::before { top: 20%; right: -170px; animation-delay: -9s; }
+
+    /* Click sparkles */
+    .sparkle {
+      position: fixed; z-index: 9998; pointer-events: none;
+      font-size: 14px; color: var(--wine);
+      animation: sparkleFly 0.7s ease-out forwards;
+    }
+    @keyframes sparkleFly {
+      from { opacity: 1; transform: translate(0, 0) scale(1) rotate(0deg); }
+      to { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0.3) rotate(180deg); }
+    }
+
+    /* Preloader logo pops */
+    .pre-logo { animation: prePop 0.9s var(--spring); }
+    @keyframes prePop {
+      0% { transform: scale(0.6) rotate(-3deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    /* Divider ornament */
+    .divider::after {
+      content: '✿';
+      position: absolute; right: -22px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px; color: var(--wine);
+      line-height: 1; background: none;
+    }
+
+    /* ── Ivory text on wine surfaces ── */
+    .cta-band .section-title, .cta-band .st-inner {
+      color: var(--ivory) !important; -webkit-text-fill-color: var(--ivory);
+    }
+    .cta-band .section-title em {
+      color: var(--blush) !important; -webkit-text-fill-color: var(--blush);
+      background: none; animation: none;
+    }
+    .cta-band p { color: rgba(247,241,230,0.88) !important; }
+    .cta-band .btn--primary { background: var(--ivory) !important; color: var(--wine) !important; border-color: var(--ivory) !important; }
+    .cta-band .btn--primary:hover { background: var(--blush) !important; color: var(--wine-deep) !important; border-color: var(--blush) !important; }
+    .cta-band .btn--outline { border-color: rgba(247,241,230,0.65) !important; color: var(--ivory) !important; }
+    .cta-band .btn--outline:hover { background: rgba(247,241,230,0.15) !important; border-color: var(--ivory) !important; color: var(--ivory) !important; }
+
+    .exp-card--wine { background: var(--wine) !important; border-color: var(--wine) !important; }
+    .exp-card--wine .exp-title, .exp-card--wine .exp-icon { color: var(--ivory); }
+    .exp-card--wine .exp-num { color: rgba(247,241,230,0.75); }
+    .exp-card--wine .exp-body { color: rgba(247,241,230,0.88); }
+    .exp-card--wine .btn--primary { background: var(--ivory) !important; color: var(--wine) !important; border-color: var(--ivory) !important; }
+    .exp-card--wine .btn--primary:hover { background: var(--blush) !important; color: var(--wine-deep) !important; }
+
+    .tier-card.featured .tier-name { color: var(--ivory); }
+    .tier-card.featured .tier-badge { color: rgba(247,241,230,0.8) !important; }
+    .tier-card.featured .tier-desc { color: rgba(247,241,230,0.9) !important; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .whimsy-glyph, #about::before, #talks::before, #awards::before,
+      #community::before, #faq::before { animation: none !important; }
+      .fade-up { transition: opacity 0.4s ease; transform: none; }
+      .ticker { transform: none; width: 100%; margin-left: 0; }
     }
   </style>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1660,11 +2012,11 @@
         <h3 class="exp-title">Awards Gala</h3>
         <p class="exp-body">An elegant closing ceremony recognising the most promising talent, groundbreaking ideas, and outstanding contributions to the future of fashion. India's most prestigious night in emerging fashion.</p>
       </div>
-      <div class="exp-card fade-up" style="background: var(--red);">
+      <div class="exp-card exp-card--wine fade-up">
         <span class="exp-icon">→</span>
-        <div class="exp-num" style="color: rgba(255,255,255,0.7);">Apply Today</div>
+        <div class="exp-num">Apply Today</div>
         <h3 class="exp-title">Ready to Apply?</h3>
-        <p class="exp-body" style="color: rgba(255,255,255,0.8);">Applications are now open for designers, speakers, models, and competition participants. Secure your place in India's most important fashion event.</p>
+        <p class="exp-body">Applications are now open for designers, speakers, models, and competition participants. Secure your place in India's most important fashion event.</p>
         <br>
         <a href="#competitions" class="btn btn--primary">Apply Now <span class="btn-arrow">→</span></a>
       </div>
@@ -1679,7 +2031,7 @@
       <div class="label label--red">Competitions</div>
       <div class="divider"></div>
       <h2 class="section-title">Four Arenas.<br><em>One Stage.</em></h2>
-      <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.8; margin-top: 20px;">National competitions designed to discover, challenge, and elevate India's most extraordinary emerging talent across every discipline of fashion.</p>
+      <p style="color: rgba(94,31,42,0.55); font-size: 0.9rem; line-height: 1.8; margin-top: 20px;">National competitions designed to discover, challenge, and elevate India's most extraordinary emerging talent across every discipline of fashion.</p>
     </div>
 
     <div class="comp-tabs">
@@ -1844,7 +2196,7 @@
       <div class="label label--red">Future Talks</div>
       <div class="divider"></div>
       <h2 class="section-title">Ideas That<br><em>Change Everything.</em></h2>
-      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">Visionaries, founders, creators, executives, designers, innovators, and thought leaders take the stage to challenge assumptions, share radical insights, and map the future of fashion — one talk at a time.</p>
+      <p style="color: rgba(94,31,42,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">Visionaries, founders, creators, executives, designers, innovators, and thought leaders take the stage to challenge assumptions, share radical insights, and map the future of fashion — one talk at a time.</p>
     </div>
 
     <div class="topics-grid fade-up">
@@ -1990,7 +2342,7 @@
       <div class="label label--red">Awards Gala</div>
       <div class="divider"></div>
       <h2 class="section-title">The Night<br><em>That Defines Careers.</em></h2>
-      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">India's most prestigious night in emerging fashion. Six awards recognising the extraordinary — the designers, innovators, and creatives who are writing tomorrow's story today.</p>
+      <p style="color: rgba(94,31,42,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9;">India's most prestigious night in emerging fashion. Six awards recognising the extraordinary — the designers, innovators, and creatives who are writing tomorrow's story today.</p>
     </div>
     <div class="awards-grid fade-up">
       <div class="award-card">
@@ -2034,7 +2386,7 @@
       <div class="label label--red">Partners & Sponsors</div>
       <div class="divider"></div>
       <h2 class="section-title">Where Industry<br><em>Meets Impact.</em></h2>
-      <p style="color: rgba(255,255,255,0.55); margin-top: 20px; max-width: 600px; font-size: 0.9rem; line-height: 1.9;">Partner with India's most ambitious fashion and innovation festival. Connect your brand to the next generation of designers, creators, and consumers who will define the decade ahead.</p>
+      <p style="color: rgba(94,31,42,0.55); margin-top: 20px; max-width: 600px; font-size: 0.9rem; line-height: 1.9;">Partner with India's most ambitious fashion and innovation festival. Connect your brand to the next generation of designers, creators, and consumers who will define the decade ahead.</p>
     </div>
 
     <div class="sponsor-benefits fade-up">
@@ -2123,8 +2475,8 @@
         <div class="label label--red">Community</div>
         <div class="divider"></div>
         <h2 class="section-title">Beyond the<br><em>Festival Days.</em></h2>
-        <p style="color: rgba(255,255,255,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9; margin-bottom: 8px;">Future Fashion Festival is not a moment — it is a movement. A year-round community of the most passionate, creative, and driven individuals in Indian fashion.</p>
-        <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.9;">Once you are part of this community, you have access to a network, a support system, and a stage that doesn't go dark when the festival ends.</p>
+        <p style="color: rgba(94,31,42,0.55); margin-top: 20px; font-size: 0.9rem; line-height: 1.9; margin-bottom: 8px;">Future Fashion Festival is not a moment — it is a movement. A year-round community of the most passionate, creative, and driven individuals in Indian fashion.</p>
+        <p style="color: rgba(94,31,42,0.55); font-size: 0.9rem; line-height: 1.9;">Once you are part of this community, you have access to a network, a support system, and a stage that doesn't go dark when the festival ends.</p>
 
         <div class="community-features">
           <div class="comm-feature">
@@ -2172,7 +2524,7 @@
         </div>
         <div style="margin-top: 2px; background: var(--grey-200); padding: 40px 48px;">
           <div class="label" style="margin-bottom: 24px;">Join the Community</div>
-          <p style="font-size: 0.85rem; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 28px;">Be the first to hear about festival updates, application openings, and community events.</p>
+          <p style="font-size: 0.85rem; color: rgba(94,31,42,0.55); line-height: 1.8; margin-bottom: 28px;">Be the first to hear about festival updates, application openings, and community events.</p>
           <form id="communityForm" style="display: flex; gap: 0;">
             <input id="communityEmail" type="email" required placeholder="Your email address" style="flex: 1; background: var(--grey-300); border: 1px solid var(--grey-400); border-right: none; padding: 14px 20px; color: var(--white); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; outline: none;" />
             <button type="submit" id="communityBtn" class="btn btn--red" style="white-space: nowrap; border-left: none;">Join →</button>
@@ -2663,16 +3015,16 @@
       })(headline);
 
       const chars = headline.querySelectorAll('.ch');
-      gsap.set(chars, { opacity: 0, yPercent: 70, rotateX: -80 });
-      gsap.set(['.hero-edition', '.hero-sub', '.hero-ctas', '.hero-scroll'], { opacity: 0, y: 26 });
+      gsap.set(chars, { opacity: 0, yPercent: 90, scale: 0.6, rotation: () => gsap.utils.random(-14, 14) });
+      gsap.set(['.hero-edition', '.hero-sub', '.hero-ctas', '.hero-scroll'], { opacity: 0, y: 26, scale: 0.95 });
 
       const heroIntro = () => {
-        const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
-        tl.to('.hero-edition', { opacity: 1, y: 0, duration: 0.9 }, 0.1)
-          .to(chars, { opacity: 1, yPercent: 0, rotateX: 0, duration: 1.2, stagger: 0.024 }, 0.25)
-          .to('.hero-sub', { opacity: 1, y: 0, duration: 1 }, 0.95)
-          .to('.hero-ctas', { opacity: 1, y: 0, duration: 1 }, 1.1)
-          .to('.hero-scroll', { opacity: 1, y: 0, duration: 1 }, 1.3);
+        const tl = gsap.timeline();
+        tl.to('.hero-edition', { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(2)' }, 0.1)
+          .to(chars, { opacity: 1, yPercent: 0, scale: 1, rotation: 0, duration: 1.1, stagger: 0.032, ease: 'elastic.out(1, 0.55)' }, 0.25)
+          .to('.hero-sub', { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.8)' }, 1.0)
+          .to('.hero-ctas', { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.8)' }, 1.15)
+          .to('.hero-scroll', { opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'back.out(1.8)' }, 1.35);
       };
       if (preDone) heroIntro();
       else document.addEventListener('preloader:done', heroIntro, { once: true });
@@ -2705,7 +3057,7 @@
             title.appendChild(outer);
           });
           gsap.from(title.querySelectorAll('.st-inner'), {
-            yPercent: 115, duration: 1.15, stagger: 0.12, ease: 'power4.out',
+            yPercent: 115, rotation: 4, duration: 1.0, stagger: 0.14, ease: 'back.out(1.6)',
             scrollTrigger: { trigger: title, start: 'top 86%', once: true }
           });
         }
@@ -2772,100 +3124,101 @@
       });
     }
 
-    /* ═════════ THREE.JS — HERO SILK ═════════ */
+    /* ═════════ THREE.JS — WHIMSICAL FLOATING SHAPES ═════════ */
     const silkCanvas = document.getElementById('silkCanvas');
     if (hasTHREE && silkCanvas && !reduced) {
       try {
         const renderer = new THREE.WebGLRenderer({ canvas: silkCanvas, antialias: true, alpha: true });
         renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+        renderer.setClearColor(0x000000, 0);
         const scene = new THREE.Scene();
-        const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 10);
-        cam.position.set(0, 0.35, 1.7);
-        cam.lookAt(0, 0, 0);
+        const cam = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+        cam.position.set(0, 0, 7);
 
-        const seg = isTouch ? [110, 70] : [190, 120];
-        const geo = new THREE.PlaneGeometry(6.4, 3.8, seg[0], seg[1]);
-        const uniforms = {
-          uTime: { value: 0 },
-          uMouse: { value: new THREE.Vector2(0, 0) }
-        };
-        const mat = new THREE.ShaderMaterial({
-          uniforms,
-          vertexShader: `
-            uniform float uTime; uniform vec2 uMouse;
-            varying vec3 vPos; varying vec2 vUv;
-            void main() {
-              vUv = uv;
-              vec3 p = position;
-              float t = uTime;
-              float w = 0.0;
-              w += sin(p.x * 2.1 + t * 0.7) * 0.18;
-              w += sin(p.y * 2.7 - t * 0.55) * 0.14;
-              w += sin((p.x + p.y) * 1.6 + t * 0.9) * 0.12;
-              w += sin(length(p.xy - uMouse * 1.6) * 4.0 - t * 1.5) * 0.09;
-              p.z = w;
-              vPos = p;
-              gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
-            }`,
-          fragmentShader: `
-            uniform float uTime;
-            varying vec3 vPos; varying vec2 vUv;
-            void main() {
-              vec3 dx = dFdx(vPos); vec3 dy = dFdy(vPos);
-              vec3 n = normalize(cross(dx, dy));
-              vec3 light = normalize(vec3(0.4, 0.65, 0.8));
-              float diff = max(dot(n, light), 0.0);
-              vec3 viewDir = vec3(0.0, 0.0, 1.0);
-              vec3 h = normalize(light + viewDir);
-              float spec = pow(max(dot(n, h), 0.0), 42.0);
-              float fres = pow(1.0 - max(dot(n, viewDir), 0.0), 2.6);
-              vec3 base = vec3(0.018);
-              vec3 silver = vec3(0.72, 0.73, 0.76);
-              vec3 red = vec3(0.80, 0.0, 0.0);
-              vec3 col = base + diff * vec3(0.085) + spec * silver * 0.85 + fres * red * 0.5;
-              float band = smoothstep(0.0, 0.55, sin(vUv.x * 3.5 + vUv.y * 1.5 - uTime * 0.32)) * 0.06;
-              col += band * silver;
-              float vig = smoothstep(1.3, 0.25, length(vUv - 0.5) * 1.55);
-              col *= vig;
-              gl_FragColor = vec4(col, 1.0);
-            }`
-        });
-        mat.extensions = { derivatives: true };
-        const silk = new THREE.Mesh(geo, mat);
-        silk.rotation.x = -0.42;
-        silk.position.y = -0.55;
-        scene.add(silk);
+        scene.add(new THREE.HemisphereLight(0xFFF6EA, 0xF0D5D3, 1.05));
+        const sun = new THREE.DirectionalLight(0xFFF4E8, 0.9);
+        sun.position.set(2.5, 3.5, 4);
+        scene.add(sun);
 
-        // floating dust
-        const dustN = isTouch ? 140 : 320;
-        const dustPos = new Float32Array(dustN * 3);
-        for (let i = 0; i < dustN; i++) {
-          dustPos[i * 3] = (Math.random() - 0.5) * 5.5;
-          dustPos[i * 3 + 1] = (Math.random() - 0.5) * 3;
-          dustPos[i * 3 + 2] = Math.random() * 1.1 + 0.15;
+        const palette = [0x722F37, 0x5E1F2A, 0xD8A9AC, 0xC98A90, 0xE9C4C2];
+        const geos = [
+          new THREE.TorusKnotGeometry(0.30, 0.11, 110, 18),
+          new THREE.TorusGeometry(0.34, 0.14, 20, 42),
+          new THREE.IcosahedronGeometry(0.38, 0),
+          new THREE.ConeGeometry(0.30, 0.62, 26),
+          new THREE.SphereGeometry(0.30, 26, 26),
+          new THREE.DodecahedronGeometry(0.36, 0),
+          new THREE.TorusGeometry(0.26, 0.10, 18, 36),
+          new THREE.OctahedronGeometry(0.36, 0)
+        ];
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const N = isTouch ? 8 : 13;
+        const shapes = [];
+        for (let i = 0; i < N; i++) {
+          const mesh = new THREE.Mesh(
+            geos[i % geos.length],
+            new THREE.MeshStandardMaterial({
+              color: palette[i % palette.length],
+              roughness: 0.35, metalness: 0.15
+            })
+          );
+          const side = i % 2 === 0 ? -1 : 1;             // keep the center clear for the headline
+          mesh.userData = {
+            side,
+            fx: 0.68 + Math.random() * 0.32,             // fraction of half-width — hug the edges
+            fy: (Math.random() < 0.5 ? -1 : 1) * (0.3 + Math.random() * 0.6), // clear the center band
+            z: Math.random() * 2 - 1,
+            spinX: (Math.random() - 0.5) * 0.8,
+            spinY: (Math.random() - 0.5) * 1.0,
+            bobSpeed: 0.5 + Math.random() * 0.7,
+            bobAmp: 0.15 + Math.random() * 0.2,
+            phase: Math.random() * Math.PI * 2,
+            baseScale: 0.75 + Math.random() * 0.65
+          };
+          mesh.scale.setScalar(0.001);
+          group.add(mesh);
+          shapes.push(mesh);
         }
-        const dustGeo = new THREE.BufferGeometry();
-        dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos, 3));
-        const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({
-          color: 0xc0c0c0, size: 0.012, transparent: true, opacity: 0.55,
-          blending: THREE.AdditiveBlending, depthWrite: false
-        }));
-        scene.add(dust);
+
+        let halfW = 3, halfH = 3;
+        function layout() {
+          const w = silkCanvas.clientWidth, h = silkCanvas.clientHeight;
+          renderer.setSize(w, h, false);
+          cam.aspect = w / h;
+          cam.updateProjectionMatrix();
+          halfH = Math.tan((cam.fov * Math.PI / 180) / 2) * cam.position.z;
+          halfW = halfH * cam.aspect;
+          shapes.forEach(m => {
+            const u = m.userData;
+            m.position.x = u.side * u.fx * halfW * 0.92;
+            m.userData.baseY = u.fy * halfH * 0.85;
+            m.position.z = u.z;
+          });
+        }
+        layout();
+        addEventListener('resize', layout);
+
+        // pop the shapes in with a bounce
+        const popIn = () => shapes.forEach((m, i) => {
+          if (hasGSAP) {
+            gsap.to(m.scale, {
+              x: m.userData.baseScale, y: m.userData.baseScale, z: m.userData.baseScale,
+              duration: 1.4, ease: 'elastic.out(1, 0.45)', delay: 0.4 + i * 0.09
+            });
+          } else {
+            m.scale.setScalar(m.userData.baseScale);
+          }
+        });
+        if (preDone) popIn();
+        else document.addEventListener('preloader:done', popIn, { once: true });
 
         const mouse = { x: 0, y: 0 };
         if (!isTouch) addEventListener('mousemove', e => {
           mouse.x = (e.clientX / innerWidth) * 2 - 1;
           mouse.y = -((e.clientY / innerHeight) * 2 - 1);
         }, { passive: true });
-
-        function resizeSilk() {
-          const w = silkCanvas.clientWidth, h = silkCanvas.clientHeight;
-          renderer.setSize(w, h, false);
-          cam.aspect = w / h;
-          cam.updateProjectionMatrix();
-        }
-        resizeSilk();
-        addEventListener('resize', resizeSilk);
 
         let heroVisible = true;
         new IntersectionObserver(([e]) => { heroVisible = e.isIntersecting; }, { rootMargin: '15%' })
@@ -2876,15 +3229,17 @@
           requestAnimationFrame(loop);
           if (!heroVisible) return;
           const t = clock.getElapsedTime();
-          uniforms.uTime.value = t;
-          uniforms.uMouse.value.x += (mouse.x - uniforms.uMouse.value.x) * 0.04;
-          uniforms.uMouse.value.y += (mouse.y - uniforms.uMouse.value.y) * 0.04;
-          const pos = dustGeo.attributes.position;
-          for (let i = 0; i < dustN; i++) {
-            pos.array[i * 3 + 1] += 0.0009;
-            if (pos.array[i * 3 + 1] > 1.6) pos.array[i * 3 + 1] = -1.6;
-          }
-          pos.needsUpdate = true;
+          const dt = Math.min(clock.getDelta() || 0.016, 0.05);
+          shapes.forEach(m => {
+            const u = m.userData;
+            m.rotation.x += u.spinX * 0.01;
+            m.rotation.y += u.spinY * 0.01;
+            m.position.y = u.baseY + Math.sin(t * u.bobSpeed + u.phase) * u.bobAmp;
+          });
+          group.position.y = scrollY * 0.0012;
+          cam.position.x += (mouse.x * 0.55 - cam.position.x) * 0.04;
+          cam.position.y += (mouse.y * 0.35 - cam.position.y) * 0.04;
+          cam.lookAt(0, 0, 0);
           renderer.render(scene, cam);
         })();
       } catch (err) { silkCanvas.remove(); }
@@ -2897,15 +3252,15 @@
       try {
         const renderer = new THREE.WebGLRenderer({ canvas: runwayCanvas, antialias: true });
         renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
-        renderer.setClearColor(0x000000);
+        renderer.setClearColor(0xF7F1E6);
         const scene = new THREE.Scene();
-        scene.fog = new THREE.FogExp2(0x000000, 0.052);
+        scene.fog = new THREE.FogExp2(0xF7F1E6, 0.05);
         const cam = new THREE.PerspectiveCamera(55, 1, 0.1, 120);
 
         // floor
         const floor = new THREE.Mesh(
           new THREE.PlaneGeometry(160, 160),
-          new THREE.MeshStandardMaterial({ color: 0x050505, roughness: 0.95, metalness: 0.1 })
+          new THREE.MeshStandardMaterial({ color: 0xE9D2CF, roughness: 0.95, metalness: 0.05 })
         );
         floor.rotation.x = -Math.PI / 2;
         floor.position.y = -0.2;
@@ -2914,7 +3269,7 @@
         // catwalk
         const catwalk = new THREE.Mesh(
           new THREE.BoxGeometry(4.2, 0.2, 80),
-          new THREE.MeshStandardMaterial({ color: 0x0e0e0e, metalness: 0.85, roughness: 0.22 })
+          new THREE.MeshStandardMaterial({ color: 0x722F37, metalness: 0.55, roughness: 0.35 })
         );
         catwalk.position.set(0, -0.1, -20);
         scene.add(catwalk);
@@ -2922,14 +3277,14 @@
         // center light strip
         const strip = new THREE.Mesh(
           new THREE.PlaneGeometry(0.5, 80),
-          new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.07, blending: THREE.AdditiveBlending, depthWrite: false })
+          new THREE.MeshBasicMaterial({ color: 0xF7F1E6, transparent: true, opacity: 0.14, blending: THREE.AdditiveBlending, depthWrite: false })
         );
         strip.rotation.x = -Math.PI / 2;
         strip.position.set(0, 0.005, -20);
         scene.add(strip);
 
         // red LED edges
-        const edgeMat = new THREE.MeshBasicMaterial({ color: 0xcc0000, transparent: true });
+        const edgeMat = new THREE.MeshBasicMaterial({ color: 0x722F37, transparent: true });
         const edgeL = new THREE.Mesh(new THREE.BoxGeometry(0.07, 0.07, 80), edgeMat);
         edgeL.position.set(-2.13, 0.0, -20);
         const edgeR = edgeL.clone();
@@ -2938,7 +3293,7 @@
 
         // far red portal
         const portal = new THREE.Group();
-        const pm = new THREE.MeshBasicMaterial({ color: 0xcc0000, transparent: true });
+        const pm = new THREE.MeshBasicMaterial({ color: 0x722F37, transparent: true });
         const pv1 = new THREE.Mesh(new THREE.BoxGeometry(0.12, 6, 0.12), pm);
         pv1.position.set(-3.2, 3, 0);
         const pv2 = pv1.clone(); pv2.position.x = 3.2;
@@ -2949,19 +3304,19 @@
         scene.add(portal);
 
         // lights
-        scene.add(new THREE.HemisphereLight(0x26262c, 0x000000, 0.7));
-        const redGlow = new THREE.PointLight(0xcc0000, 1.4, 40);
+        scene.add(new THREE.HemisphereLight(0xF7F1E6, 0xD8A9AC, 1.15));
+        const redGlow = new THREE.PointLight(0x8A2F3A, 1.2, 42);
         redGlow.position.set(0, 2, -48);
         scene.add(redGlow);
 
         const spots = [], cones = [];
         const coneGeo = new THREE.ConeGeometry(2.5, 7.5, 32, 1, true);
         const coneMat = new THREE.MeshBasicMaterial({
-          color: 0xffffff, transparent: true, opacity: 0.05,
+          color: 0xF0D5D3, transparent: true, opacity: 0.06,
           blending: THREE.AdditiveBlending, depthWrite: false, side: THREE.DoubleSide
         });
         [-6, -20, -34].forEach(z => {
-          const sp = new THREE.SpotLight(0xffffff, 2.4, 30, 0.5, 0.7);
+          const sp = new THREE.SpotLight(0xFFF4E8, 2.0, 32, 0.5, 0.7);
           sp.position.set(0, 8, z);
           sp.target.position.set(0, 0, z);
           scene.add(sp, sp.target);
@@ -2973,7 +3328,7 @@
         });
 
         // mannequins
-        const figMat = new THREE.MeshStandardMaterial({ color: 0x0a0a0a, metalness: 0.65, roughness: 0.32 });
+        const figMat = new THREE.MeshStandardMaterial({ color: 0x5E1F2A, metalness: 0.35, roughness: 0.45 });
         function makeFigure() {
           const g = new THREE.Group();
           const skirt = new THREE.Mesh(new THREE.ConeGeometry(0.36, 0.95, 24), figMat);
@@ -3011,8 +3366,8 @@
           const g = new THREE.BufferGeometry();
           g.setAttribute('position', new THREE.BufferAttribute(pts, 3));
           const m = new THREE.PointsMaterial({
-            color: 0xffffff, size: 0.09, transparent: true, opacity: 0.12,
-            blending: THREE.AdditiveBlending, depthWrite: false
+            color: 0x5E1F2A, size: 0.08, transparent: true, opacity: 0.16,
+            blending: THREE.NormalBlending, depthWrite: false
           });
           const cloud = new THREE.Points(g, m);
           scene.add(cloud);
@@ -3078,9 +3433,9 @@
           figures.forEach(f => {
             f.position.z += f.userData.speed * 0.016;
             if (f.position.z > 8) f.position.z = -50 - Math.random() * 4;
-            f.position.y = Math.sin(t * 5 + f.userData.off) * 0.025;
-            f.rotation.z = Math.sin(t * 2.6 + f.userData.off) * 0.028;
-            f.rotation.y = Math.sin(t * 0.9 + f.userData.off) * 0.12;
+            f.position.y = Math.abs(Math.sin(t * 4.2 + f.userData.off)) * 0.07;
+            f.rotation.z = Math.sin(t * 2.6 + f.userData.off) * 0.05;
+            f.rotation.y = Math.sin(t * 0.9 + f.userData.off) * 0.22;
           });
 
           // light sweeps
@@ -3110,6 +3465,61 @@
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', main);
   else main();
+})();
+</script>
+
+<!-- ═══════════ WHIMSY LAYER ═══════════ -->
+<script>
+(function () {
+  'use strict';
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) return;
+
+  function init() {
+    // floating serif glyphs drifting around the hero
+    const hero = document.getElementById('hero');
+    if (hero) {
+      const glyphs = ['✿', '✦', '❋', '✳', '·', '❀', '✧', '✺'];
+      const spots = [
+        { top: '16%', left: '7%',  size: 26 }, { top: '24%', left: '88%', size: 34 },
+        { top: '62%', left: '5%',  size: 30 }, { top: '70%', left: '92%', size: 22 },
+        { top: '12%', left: '72%', size: 20 }, { top: '80%', left: '20%', size: 28 },
+        { top: '38%', left: '94%', size: 24 }, { top: '48%', left: '3%',  size: 20 }
+      ];
+      spots.forEach((s, i) => {
+        const el = document.createElement('span');
+        el.className = 'whimsy-glyph' + (i % 2 ? ' blush' : '');
+        el.textContent = glyphs[i % glyphs.length];
+        el.style.top = s.top;
+        el.style.left = s.left;
+        el.style.fontSize = s.size + 'px';
+        el.style.animationDelay = (i * -0.9) + 's';
+        el.style.animationDuration = (6 + (i % 4)) + 's';
+        hero.appendChild(el);
+      });
+    }
+
+    // sparkle burst on click
+    const sparkleChars = ['✦', '✧', '✿', '·'];
+    document.addEventListener('click', e => {
+      for (let i = 0; i < 6; i++) {
+        const s = document.createElement('span');
+        s.className = 'sparkle';
+        s.textContent = sparkleChars[i % sparkleChars.length];
+        s.style.left = e.clientX + 'px';
+        s.style.top = e.clientY + 'px';
+        const ang = (Math.PI * 2 * i) / 6 + Math.random() * 0.6;
+        const dist = 34 + Math.random() * 30;
+        s.style.setProperty('--sx', Math.cos(ang) * dist + 'px');
+        s.style.setProperty('--sy', Math.sin(ang) * dist - 14 + 'px');
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 750);
+      }
+    }, { passive: true });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
 })();
 </script>
 </body>
