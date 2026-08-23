@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pre-Save Tickets — Future Fashion Festival</title>
+  <meta name="description" content="Pre-save your spot for Future Fashion Festival — 26th & 27th September. Two days of panels, workshops, runway, awards and live music by House of XIX." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F7F1E6'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='46' font-weight='700' text-anchor='middle' fill='%235E1F2A'%3EF%3C/text%3E%3C/svg%3E" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory: #F7F1E6;
+      --blush: #F0D5D3;
+      --wine: #722F37;
+      --wine-deep: #5E1F2A;
+      --wine-dark: #4A1620;
+      --muted: #8A4A52;
+      --hair: rgba(94,31,42,0.22);
+      --card: #FCF8F0;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --display: 'Playfair Display', Georgia, serif;
+      --sans: 'Jost', 'Cormorant Garamond', sans-serif;
+      --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      background: var(--ivory);
+      color: var(--wine-deep);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 1; pointer-events: none;
+      opacity: 0.035; mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 220px;
+    }
+    ::selection { background: var(--blush); color: var(--wine-deep); }
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--ivory); }
+    ::-webkit-scrollbar-thumb { background: var(--wine); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 40px; position: relative; z-index: 2; }
+    @media (max-width: 768px) { .container { padding: 0 24px; } }
+
+    .label {
+      font-family: var(--sans); font-size: 10px; font-weight: 500;
+      letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted);
+    }
+    .label--wine { color: var(--wine); }
+
+    .section-title {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      font-weight: 500; line-height: 1.05; letter-spacing: -0.015em;
+    }
+    .section-title em { font-style: italic; font-weight: 400; color: var(--wine); }
+
+    .divider { width: 40px; height: 1px; background: var(--wine); margin: 24px 0; position: relative; }
+    .divider::after {
+      content: '✿'; position: absolute; right: -22px; top: 50%;
+      transform: translateY(-50%); font-size: 12px; color: var(--wine); line-height: 1;
+    }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 34px; font-family: var(--sans);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.2em;
+      text-transform: uppercase; text-decoration: none; cursor: pointer;
+      border-radius: 2px; border: 1px solid var(--wine);
+      transition: all 0.35s var(--spring); position: relative; overflow: hidden;
+    }
+    .btn--primary { background: var(--wine); color: var(--ivory); }
+    .btn--primary:hover { background: var(--wine-dark); border-color: var(--wine-dark); }
+    .btn--outline { background: transparent; color: var(--wine); }
+    .btn--outline:hover { background: var(--wine); color: var(--ivory); }
+    .btn--ivory { background: var(--ivory); color: var(--wine); border-color: var(--ivory); }
+    .btn--ivory:hover { background: var(--blush); color: var(--wine-deep); border-color: var(--blush); }
+    .btn:hover { transform: scale(1.05) rotate(-1deg); }
+    .btn:active { transform: scale(0.94) rotate(0.5deg); }
+    .btn--lg { padding: 19px 46px; font-size: 12px; }
+    .btn-arrow { transition: transform 0.3s ease; font-size: 14px; }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 18px 40px; display: flex; align-items: center; justify-content: space-between;
+      background: rgba(247,241,230,0.94); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--hair);
+    }
+    @media (max-width: 768px) { nav { padding: 14px 18px; gap: 12px; } }
+    .nav-logo { display: flex; flex-direction: column; text-decoration: none; min-width: 0; }
+    .nav-logo-main { font-family: var(--display); font-size: 18px; font-weight: 500; color: var(--wine-deep); }
+    .nav-logo-sub {
+      font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: var(--muted);
+    }
+    .nav-links { display: flex; gap: 34px; list-style: none; }
+    @media (max-width: 900px) { .nav-links { display: none; } }
+    .nav-links a {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--wine); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--wine-deep); }
+    @media (max-width: 700px) {
+      .nav-logo-main { font-size: 13px; letter-spacing: 0; }
+      .nav-logo-sub { font-size: 7px; letter-spacing: 0.2em; }
+      nav .btn { padding: 11px 14px; font-size: 9px; letter-spacing: 0.14em; gap: 6px; white-space: nowrap; }
+    }
+    @media (max-width: 380px) {
+      .nav-logo-main { font-size: 12px; }
+      nav .btn { padding: 10px 11px; font-size: 8px; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative; min-height: 100vh; display: flex;
+      align-items: center; justify-content: center; overflow: hidden;
+      padding: 140px 0 90px;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse at 25% 30%, rgba(240,213,211,0.75) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 70%, rgba(240,213,211,0.55) 0%, transparent 55%),
+        var(--ivory);
+    }
+    #shapesCanvas { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; display: block; }
+    .hero-content { position: relative; z-index: 3; text-align: center; padding: 0 24px; max-width: 900px; }
+
+    .hero-eyebrow {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.4em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 30px;
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: ''; display: block; width: 40px; height: 1px; background: var(--muted);
+    }
+    .hero-title {
+      font-family: var(--display); font-size: clamp(3rem, 9vw, 7rem);
+      font-weight: 600; line-height: 0.98; letter-spacing: -0.02em;
+      color: var(--wine-deep); margin-bottom: 22px;
+    }
+    .hero-title em { font-style: italic; font-weight: 400; color: var(--wine); }
+    .hero-dates {
+      font-family: var(--display); font-style: italic;
+      font-size: clamp(1.3rem, 3.2vw, 2rem); color: var(--wine);
+      margin-bottom: 18px;
+    }
+    .hero-sub {
+      font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(94,31,42,0.85);
+      max-width: 620px; margin: 0 auto 42px; line-height: 1.85;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='10' viewBox='0 0 120 10'%3E%3Cpath d='M0 6 Q10 1 20 6 T40 6 T60 6 T80 6 T100 6 T120 6' fill='none' stroke='%23722F37' stroke-width='2' stroke-linecap='round' opacity='0.55'/%3E%3C/svg%3E") no-repeat bottom center;
+      background-size: 120px 10px; padding-bottom: 22px;
+    }
+    .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-note {
+      margin-top: 26px; font-family: var(--sans); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);
+    }
+
+    /* floating glyphs */
+    .glyph {
+      position: absolute; z-index: 2; pointer-events: none;
+      font-family: var(--display); color: var(--wine); opacity: 0.35; user-select: none;
+      animation: glyphFloat 7s ease-in-out infinite;
+    }
+    .glyph.blush { color: #C98A90; opacity: 0.5; }
+    @keyframes glyphFloat {
+      0%, 100% { transform: translateY(0) rotate(-6deg); }
+      50% { transform: translateY(-22px) rotate(8deg); }
+    }
+
+    /* ── TICKER ── */
+    .ticker {
+      background: var(--wine); padding: 13px 0; overflow: hidden; white-space: nowrap;
+      transform: rotate(-1.3deg) scale(1.03); width: 106%; margin-left: -3%;
+      box-shadow: 0 6px 0 rgba(94,31,42,0.12); position: relative; z-index: 4;
+    }
+    .ticker-inner { display: inline-flex; animation: tickerScroll 26s linear infinite; }
+    @keyframes tickerScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .ticker-item {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--ivory); padding: 0 26px; opacity: 0.92;
+    }
+    .ticker-dot { opacity: 0.6; }
+
+    /* ── SECTIONS ── */
+    section { position: relative; z-index: 2; }
+    .sec-pad { padding: 110px 0; }
+    @media (max-width: 768px) { .sec-pad { padding: 70px 0; } }
+
+    .sec-head { text-align: center; margin-bottom: 60px; }
+    .sec-head .divider { margin: 24px auto; }
+
+    /* blush blobs */
+    @keyframes blobMorph {
+      0%, 100% { border-radius: 42% 58% 55% 45% / 50% 44% 56% 50%; transform: rotate(0deg) scale(1); }
+      50% { border-radius: 58% 42% 45% 55% / 44% 56% 44% 56%; transform: rotate(8deg) scale(1.06); }
+    }
+    #days::before, #presave::before {
+      content: ''; position: absolute; z-index: 0; pointer-events: none;
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(201,138,144,0.2), transparent 70%);
+      animation: blobMorph 14s ease-in-out infinite;
+    }
+    #days::before { top: 6%; right: -150px; }
+    #presave::before { bottom: 8%; left: -160px; animation-delay: -6s; }
+
+    /* ── DAY CARDS ── */
+    .day-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 34px; align-items: start; }
+    @media (max-width: 900px) { .day-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    .day-card {
+      background: var(--card); border: 1px solid var(--hair);
+      padding: 46px 40px; position: relative;
+      transition: rotate 0.45s var(--spring), transform 0.45s var(--spring), border-color 0.3s ease;
+    }
+    @media (max-width: 768px) { .day-card { padding: 34px 26px; } }
+    .day-card:nth-child(1) { rotate: -1.1deg; }
+    .day-card:nth-child(2) { rotate: 1deg; }
+    .day-card:hover { rotate: 0deg; transform: translateY(-8px); border-color: rgba(94,31,42,0.5); }
+    .day-card--wine { background: var(--wine); border-color: var(--wine); }
+
+    .day-num {
+      font-family: var(--display); font-size: 4.5rem; font-weight: 700;
+      line-height: 0.85; color: rgba(94,31,42,0.14); margin-bottom: 6px;
+    }
+    .day-card--wine .day-num { color: rgba(247,241,230,0.22); }
+    .day-date {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+    }
+    .day-card--wine .day-date { color: rgba(247,241,230,0.75); }
+    .day-title {
+      font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+      font-weight: 500; line-height: 1.15; color: var(--wine-deep); margin-bottom: 8px;
+    }
+    .day-card--wine .day-title { color: var(--ivory); }
+    .day-tagline {
+      font-family: var(--display); font-style: italic; font-size: 1.05rem;
+      color: var(--wine); margin-bottom: 26px;
+    }
+    .day-card--wine .day-tagline { color: var(--blush); }
+    .day-card .divider { background: var(--wine); }
+    .day-card--wine .divider { background: var(--blush); }
+    .day-card--wine .divider::after { color: var(--blush); }
+
+    .day-list { list-style: none; display: flex; flex-direction: column; gap: 22px; }
+    .day-item { display: flex; gap: 14px; align-items: flex-start; }
+    .day-item-mark {
+      flex-shrink: 0; font-size: 13px; color: var(--wine);
+      line-height: 1.7; transition: transform 0.4s var(--spring);
+    }
+    .day-card--wine .day-item-mark { color: var(--blush); }
+    .day-item:hover .day-item-mark { transform: rotate(140deg) scale(1.3); }
+    .day-item-name {
+      font-family: var(--sans); font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.06em; color: var(--wine-deep); margin-bottom: 4px;
+    }
+    .day-card--wine .day-item-name { color: var(--ivory); }
+    .day-item-desc { font-size: 0.82rem; line-height: 1.75; color: rgba(94,31,42,0.72); }
+    .day-card--wine .day-item-desc { color: rgba(247,241,230,0.82); }
+
+    .day-foot { margin-top: 34px; }
+
+    /* ── BOTH DAYS STRIP ── */
+    .both-strip {
+      margin-top: 40px; background: var(--blush); border: 1px solid var(--hair);
+      padding: 34px 40px; display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap; rotate: -0.5deg;
+    }
+    @media (max-width: 768px) { .both-strip { padding: 28px 24px; } }
+    .both-strip h3 {
+      font-family: var(--display); font-size: 1.6rem; font-weight: 500;
+      color: var(--wine-deep); margin-bottom: 4px;
+    }
+    .both-strip p { font-size: 0.82rem; color: rgba(94,31,42,0.75); }
+
+    /* ── PRE-SAVE BAND ── */
+    #presave { background: var(--wine); overflow: hidden; }
+    #presave .section-title { color: var(--ivory); }
+    #presave .section-title em { color: var(--blush); }
+    #presave p.lead {
+      color: rgba(247,241,230,0.88); max-width: 560px;
+      margin: 0 auto 40px; font-size: 0.95rem; line-height: 1.85;
+    }
+    #presave .label { color: rgba(247,241,230,0.7); }
+    #presave .divider { background: var(--blush); }
+    #presave .divider::after { color: var(--blush); }
+    .presave-inner { text-align: center; position: relative; z-index: 2; }
+    .presave-perks {
+      display: flex; gap: 30px; justify-content: center; flex-wrap: wrap;
+      margin-top: 44px;
+    }
+    .perk {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(247,241,230,0.72);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .perk span { color: var(--blush); font-size: 12px; }
+
+    /* ── MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(74,22,32,0.55); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center; padding: 24px;
+      opacity: 0; visibility: hidden; transition: opacity 0.35s ease, visibility 0.35s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--ivory); border: 1px solid var(--hair);
+      width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
+      padding: 48px 44px; position: relative;
+      transform: scale(0.85) translateY(30px) rotate(-1.5deg);
+      transition: transform 0.5s var(--spring);
+    }
+    .modal-overlay.open .modal { transform: scale(1) translateY(0) rotate(0deg); }
+    @media (max-width: 600px) { .modal { padding: 36px 24px; } }
+    .modal-close {
+      position: absolute; top: 18px; right: 20px;
+      background: none; border: none; cursor: pointer;
+      font-size: 20px; color: var(--wine); line-height: 1;
+      transition: transform 0.3s var(--spring);
+    }
+    .modal-close:hover { transform: rotate(90deg) scale(1.2); }
+    .modal-title {
+      font-family: var(--display); font-size: 2.1rem; font-weight: 500;
+      color: var(--wine-deep); line-height: 1.1; margin-bottom: 8px;
+    }
+    .modal-title em { font-style: italic; color: var(--wine); }
+    .modal-sub { font-size: 0.85rem; color: rgba(94,31,42,0.7); margin-bottom: 30px; line-height: 1.7; }
+
+    .field { margin-bottom: 22px; }
+    .field label {
+      display: block; font-family: var(--sans); font-size: 10px;
+      letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 9px;
+    }
+    .field input {
+      width: 100%; background: #FCF8F0; border: 1px solid var(--hair);
+      padding: 14px 16px; color: var(--wine-deep);
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 300;
+      outline: none; border-radius: 2px; transition: border-color 0.3s ease, background 0.3s ease;
+    }
+    .field input::placeholder { color: rgba(94,31,42,0.35); }
+    .field input:focus { border-color: var(--wine); background: #fff; }
+
+    .day-choice { display: flex; flex-direction: column; gap: 10px; }
+    .choice {
+      display: flex; align-items: flex-start; gap: 12px;
+      border: 1px solid var(--hair); padding: 14px 16px;
+      cursor: pointer; border-radius: 2px;
+      transition: all 0.3s var(--spring); background: #FCF8F0;
+    }
+    .choice:hover { border-color: var(--wine); transform: translateX(3px); }
+    .choice input { appearance: none; -webkit-appearance: none; margin: 0; flex-shrink: 0;
+      width: 16px; height: 16px; border: 1px solid var(--wine); border-radius: 50%;
+      margin-top: 3px; position: relative; cursor: pointer; transition: all 0.25s var(--spring); }
+    .choice input:checked { background: var(--wine); box-shadow: inset 0 0 0 3px var(--ivory); }
+    .choice:has(input:checked) { border-color: var(--wine); background: var(--blush); }
+    .choice-text strong {
+      display: block; font-family: var(--sans); font-size: 0.82rem;
+      font-weight: 500; letter-spacing: 0.06em; color: var(--wine-deep); margin-bottom: 2px;
+    }
+    .choice-text span { font-size: 0.76rem; color: rgba(94,31,42,0.7); }
+
+    .modal .btn { width: 100%; justify-content: center; margin-top: 8px; }
+    .modal-fineprint {
+      margin-top: 16px; font-size: 0.7rem; line-height: 1.7;
+      color: rgba(94,31,42,0.55); text-align: center;
+    }
+    .form-error {
+      display: none; margin-top: 14px; padding: 12px 14px;
+      border: 1px solid var(--wine); background: var(--blush);
+      font-size: 0.78rem; color: var(--wine-deep); border-radius: 2px;
+    }
+    .form-error.show { display: block; }
+
+    /* success state */
+    .modal-success { display: none; text-align: center; padding: 10px 0; }
+    .modal-success.show { display: block; }
+    .success-mark {
+      font-family: var(--display); font-size: 3.4rem; color: var(--wine);
+      line-height: 1; margin-bottom: 18px;
+      animation: successPop 0.8s var(--spring);
+    }
+    @keyframes successPop {
+      0% { transform: scale(0) rotate(-40deg); opacity: 0; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+    .modal-success h3 {
+      font-family: var(--display); font-size: 2rem; font-weight: 500;
+      color: var(--wine-deep); margin-bottom: 12px;
+    }
+    .modal-success p { font-size: 0.88rem; color: rgba(94,31,42,0.75); line-height: 1.8; margin-bottom: 26px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--wine-dark); padding: 64px 0 28px; position: relative; z-index: 2; }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 40px; flex-wrap: wrap; padding-bottom: 40px;
+      border-bottom: 1px solid rgba(247,241,230,0.12);
+    }
+    .footer-logo { font-family: var(--display); font-size: 1.5rem; color: var(--ivory); margin-bottom: 6px; }
+    .footer-sub {
+      font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em;
+      text-transform: uppercase; color: rgba(247,241,230,0.6); margin-bottom: 14px;
+    }
+    .footer-tagline { font-family: var(--display); font-style: italic; color: rgba(247,241,230,0.6); font-size: 0.95rem; }
+    .footer-links { display: flex; gap: 26px; flex-wrap: wrap; }
+    .footer-links a {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(247,241,230,0.75);
+      text-decoration: none; transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--blush); }
+    .footer-bottom {
+      margin-top: 24px; display: flex; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .footer-copy { font-family: var(--sans); font-size: 10px; letter-spacing: 0.08em; color: rgba(247,241,230,0.45); }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(34px) scale(0.94) rotate(-1deg);
+      transition: opacity 0.65s ease, transform 0.75s var(--spring);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0) scale(1) rotate(0deg); }
+
+    /* sparkles */
+    .sparkle {
+      position: fixed; z-index: 9998; pointer-events: none;
+      font-size: 14px; color: var(--wine);
+      animation: sparkleFly 0.7s ease-out forwards;
+    }
+    @keyframes sparkleFly {
+      from { opacity: 1; transform: translate(0,0) scale(1) rotate(0deg); }
+      to { opacity: 0; transform: translate(var(--sx), var(--sy)) scale(0.3) rotate(180deg); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .glyph, #days::before, #presave::before, .ticker-inner { animation: none !important; }
+      .reveal { transition: opacity 0.4s ease; transform: none; }
+      .ticker { transform: none; width: 100%; margin-left: 0; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <span class="nav-logo-main">Future Fashion Festival</span>
+    <span class="nav-logo-sub">by House of XIX</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#competitions">Competitions</a></li>
+    <li><a href="index.html#runway">Runway</a></li>
+    <li><a href="#days">The Two Days</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <div>
+    <button class="btn btn--primary" data-presave>Pre-Save <span class="btn-arrow">→</span></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <canvas id="shapesCanvas"></canvas>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Pre-Save · Tickets</div>
+    <h1 class="hero-title">Save Your Seat<br><em>Before Anyone Else.</em></h1>
+    <p class="hero-dates">26<sup>th</sup> &amp; 27<sup>th</sup> September</p>
+    <p class="hero-sub">Two days of panels, workshops, runway, awards and live music. Pre-save now to lock in first access when tickets go live — no payment today, just your spot in the queue.</p>
+    <div class="hero-ctas">
+      <button class="btn btn--primary btn--lg" data-presave>Pre-Save My Ticket <span class="btn-arrow">→</span></button>
+      <a href="#days" class="btn btn--outline btn--lg">See Both Days</a>
+    </div>
+    <div class="hero-note">Free to pre-save · Takes 30 seconds</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">Pre-Save Now Open</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">26 &amp; 27 September</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Runway · Awards · Concert</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Panels &amp; Workshops</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">House of XIX</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Pre-Save Now Open</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">26 &amp; 27 September</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Runway · Awards · Concert</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Panels &amp; Workshops</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">House of XIX</span><span class="ticker-item ticker-dot">✦</span>
+  </div>
+</div>
+
+<!-- THE TWO DAYS -->
+<section id="days" class="sec-pad">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="label label--wine">What You Get</div>
+      <div class="divider"></div>
+      <h2 class="section-title">Two Days.<br><em>One Movement.</em></h2>
+    </div>
+
+    <div class="day-grid">
+
+      <!-- DAY 1 -->
+      <div class="day-card reveal">
+        <div class="day-num">01</div>
+        <div class="day-date">Saturday · 26 September</div>
+        <h3 class="day-title">Think, Create<br>&amp; Connect</h3>
+        <p class="day-tagline">The day the industry opens its doors.</p>
+        <div class="divider"></div>
+        <ul class="day-list">
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Industry Panels</div>
+              <p class="day-item-desc">Hear directly from leading founders, industry professionals, and mentors through insightful conversations and panel discussions.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">One Workshop of Your Choice</div>
+              <p class="day-item-desc">Get hands-on experience, practical insights, and creative learning through an interactive workshop of your choice.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Networking Mixer + Live Performances</div>
+              <p class="day-item-desc">Experience an evening designed to bring the community together, featuring artist performances, music, networking, and a party-style atmosphere.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Stalls &amp; Brand Activations</div>
+              <p class="day-item-desc">Explore curated brands, discover new products, and experience interactive brand activations throughout the festival.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">House of XIX Community Access</div>
+              <p class="day-item-desc">Gain entry to the House of XIX online and offline community of designers, stylists, creators, entrepreneurs, and fashion enthusiasts.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Networking &amp; Collaboration Opportunities</div>
+              <p class="day-item-desc">Meet industry leaders, emerging creatives, founders, and like-minded individuals, and open doors to meaningful collaborations and opportunities.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Early Access to House of XIX</div>
+              <p class="day-item-desc">Be among the first to receive announcements about upcoming events, opportunities, community initiatives, collaborations, and exclusive experiences.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="day-foot">
+          <button class="btn btn--outline" data-presave data-day="Day 1 — 26 September">Pre-Save Day 1 <span class="btn-arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- DAY 2 -->
+      <div class="day-card day-card--wine reveal">
+        <div class="day-num">02</div>
+        <div class="day-date">Sunday · 27 September</div>
+        <h3 class="day-title">Show, Celebrate<br>&amp; Inspire</h3>
+        <p class="day-tagline">The night the future walks the runway.</p>
+        <div class="divider"></div>
+        <ul class="day-list">
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">The Future Fashion Festival Runway</div>
+              <p class="day-item-desc">Witness the collections of the Top 20 Emerging Designers of the Country, selected to showcase their work on one of the most exciting youth-led fashion platforms.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">Industry Leaders &amp; Fashion Insiders</div>
+              <p class="day-item-desc">Be in the room with leading designers, models, entrepreneurs, fashion professionals and industry leaders.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">The Future Fashion Awards</div>
+              <p class="day-item-desc">Celebrate the people, creators and talents shaping the future of fashion.</p>
+            </div>
+          </li>
+          <li class="day-item">
+            <span class="day-item-mark">✦</span>
+            <div>
+              <div class="day-item-name">The FFF Concert</div>
+              <p class="day-item-desc">After the runway and awards, the night transforms into a live concert experience featuring music, performances and a full-scale celebration.</p>
+            </div>
+          </li>
+        </ul>
+        <div class="day-foot">
+          <button class="btn btn--ivory" data-presave data-day="Day 2 — 27 September">Pre-Save Day 2 <span class="btn-arrow">→</span></button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- BOTH DAYS -->
+    <div class="both-strip reveal">
+      <div>
+        <h3>Want the whole thing?</h3>
+        <p>Pre-save both days and experience the festival end to end — panels and workshops on Saturday, runway, awards and the concert on Sunday.</p>
+      </div>
+      <button class="btn btn--primary" data-presave data-day="Both Days — 26 &amp; 27 September">Pre-Save Both Days <span class="btn-arrow">→</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- PRE-SAVE BAND -->
+<section id="presave" class="sec-pad">
+  <div class="container">
+    <div class="presave-inner reveal">
+      <div class="label">Be First In Line</div>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <h2 class="section-title">Pre-Save Your<br><em>Ticket Today.</em></h2>
+      <p class="lead" style="margin-top: 22px;">Drop your details and we'll hold your place. The moment tickets go live, pre-saved names get the first window to book — before general release.</p>
+      <button class="btn btn--ivory btn--lg" data-presave>Pre-Save My Ticket <span class="btn-arrow">→</span></button>
+      <div class="presave-perks">
+        <div class="perk"><span>✦</span> First Booking Window</div>
+        <div class="perk"><span>✦</span> No Payment Now</div>
+        <div class="perk"><span>✦</span> Launch Day Alert</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Future Fashion Festival</div>
+        <div class="footer-sub">by House of XIX</div>
+        <p class="footer-tagline">"The Future Is Being Designed Today."</p>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#competitions">Competitions</a>
+        <a href="index.html#runway">Runway</a>
+        <a href="index.html#sponsors">Partner With Us</a>
+        <a href="mailto:houseofxix@thefuturefashionfestival.com">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Future Fashion Festival by House of XIX. All rights reserved.</span>
+      <span class="footer-copy">India's Next Fashion Movement.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- PRE-SAVE MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+
+    <div id="modalForm">
+      <h2 class="modal-title" id="modalTitle">Pre-Save Your <em>Ticket.</em></h2>
+      <p class="modal-sub">No payment today. We'll email you the moment tickets go live — pre-saved names book first.</p>
+
+      <form id="presaveForm" novalidate>
+        <div class="field">
+          <label for="pName">Full Name</label>
+          <input type="text" id="pName" name="name" placeholder="Your name" required />
+        </div>
+        <div class="field">
+          <label for="pEmail">Email Address</label>
+          <input type="email" id="pEmail" name="email" placeholder="you@example.com" required />
+        </div>
+        <div class="field">
+          <label for="pPhone">Phone Number</label>
+          <input type="tel" id="pPhone" name="phone" placeholder="+91 00000 00000" required />
+        </div>
+        <div class="field">
+          <label>Which Ticket?</label>
+          <div class="day-choice">
+            <label class="choice">
+              <input type="radio" name="day" value="Day 1 — 26 September" required />
+              <span class="choice-text">
+                <strong>Day 1 — 26 September</strong>
+                <span>Panels, workshops, mixer &amp; live performances</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="Day 2 — 27 September" />
+              <span class="choice-text">
+                <strong>Day 2 — 27 September</strong>
+                <span>Runway, awards &amp; the FFF concert</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="Both Days — 26 &amp; 27 September" />
+              <span class="choice-text">
+                <strong>Both Days</strong>
+                <span>The full festival experience</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-error" id="formError"></div>
+
+        <button type="submit" class="btn btn--primary" id="submitBtn">
+          Pre-Save My Ticket <span class="btn-arrow">→</span>
+        </button>
+        <p class="modal-fineprint">By pre-saving you agree to receive ticket updates from House of XIX. No spam, ever.</p>
+      </form>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-mark">✦</div>
+      <h3>You're On The List.</h3>
+      <p>Your spot is saved. We'll email you the second tickets go live — you'll get the first booking window, before general release.</p>
+      <button class="btn btn--outline" id="successClose">Back To The Festival</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ══════════════════════════════════════════════════════
+     PRE-SAVE FORM DESTINATION
+     Paste the Google Form's formResponse URL + the entry ids
+     for each question. Until ACTION is filled in, submissions
+     fall back to opening a pre-filled email so no lead is lost.
+     ══════════════════════════════════════════════════════ */
+  var PRESAVE = {
+    ACTION: '',                 // e.g. https://docs.google.com/forms/d/e/XXXX/formResponse
+    FIELDS: {
+      name:  '',                // e.g. entry.1111111111
+      email: '',
+      phone: '',
+      day:   ''
+    },
+    FALLBACK_EMAIL: 'houseofxix@thefuturefashionfestival.com'
+  };
+
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isTouch = matchMedia('(max-width: 900px)').matches || 'ontouchstart' in window;
+
+  /* ── MODAL ── */
+  var modal = document.getElementById('modal');
+  var modalForm = document.getElementById('modalForm');
+  var modalSuccess = document.getElementById('modalSuccess');
+  var form = document.getElementById('presaveForm');
+  var errBox = document.getElementById('formError');
+  var lastFocus = null;
+
+  function openModal(preselectDay) {
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    if (preselectDay) {
+      var radios = form.querySelectorAll('input[name="day"]');
+      for (var i = 0; i < radios.length; i++) {
+        if (radios[i].value === preselectDay) { radios[i].checked = true; break; }
+      }
+    }
+    setTimeout(function () { document.getElementById('pName').focus(); }, 380);
+  }
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('[data-presave]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openModal(this.getAttribute('data-day'));
+    });
+  });
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  document.getElementById('successClose').addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  function showError(msg) {
+    errBox.textContent = msg;
+    errBox.classList.add('show');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    errBox.classList.remove('show');
+
+    var name = document.getElementById('pName').value.trim();
+    var email = document.getElementById('pEmail').value.trim();
+    var phone = document.getElementById('pPhone').value.trim();
+    var dayEl = form.querySelector('input[name="day"]:checked');
+
+    if (!name) { showError('Please enter your name.'); return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
+    if (phone.replace(/\D/g, '').length < 7) { showError('Please enter a valid phone number.'); return; }
+    if (!dayEl) { showError('Please choose which ticket you would like.'); return; }
+
+    var day = dayEl.value;
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Saving…';
+
+    function succeed() {
+      modalForm.style.display = 'none';
+      modalSuccess.classList.add('show');
+      form.reset();
+      btn.disabled = false;
+      btn.innerHTML = 'Pre-Save My Ticket <span class="btn-arrow">→</span>';
+    }
+
+    if (PRESAVE.ACTION && PRESAVE.FIELDS.name) {
+      var fd = new FormData();
+      fd.append(PRESAVE.FIELDS.name, name);
+      fd.append(PRESAVE.FIELDS.email, email);
+      fd.append(PRESAVE.FIELDS.phone, phone);
+      fd.append(PRESAVE.FIELDS.day, day);
+      fetch(PRESAVE.ACTION, { method: 'POST', mode: 'no-cors', body: fd })
+        .catch(function () {})
+        .finally(succeed);
+    } else {
+      // Fallback: hand off via email so no pre-save is lost before the form is wired.
+      var subject = 'Ticket Pre-Save — ' + day;
+      var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nTicket: ' + day;
+      window.location.href = 'mailto:' + PRESAVE.FALLBACK_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+      setTimeout(succeed, 400);
+    }
+  });
+
+  /* ── REVEAL ON SCROLL ── */
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (en) {
+      if (en.isIntersecting) { en.target.classList.add('visible'); obs.unobserve(en.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+
+  if (reduced) return;
+
+  /* ── FLOATING GLYPHS ── */
+  var hero = document.getElementById('hero');
+  if (hero) {
+    var glyphs = ['✿', '✦', '❋', '✳', '·', '❀', '✧', '✺'];
+    var spots = [
+      { top: '18%', left: '7%',  size: 26 }, { top: '26%', left: '89%', size: 34 },
+      { top: '64%', left: '5%',  size: 30 }, { top: '72%', left: '92%', size: 22 },
+      { top: '14%', left: '73%', size: 20 }, { top: '82%', left: '20%', size: 28 },
+      { top: '40%', left: '95%', size: 24 }, { top: '50%', left: '3%',  size: 20 }
+    ];
+    spots.forEach(function (s, i) {
+      var el = document.createElement('span');
+      el.className = 'glyph' + (i % 2 ? ' blush' : '');
+      el.textContent = glyphs[i % glyphs.length];
+      el.style.top = s.top; el.style.left = s.left;
+      el.style.fontSize = s.size + 'px';
+      el.style.animationDelay = (i * -0.9) + 's';
+      el.style.animationDuration = (6 + (i % 4)) + 's';
+      hero.appendChild(el);
+    });
+  }
+
+  /* ── CLICK SPARKLES ── */
+  var sparkChars = ['✦', '✧', '✿', '·'];
+  document.addEventListener('click', function (e) {
+    for (var i = 0; i < 6; i++) {
+      var s = document.createElement('span');
+      s.className = 'sparkle';
+      s.textContent = sparkChars[i % sparkChars.length];
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      var ang = (Math.PI * 2 * i) / 6 + Math.random() * 0.6;
+      var dist = 34 + Math.random() * 30;
+      s.style.setProperty('--sx', Math.cos(ang) * dist + 'px');
+      s.style.setProperty('--sy', (Math.sin(ang) * dist - 14) + 'px');
+      document.body.appendChild(s);
+      setTimeout(function (node) { return function () { node.remove(); }; }(s), 750);
+    }
+  }, { passive: true });
+
+  /* ── 3D FLOATING SHAPES ── */
+  var canvas = document.getElementById('shapesCanvas');
+  if (typeof THREE === 'undefined' || !canvas) { if (canvas) canvas.remove(); return; }
+  try {
+    var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));
+    renderer.setClearColor(0x000000, 0);
+    var scene = new THREE.Scene();
+    var cam = new THREE.PerspectiveCamera(45, 1, 0.1, 50);
+    cam.position.set(0, 0, 7);
+
+    scene.add(new THREE.HemisphereLight(0xFFF6EA, 0xF0D5D3, 1.05));
+    var sun = new THREE.DirectionalLight(0xFFF4E8, 0.9);
+    sun.position.set(2.5, 3.5, 4);
+    scene.add(sun);
+
+    var palette = [0x722F37, 0x5E1F2A, 0xD8A9AC, 0xC98A90, 0xE9C4C2];
+    var geos = [
+      new THREE.TorusKnotGeometry(0.30, 0.11, 110, 18),
+      new THREE.TorusGeometry(0.34, 0.14, 20, 42),
+      new THREE.IcosahedronGeometry(0.38, 0),
+      new THREE.ConeGeometry(0.30, 0.62, 26),
+      new THREE.SphereGeometry(0.30, 26, 26),
+      new THREE.DodecahedronGeometry(0.36, 0),
+      new THREE.OctahedronGeometry(0.36, 0)
+    ];
+
+    var N = isTouch ? 7 : 12;
+    var shapes = [];
+    for (var i = 0; i < N; i++) {
+      var mesh = new THREE.Mesh(
+        geos[i % geos.length],
+        new THREE.MeshStandardMaterial({
+          color: palette[i % palette.length], roughness: 0.35, metalness: 0.15
+        })
+      );
+      mesh.userData = {
+        side: i % 2 === 0 ? -1 : 1,
+        fx: 0.68 + Math.random() * 0.32,
+        fy: (Math.random() < 0.5 ? -1 : 1) * (0.3 + Math.random() * 0.6),
+        z: Math.random() * 2 - 1,
+        spinX: (Math.random() - 0.5) * 0.8,
+        spinY: (Math.random() - 0.5) * 1.0,
+        bobSpeed: 0.5 + Math.random() * 0.7,
+        bobAmp: 0.15 + Math.random() * 0.2,
+        phase: Math.random() * Math.PI * 2,
+        baseScale: 0.75 + Math.random() * 0.6,
+        baseY: 0
+      };
+      mesh.scale.setScalar(0.001);
+      scene.add(mesh);
+      shapes.push(mesh);
+    }
+
+    function layout() {
+      var w = canvas.clientWidth, h = canvas.clientHeight;
+      renderer.setSize(w, h, false);
+      cam.aspect = w / h;
+      cam.updateProjectionMatrix();
+      var halfH = Math.tan((cam.fov * Math.PI / 180) / 2) * cam.position.z;
+      var halfW = halfH * cam.aspect;
+      shapes.forEach(function (m) {
+        var u = m.userData;
+        m.position.x = u.side * u.fx * halfW * 0.92;
+        u.baseY = u.fy * halfH * 0.85;
+        m.position.z = u.z;
+      });
+    }
+    layout();
+    addEventListener('resize', layout);
+
+    // elastic pop-in
+    shapes.forEach(function (m, idx) {
+      var target = m.userData.baseScale;
+      var start = null, delay = 250 + idx * 90, dur = 1100;
+      function step(ts) {
+        if (start === null) start = ts;
+        var el = ts - start - delay;
+        if (el < 0) { requestAnimationFrame(step); return; }
+        var p = Math.min(el / dur, 1);
+        // elastic ease-out
+        var v = p === 1 ? 1 : 1 - Math.pow(2, -10 * p) * Math.cos(p * 12);
+        m.scale.setScalar(target * v);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+
+    var mouse = { x: 0, y: 0 };
+    if (!isTouch) addEventListener('mousemove', function (e) {
+      mouse.x = (e.clientX / innerWidth) * 2 - 1;
+      mouse.y = -((e.clientY / innerHeight) * 2 - 1);
+    }, { passive: true });
+
+    var visible = true;
+    new IntersectionObserver(function (en) { visible = en[0].isIntersecting; }, { rootMargin: '15%' }).observe(hero);
+
+    var clock = new THREE.Clock();
+    (function loop() {
+      requestAnimationFrame(loop);
+      if (!visible) return;
+      var t = clock.getElapsedTime();
+      shapes.forEach(function (m) {
+        var u = m.userData;
+        m.rotation.x += u.spinX * 0.01;
+        m.rotation.y += u.spinY * 0.01;
+        m.position.y = u.baseY + Math.sin(t * u.bobSpeed + u.phase) * u.bobAmp;
+      });
+      cam.position.x += (mouse.x * 0.55 - cam.position.x) * 0.04;
+      cam.position.y += (mouse.y * 0.35 - cam.position.y) * 0.04;
+      cam.lookAt(0, 0, 0);
+      renderer.render(scene, cam);
+    })();
+  } catch (err) {
+    canvas.remove();
+  }
+})();
+</script>
+</body>
+</html>
