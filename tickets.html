@@ -305,6 +305,25 @@
     }
     .both-strip p { font-size: 0.82rem; color: rgba(94,31,42,0.75); }
 
+    .student-strip {
+      margin-top: 18px; background: var(--card);
+      border: 1px dashed rgba(94,31,42,0.4);
+      padding: 30px 40px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; flex-wrap: wrap;
+      rotate: 0.5deg; transition: rotate 0.4s var(--spring);
+    }
+    .student-strip:hover { rotate: 0deg; }
+    @media (max-width: 768px) { .student-strip { padding: 24px 24px; } }
+    .student-tag {
+      font-family: var(--sans); font-size: 9px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--wine); margin-bottom: 7px;
+    }
+    .student-strip h3 {
+      font-family: var(--display); font-size: 1.45rem; font-weight: 500;
+      color: var(--wine-deep); margin-bottom: 5px;
+    }
+    .student-strip p { font-size: 0.8rem; color: rgba(94,31,42,0.75); max-width: 560px; line-height: 1.7; }
+
     /* ── PRE-SAVE BAND ── */
     #presave { background: var(--wine); overflow: hidden; }
     #presave .section-title { color: var(--ivory); }
@@ -660,6 +679,16 @@
       </div>
       <button class="btn btn--primary" data-presave data-day="Both Days — 26 &amp; 27 September">Pre-Save Both Days <span class="btn-arrow">→</span></button>
     </div>
+
+    <!-- UDIT STUDENT PASS -->
+    <div class="student-strip reveal">
+      <div>
+        <div class="student-tag">Students</div>
+        <h3>Special UDIT Student Pass</h3>
+        <p>Studying at UDIT? There's a dedicated student pass for you. Pre-save with your details and we'll send you the student booking link when tickets open — student ID required at entry.</p>
+      </div>
+      <button class="btn btn--outline" data-presave data-day="Special UDIT Student Pass">Pre-Save Student Pass <span class="btn-arrow">→</span></button>
+    </div>
   </div>
 </section>
 
@@ -756,6 +785,13 @@
               <span class="choice-text">
                 <strong>Exclusive Ekum &amp; Abhay Networking Mixer Pass</strong>
                 <span>Day 1 · 26 September — the networking mixer with Ekum &amp; Abhay</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="Special UDIT Student Pass" />
+              <span class="choice-text">
+                <strong>Special UDIT Student Pass</strong>
+                <span>Discounted festival access for UDIT students — student ID required</span>
               </span>
             </label>
           </div>
