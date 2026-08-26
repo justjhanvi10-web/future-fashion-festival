@@ -274,7 +274,23 @@
     .day-item-desc { font-size: 0.82rem; line-height: 1.75; color: rgba(94,31,42,0.72); }
     .day-card--wine .day-item-desc { color: rgba(247,241,230,0.82); }
 
-    .day-foot { margin-top: 34px; }
+    .day-foot { margin-top: 34px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .mixer-note {
+      margin-top: 28px; padding: 20px 22px;
+      background: var(--blush); border: 1px solid var(--hair);
+      rotate: -0.6deg; transition: rotate 0.4s var(--spring);
+    }
+    .mixer-note:hover { rotate: 0deg; }
+    .mixer-tag {
+      font-family: var(--sans); font-size: 9px; letter-spacing: 0.28em;
+      text-transform: uppercase; color: var(--wine); margin-bottom: 7px;
+    }
+    .mixer-name {
+      font-family: var(--display); font-size: 1.15rem; font-weight: 500;
+      color: var(--wine-deep); margin-bottom: 6px; line-height: 1.25;
+    }
+    .mixer-desc { font-size: 0.78rem; line-height: 1.7; color: rgba(94,31,42,0.75); }
 
     /* ── BOTH DAYS STRIP ── */
     .both-strip {
@@ -581,8 +597,14 @@
             </div>
           </li>
         </ul>
+        <div class="mixer-note">
+          <div class="mixer-tag">Exclusive Add-On</div>
+          <div class="mixer-name">Ekum &amp; Abhay Networking Mixer Pass</div>
+          <p class="mixer-desc">A limited pass to the Day 1 networking mixer with Ekum &amp; Abhay. Choose it when you pre-save.</p>
+        </div>
         <div class="day-foot">
           <button class="btn btn--outline" data-presave data-day="Day 1 — 26 September">Pre-Save Day 1 <span class="btn-arrow">→</span></button>
+          <button class="btn btn--outline" data-presave data-day="Exclusive Ekum &amp; Abhay Networking Mixer Pass — Day 1, 26 September">Mixer Pass <span class="btn-arrow">→</span></button>
         </div>
       </div>
 
@@ -727,6 +749,13 @@
               <span class="choice-text">
                 <strong>Both Days</strong>
                 <span>The full festival experience</span>
+              </span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="Exclusive Ekum &amp; Abhay Networking Mixer Pass — Day 1, 26 September" />
+              <span class="choice-text">
+                <strong>Exclusive Ekum &amp; Abhay Networking Mixer Pass</strong>
+                <span>Day 1 · 26 September — the networking mixer with Ekum &amp; Abhay</span>
               </span>
             </label>
           </div>
