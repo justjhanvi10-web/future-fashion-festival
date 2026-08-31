@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pre-Save Tickets — Future Fashion Festival</title>
-  <meta name="description" content="Pre-save your spot for Future Fashion Festival — 26th & 27th September. Two days of panels, workshops, runway, awards and live music by House of XIX." />
+  <title>Buy Tickets — Future Fashion Festival</title>
+  <meta name="description" content="Buy tickets for Future Fashion Festival — 26th & 27th September. Day passes from ₹1,199, full festival pass ₹2,999. Panels, workshops, runway, awards and live music by House of XIX." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -324,7 +324,28 @@
     }
     .student-strip p { font-size: 0.8rem; color: rgba(94,31,42,0.75); max-width: 560px; line-height: 1.7; }
 
-    /* ── PRE-SAVE BAND ── */
+    /* ── PRICING ── */
+    .price-row { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--hair); }
+    .day-card--wine .price-row { border-top-color: rgba(247,241,230,0.25); }
+    .price-tag {
+      display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+      font-family: var(--display); font-size: 2.1rem; font-weight: 600;
+      color: var(--wine-deep); line-height: 1;
+    }
+    .price-tag small {
+      font-family: var(--sans); font-size: 9px; font-weight: 400;
+      letter-spacing: 0.26em; text-transform: uppercase; color: var(--muted);
+    }
+    .day-card--wine .price-tag { color: var(--ivory); }
+    .day-card--wine .price-tag small { color: rgba(247,241,230,0.72); }
+    .limited-tag {
+      display: inline-block; margin-top: 12px;
+      font-family: var(--sans); font-size: 9px; letter-spacing: 0.24em;
+      text-transform: uppercase; color: var(--wine);
+      border: 1px solid var(--wine); padding: 5px 11px; border-radius: 2px;
+    }
+
+    /* ── BUY BAND ── */
     #presave { background: var(--wine); overflow: hidden; }
     #presave .section-title { color: var(--ivory); }
     #presave .section-title em { color: var(--blush); }
@@ -411,6 +432,109 @@
       font-weight: 500; letter-spacing: 0.06em; color: var(--wine-deep); margin-bottom: 2px;
     }
     .choice-text span { font-size: 0.76rem; color: rgba(94,31,42,0.7); }
+    /* Scoped to .day-choice so these still outrank `.field label` (0,1,1)
+       if a choice list is ever nested inside a .field again. */
+    .day-choice .choice {
+      display: flex; align-items: center; gap: 12px; margin-bottom: 0;
+    }
+    .day-choice .choice-text { flex: 1; min-width: 0; }
+    .day-choice .choice-text span {
+      text-transform: none; letter-spacing: 0.01em; line-height: 1.55;
+    }
+    .day-choice .choice-price {
+      flex-shrink: 0; padding-left: 10px; text-transform: none; letter-spacing: 0;
+      font-family: var(--display); font-size: 1.2rem; font-weight: 600; color: var(--wine);
+    }
+
+    .field select {
+      width: 100%; background-color: #FCF8F0; border: 1px solid var(--hair);
+      padding: 14px 40px 14px 16px; color: var(--wine-deep);
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 300;
+      outline: none; border-radius: 2px; cursor: pointer;
+      appearance: none; -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23722F37' stroke-width='1.4'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 16px center; background-size: 11px;
+      transition: border-color 0.3s ease, background-color 0.3s ease;
+    }
+    .field select:focus { border-color: var(--wine); background-color: #fff; }
+
+    /* ── PAYMENT BOX ── */
+    .pay-box {
+      background: var(--blush); border: 1px solid var(--hair);
+      padding: 22px 22px 20px; border-radius: 2px; margin-bottom: 24px;
+    }
+    .pay-label {
+      font-family: var(--sans); font-size: 10px; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--wine); margin-bottom: 10px;
+    }
+    .pay-amount {
+      font-family: var(--display); font-size: 2.3rem; font-weight: 600;
+      color: var(--wine-deep); line-height: 1; margin-bottom: 5px;
+    }
+    .pay-for { font-size: 0.78rem; color: rgba(94,31,42,0.78); line-height: 1.6; margin-bottom: 14px; }
+    .pay-upi {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      font-size: 0.78rem; color: var(--wine-deep); line-height: 1.7;
+    }
+    .pay-upi code {
+      font-family: var(--sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+      background: rgba(255,255,255,0.75); border: 1px solid var(--hair);
+      padding: 7px 11px; border-radius: 2px; color: var(--wine-deep);
+    }
+    .pay-upi a { color: var(--wine); }
+    .modal .btn.pay-btn {
+      width: auto; margin-top: 0; padding: 11px 18px; font-size: 9px;
+    }
+    .pay-steps { list-style: none; margin-top: 16px; display: flex; flex-direction: column; gap: 6px; }
+    .pay-steps li {
+      font-size: 0.74rem; line-height: 1.65; color: rgba(94,31,42,0.78);
+      display: flex; gap: 8px; align-items: flex-start;
+    }
+    .pay-steps li::before { content: '✦'; color: var(--wine); font-size: 10px; line-height: 1.7; }
+
+    .pay-scan { text-align: center; margin-top: 4px; }
+    .pay-qr {
+      display: block; width: 100%; max-width: 208px; height: auto;
+      margin: 0 auto 14px; background: #fff; padding: 10px;
+      border: 1px solid var(--hair); border-radius: 2px;
+    }
+    .pay-scan .pay-upi { justify-content: center; margin-bottom: 14px; }
+
+    /* ── STEP WIZARD ── */
+    .step { display: none; }
+    .step.is-active { display: block; animation: stepIn 0.45s var(--spring); }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateX(16px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .step-rail { display: flex; align-items: center; gap: 9px; margin-bottom: 28px; }
+    .step-dot {
+      width: 27px; height: 27px; border-radius: 50%; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--sans); font-size: 10px; font-weight: 500;
+      border: 1px solid var(--wine); color: var(--wine); background: transparent;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+    .step-dot.is-on { background: var(--wine); color: var(--ivory); }
+    .step-dot.is-done { background: var(--blush); color: var(--wine-deep); }
+    .step-line { flex: 1; height: 1px; background: var(--hair); }
+
+    .modal .btn.btn--back {
+      width: 100%; margin-top: 10px;
+      border-color: var(--hair); color: var(--muted);
+    }
+    .modal .btn.btn--back:hover { border-color: var(--wine); color: var(--wine); }
+
+    .order-line {
+      display: flex; align-items: center; justify-content: space-between; gap: 14px;
+      background: var(--card); border: 1px solid var(--hair);
+      padding: 14px 16px; border-radius: 2px; margin-bottom: 26px;
+    }
+    .order-line-name { font-size: 0.78rem; line-height: 1.5; color: rgba(94,31,42,0.8); }
+    .order-line-price {
+      flex-shrink: 0; font-family: var(--display);
+      font-size: 1.15rem; font-weight: 600; color: var(--wine);
+    }
 
     .modal .btn { width: 100%; justify-content: center; margin-top: 8px; }
     .modal-fineprint {
@@ -510,7 +634,7 @@
     <li><a href="index.html#faq">FAQ</a></li>
   </ul>
   <div>
-    <button class="btn btn--primary" data-presave>Pre-Save <span class="btn-arrow">→</span></button>
+    <button class="btn btn--primary" data-presave>Buy Tickets <span class="btn-arrow">→</span></button>
   </div>
 </nav>
 
@@ -519,31 +643,31 @@
   <div class="hero-bg"></div>
   <canvas id="shapesCanvas"></canvas>
   <div class="hero-content">
-    <div class="hero-eyebrow">Pre-Save · Tickets</div>
-    <h1 class="hero-title">Save Your Seat<br><em>Before Anyone Else.</em></h1>
+    <div class="hero-eyebrow">Tickets · On Sale Now</div>
+    <h1 class="hero-title">Book Your Seat<br><em>Before It’s Gone.</em></h1>
     <p class="hero-dates">26<sup>th</sup> &amp; 27<sup>th</sup> September</p>
-    <p class="hero-sub">Two days of panels, workshops, runway, awards and live music. Pre-save now to lock in first access when tickets go live — no payment today, just your spot in the queue.</p>
+    <p class="hero-sub">Two days of panels, workshops, runway, awards and live music. Tickets are live — pick your pass, pay, and share your transaction ID. Your confirmed pass lands by email.</p>
     <div class="hero-ctas">
-      <button class="btn btn--primary btn--lg" data-presave>Pre-Save My Ticket <span class="btn-arrow">→</span></button>
+      <button class="btn btn--primary btn--lg" data-presave>Buy My Ticket <span class="btn-arrow">→</span></button>
       <a href="#days" class="btn btn--outline btn--lg">See Both Days</a>
     </div>
-    <div class="hero-note">Free to pre-save · Takes 30 seconds</div>
+    <div class="hero-note">Day passes from ₹1,199 · Full festival pass ₹2,999</div>
   </div>
 </section>
 
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner" id="ticker">
-    <span class="ticker-item">Pre-Save Now Open</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Tickets On Sale Now</span><span class="ticker-item ticker-dot">✦</span>
     <span class="ticker-item">26 &amp; 27 September</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Full Festival Pass ₹2,999</span><span class="ticker-item ticker-dot">✦</span>
     <span class="ticker-item">Runway · Awards · Concert</span><span class="ticker-item ticker-dot">✦</span>
-    <span class="ticker-item">Panels &amp; Workshops</span><span class="ticker-item ticker-dot">✦</span>
-    <span class="ticker-item">House of XIX</span><span class="ticker-item ticker-dot">✦</span>
-    <span class="ticker-item">Pre-Save Now Open</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Student Passes From ₹1,199</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Tickets On Sale Now</span><span class="ticker-item ticker-dot">✦</span>
     <span class="ticker-item">26 &amp; 27 September</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Full Festival Pass ₹2,999</span><span class="ticker-item ticker-dot">✦</span>
     <span class="ticker-item">Runway · Awards · Concert</span><span class="ticker-item ticker-dot">✦</span>
-    <span class="ticker-item">Panels &amp; Workshops</span><span class="ticker-item ticker-dot">✦</span>
-    <span class="ticker-item">House of XIX</span><span class="ticker-item ticker-dot">✦</span>
+    <span class="ticker-item">Student Passes From ₹1,199</span><span class="ticker-item ticker-dot">✦</span>
   </div>
 </div>
 
@@ -616,14 +740,19 @@
             </div>
           </li>
         </ul>
+        <div class="price-row">
+          <div class="price-tag">₹1,499 <small>One Day Pass · General</small></div>
+        </div>
         <div class="mixer-note">
           <div class="mixer-tag">Exclusive Add-On</div>
-          <div class="mixer-name">Ekum &amp; Abhay Networking Mixer Pass</div>
-          <p class="mixer-desc">A limited pass to the Day 1 networking mixer with Ekum &amp; Abhay. Choose it when you pre-save.</p>
+          <div class="mixer-name">Ekum &amp; Abhay Exclusive Performance Pass</div>
+          <p class="mixer-desc">A limited pass to the Day 1 performance and networking mixer with Ekum &amp; Abhay.</p>
+          <div class="price-tag" style="margin-top: 14px;">₹799 <small>Per Pass</small></div>
+          <div class="limited-tag">Only 25 tickets available</div>
         </div>
         <div class="day-foot">
-          <button class="btn btn--outline" data-presave data-day="Day 1 — 26 September">Pre-Save Day 1 <span class="btn-arrow">→</span></button>
-          <button class="btn btn--outline" data-presave data-day="Exclusive Ekum &amp; Abhay Networking Mixer Pass — Day 1, 26 September">Mixer Pass <span class="btn-arrow">→</span></button>
+          <button class="btn btn--outline" data-presave data-day="One Day Pass — Day 1 · 26 September">Buy Day 1 — ₹1,499 <span class="btn-arrow">→</span></button>
+          <button class="btn btn--outline" data-presave data-day="Ekum &amp; Abhay Exclusive Performance Pass — Day 1 · 26 September">Performance Pass — ₹799 <span class="btn-arrow">→</span></button>
         </div>
       </div>
 
@@ -664,8 +793,11 @@
             </div>
           </li>
         </ul>
+        <div class="price-row">
+          <div class="price-tag">₹2,099 <small>One Day Pass · General</small></div>
+        </div>
         <div class="day-foot">
-          <button class="btn btn--ivory" data-presave data-day="Day 2 — 27 September">Pre-Save Day 2 <span class="btn-arrow">→</span></button>
+          <button class="btn btn--ivory" data-presave data-day="One Day Pass — Day 2 · 27 September">Buy Day 2 — ₹2,099 <span class="btn-arrow">→</span></button>
         </div>
       </div>
 
@@ -674,10 +806,10 @@
     <!-- BOTH DAYS -->
     <div class="both-strip reveal">
       <div>
-        <h3>Want the whole thing?</h3>
-        <p>Pre-save both days and experience the festival end to end — panels and workshops on Saturday, runway, awards and the concert on Sunday.</p>
+        <h3>Full Festival Pass — ₹2,999</h3>
+        <p>Both days, end to end — panels and workshops on Saturday, runway, awards and the concert on Sunday. ₹599 less than buying the two day passes separately.</p>
       </div>
-      <button class="btn btn--primary" data-presave data-day="Both Days — 26 &amp; 27 September">Pre-Save Both Days <span class="btn-arrow">→</span></button>
+      <button class="btn btn--primary" data-presave data-day="Full Festival Pass — Both Days · 26 &amp; 27 September">Buy Full Pass — ₹2,999 <span class="btn-arrow">→</span></button>
     </div>
 
     <!-- UDIT STUDENT PASS -->
@@ -685,26 +817,30 @@
       <div>
         <div class="student-tag">Students</div>
         <h3>Special UDIT Student Pass</h3>
-        <p>Studying at UDIT? There's a dedicated student pass for you. Pre-save with your details and we'll send you the student booking link when tickets open — student ID required at entry.</p>
+        <p>Studying at UDIT? There’s a dedicated student rate — ₹1,199 for Day 1 (26th), ₹1,799 for Day 2 (27th), or ₹2,499 for the full festival across both days. Valid UDIT student ID required at entry.</p>
       </div>
-      <button class="btn btn--outline" data-presave data-day="Special UDIT Student Pass">Pre-Save Student Pass <span class="btn-arrow">→</span></button>
+      <div class="day-foot" style="margin-top: 0;">
+        <button class="btn btn--outline" data-presave data-day="UDIT Student Pass — Day 1 · 26 September">Day 1 — ₹1,199 <span class="btn-arrow">→</span></button>
+        <button class="btn btn--outline" data-presave data-day="UDIT Student Pass — Day 2 · 27 September">Day 2 — ₹1,799 <span class="btn-arrow">→</span></button>
+        <button class="btn btn--primary" data-presave data-day="UDIT Student Pass — Full Festival · 26 &amp; 27 September">Full Festival — ₹2,499 <span class="btn-arrow">→</span></button>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- PRE-SAVE BAND -->
+<!-- BUY BAND -->
 <section id="presave" class="sec-pad">
   <div class="container">
     <div class="presave-inner reveal">
-      <div class="label">Be First In Line</div>
+      <div class="label">Tickets Are Live</div>
       <div class="divider" style="margin: 24px auto;"></div>
-      <h2 class="section-title">Pre-Save Your<br><em>Ticket Today.</em></h2>
-      <p class="lead" style="margin-top: 22px;">Drop your details and we'll hold your place. The moment tickets go live, pre-saved names get the first window to book — before general release.</p>
-      <button class="btn btn--ivory btn--lg" data-presave>Pre-Save My Ticket <span class="btn-arrow">→</span></button>
+      <h2 class="section-title">Buy Your<br><em>Ticket Today.</em></h2>
+      <p class="lead" style="margin-top: 22px;">Pick your pass, complete the payment, and send your details with the transaction ID. Every order is verified by hand and your confirmed pass is emailed within 24 hours.</p>
+      <button class="btn btn--ivory btn--lg" data-presave>Buy My Ticket <span class="btn-arrow">→</span></button>
       <div class="presave-perks">
-        <div class="perk"><span>✦</span> First Booking Window</div>
-        <div class="perk"><span>✦</span> No Payment Now</div>
-        <div class="perk"><span>✦</span> Launch Day Alert</div>
+        <div class="perk"><span>✦</span> Passes From ₹799</div>
+        <div class="perk"><span>✦</span> Quick UPI Payment</div>
+        <div class="perk"><span>✦</span> Confirmed By Email</div>
       </div>
     </div>
   </div>
@@ -734,82 +870,216 @@
   </div>
 </footer>
 
-<!-- PRE-SAVE MODAL -->
+<!-- ORDER MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
 
     <div id="modalForm">
-      <h2 class="modal-title" id="modalTitle">Pre-Save Your <em>Ticket.</em></h2>
-      <p class="modal-sub">No payment today. We'll email you the moment tickets go live — pre-saved names book first.</p>
+      <div class="step-rail">
+        <span class="step-dot is-on" data-step="1">1</span>
+        <span class="step-line"></span>
+        <span class="step-dot" data-step="2">2</span>
+        <span class="step-line"></span>
+        <span class="step-dot" data-step="3">3</span>
+      </div>
 
       <form id="presaveForm" novalidate>
-        <div class="field">
-          <label for="pName">Full Name</label>
-          <input type="text" id="pName" name="name" placeholder="Your name" required />
-        </div>
-        <div class="field">
-          <label for="pEmail">Email Address</label>
-          <input type="email" id="pEmail" name="email" placeholder="you@example.com" required />
-        </div>
-        <div class="field">
-          <label for="pPhone">Phone Number</label>
-          <input type="tel" id="pPhone" name="phone" placeholder="+91 00000 00000" required />
-        </div>
-        <div class="field">
-          <label>Which Ticket?</label>
+
+        <!-- STEP 1 — CHOOSE -->
+        <section class="step is-active" data-step="1">
+          <h2 class="modal-title" id="modalTitle">Choose Your <em>Ticket.</em></h2>
+          <p class="modal-sub">Pick the pass you want. You can come back and change it before you pay.</p>
+
           <div class="day-choice">
             <label class="choice">
-              <input type="radio" name="day" value="Day 1 — 26 September" required />
+              <input type="radio" name="day" value="One Day Pass — Day 1 · 26 September" data-price="1499" required />
               <span class="choice-text">
-                <strong>Day 1 — 26 September</strong>
-                <span>Panels, workshops, mixer &amp; live performances</span>
+                <strong>One Day Pass — Day 1 · 26 September</strong>
+                <span>General · panels, workshops, mixer &amp; live performances</span>
               </span>
+              <span class="choice-price">₹1,499</span>
             </label>
             <label class="choice">
-              <input type="radio" name="day" value="Day 2 — 27 September" />
+              <input type="radio" name="day" value="One Day Pass — Day 2 · 27 September" data-price="2099" />
               <span class="choice-text">
-                <strong>Day 2 — 27 September</strong>
-                <span>Runway, awards &amp; the FFF concert</span>
+                <strong>One Day Pass — Day 2 · 27 September</strong>
+                <span>General · runway, awards &amp; the FFF concert</span>
               </span>
+              <span class="choice-price">₹2,099</span>
             </label>
             <label class="choice">
-              <input type="radio" name="day" value="Both Days — 26 &amp; 27 September" />
+              <input type="radio" name="day" value="Full Festival Pass — Both Days · 26 &amp; 27 September" data-price="2999" />
               <span class="choice-text">
-                <strong>Both Days</strong>
-                <span>The full festival experience</span>
+                <strong>Full Festival Pass — Both Days</strong>
+                <span>26 &amp; 27 September · the complete festival</span>
               </span>
+              <span class="choice-price">₹2,999</span>
             </label>
             <label class="choice">
-              <input type="radio" name="day" value="Exclusive Ekum &amp; Abhay Networking Mixer Pass — Day 1, 26 September" />
+              <input type="radio" name="day" value="UDIT Student Pass — Day 1 · 26 September" data-price="1199" />
               <span class="choice-text">
-                <strong>Exclusive Ekum &amp; Abhay Networking Mixer Pass</strong>
-                <span>Day 1 · 26 September — the networking mixer with Ekum &amp; Abhay</span>
+                <strong>UDIT Student Pass — Day 1 · 26 September</strong>
+                <span>UDIT students only · student ID required at entry</span>
               </span>
+              <span class="choice-price">₹1,199</span>
             </label>
             <label class="choice">
-              <input type="radio" name="day" value="Special UDIT Student Pass" />
+              <input type="radio" name="day" value="UDIT Student Pass — Day 2 · 27 September" data-price="1799" />
               <span class="choice-text">
-                <strong>Special UDIT Student Pass</strong>
-                <span>Discounted festival access for UDIT students — student ID required</span>
+                <strong>UDIT Student Pass — Day 2 · 27 September</strong>
+                <span>UDIT students only · student ID required at entry</span>
               </span>
+              <span class="choice-price">₹1,799</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="UDIT Student Pass — Full Festival · 26 &amp; 27 September" data-price="2499" />
+              <span class="choice-text">
+                <strong>UDIT Student Pass — Full Festival</strong>
+                <span>Both days · UDIT students only · student ID required at entry</span>
+              </span>
+              <span class="choice-price">₹2,499</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="day" value="Ekum &amp; Abhay Exclusive Performance Pass — Day 1 · 26 September" data-price="799" />
+              <span class="choice-text">
+                <strong>Ekum &amp; Abhay Exclusive Performance Pass</strong>
+                <span>Day 1 · 26 September — only 25 tickets available</span>
+              </span>
+              <span class="choice-price">₹799</span>
             </label>
           </div>
-        </div>
 
-        <div class="form-error" id="formError"></div>
+          <div class="form-error"></div>
 
-        <button type="submit" class="btn btn--primary" id="submitBtn">
-          Pre-Save My Ticket <span class="btn-arrow">→</span>
-        </button>
-        <p class="modal-fineprint">By pre-saving you agree to receive ticket updates from House of XIX. No spam, ever.</p>
+          <button type="button" class="btn btn--primary" data-next="2">
+            Continue <span class="btn-arrow">→</span>
+          </button>
+        </section>
+
+        <!-- STEP 2 — DETAILS -->
+        <section class="step" data-step="2">
+          <h2 class="modal-title">Your <em>Details.</em></h2>
+          <p class="modal-sub">Your ticket is emailed to the address below, so please double-check it.</p>
+
+          <div class="order-line">
+            <span class="order-line-name" id="orderName">—</span>
+            <span class="order-line-price" id="orderPrice">—</span>
+          </div>
+
+          <div class="field">
+            <label for="pName">Full Name</label>
+            <input type="text" id="pName" name="name" placeholder="Your name" required />
+          </div>
+          <div class="field">
+            <label for="pState">State</label>
+            <select id="pState" name="state" required>
+              <option value="">Select your state</option>
+              <option value="Andhra Pradesh">Andhra Pradesh</option>
+              <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+              <option value="Assam">Assam</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Goa">Goa</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Haryana">Haryana</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Karnataka">Karnataka</option>
+              <option value="Kerala">Kerala</option>
+              <option value="Madhya Pradesh">Madhya Pradesh</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Manipur">Manipur</option>
+              <option value="Meghalaya">Meghalaya</option>
+              <option value="Mizoram">Mizoram</option>
+              <option value="Nagaland">Nagaland</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Sikkim">Sikkim</option>
+              <option value="Tamil Nadu">Tamil Nadu</option>
+              <option value="Telangana">Telangana</option>
+              <option value="Tripura">Tripura</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="West Bengal">West Bengal</option>
+              <option value="Andaman &amp; Nicobar Islands">Andaman &amp; Nicobar Islands</option>
+              <option value="Chandigarh">Chandigarh</option>
+              <option value="Dadra &amp; Nagar Haveli and Daman &amp; Diu">Dadra &amp; Nagar Haveli and Daman &amp; Diu</option>
+              <option value="Delhi (NCT)">Delhi (NCT)</option>
+              <option value="Jammu &amp; Kashmir">Jammu &amp; Kashmir</option>
+              <option value="Ladakh">Ladakh</option>
+              <option value="Lakshadweep">Lakshadweep</option>
+              <option value="Puducherry">Puducherry</option>
+              <option value="Outside India">Outside India</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="pEmail">Email Address</label>
+            <input type="email" id="pEmail" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="pPhone">Phone Number</label>
+            <input type="tel" id="pPhone" name="phone" placeholder="+91 00000 00000" required />
+          </div>
+
+          <div class="form-error"></div>
+
+          <button type="button" class="btn btn--primary" data-next="3">
+            Continue To Payment <span class="btn-arrow">→</span>
+          </button>
+          <button type="button" class="btn btn--outline btn--back" data-back="1">Back</button>
+        </section>
+
+        <!-- STEP 3 — PAY &amp; CONFIRM -->
+        <section class="step" data-step="3">
+          <h2 class="modal-title">Pay &amp; <em>Confirm.</em></h2>
+          <p class="modal-sub">Scan the code and pay the exact amount, then enter the transaction ID below.</p>
+
+          <div class="pay-box">
+            <div class="pay-label">Amount To Pay</div>
+            <div class="pay-amount" id="payAmount">₹—</div>
+            <div class="pay-for" id="payFor"></div>
+
+            <div class="pay-scan">
+              <img class="pay-qr" id="payQr" src="assets/upi-qr.svg" width="208" height="208"
+                   alt="UPI QR code for 9899923644@ptsbi" />
+              <div class="pay-upi">Or pay directly to <code id="payVpa"></code></div>
+              <a class="btn btn--outline pay-btn" id="payLink" href="#">Pay In UPI App</a>
+            </div>
+
+            <ul class="pay-steps">
+              <li>Pay the exact amount shown above — part payments cannot be confirmed.</li>
+              <li>Copy the UPI reference / UTR number from your payment app.</li>
+              <li>Enter it below, along with the name the payment was made from.</li>
+            </ul>
+          </div>
+
+          <div class="field">
+            <label for="pTxn">Transaction ID</label>
+            <input type="text" id="pTxn" name="txn" placeholder="UPI reference / UTR number" required />
+          </div>
+          <div class="field">
+            <label for="pPayer">Name The Payment Was Made From</label>
+            <input type="text" id="pPayer" name="payer" placeholder="Name on the paying account" required />
+          </div>
+
+          <div class="form-error" id="formError"></div>
+
+          <button type="submit" class="btn btn--primary" id="submitBtn">
+            Confirm My Order <span class="btn-arrow">→</span>
+          </button>
+          <button type="button" class="btn btn--outline btn--back" data-back="2">Back</button>
+          <p class="modal-fineprint">Tickets are non-refundable and non-transferable. By ordering you agree to receive festival updates from House of XIX.</p>
+        </section>
+
       </form>
     </div>
 
     <div class="modal-success" id="modalSuccess">
       <div class="success-mark">✦</div>
-      <h3>You're On The List.</h3>
-      <p>Your spot is saved. We'll email you the second tickets go live — you'll get the first booking window, before general release.</p>
+      <h3>Thank You.</h3>
+      <p>You will get a confirmation mail with your tickets within 48 hours.<br><br>Tickets are non-refundable and non-transferable.</p>
       <button class="btn btn--outline" id="successClose">Back To The Festival</button>
     </div>
   </div>
@@ -821,10 +1091,14 @@
   'use strict';
 
   /* ══════════════════════════════════════════════════════
-     PRE-SAVE FORM DESTINATION
-     Paste the Google Form's formResponse URL + the entry ids
-     for each question. Until ACTION is filled in, submissions
-     fall back to opening a pre-filled email so no lead is lost.
+     ORDER FORM DESTINATION
+     Google Form formResponse URL + the entry id per question.
+     STATE and TXN have no entry id yet: add "State" and
+     "Transaction ID" questions to the Google Form, paste their
+     entry ids below, and each gets its own sheet column. Until
+     then both are appended to the ticket field so nothing is lost.
+     If ACTION is ever cleared, submissions fall back to a
+     pre-filled email so no order is lost.
      ══════════════════════════════════════════════════════ */
   var PRESAVE = {
     ACTION: 'https://docs.google.com/forms/d/e/1FAIpQLSf0edOqBWU-u9leIdZ_QuHjWq8F_XBG2ENew7X_K6qTDM_55w/formResponse',
@@ -832,9 +1106,24 @@
       name:  'entry.517180780',
       email: 'entry.1162786516',
       phone: 'entry.257658725',
-      day:   'entry.1297911588'
+      day:   'entry.1297911588',
+      state: '',
+      txn:   '',
+      payer: ''
     },
     FALLBACK_EMAIL: 'houseofxix@thefuturefashionfestival.com'
+  };
+
+  /* ══════════════════════════════════════════════════════
+     PAYMENT DETAILS
+     Put the UPI id buyers pay into here (e.g. 'houseofxix@okhdfcbank').
+     Leave it blank and the pay box asks buyers to email for the
+     UPI id / QR instead, so the page never shows a wrong account.
+     ══════════════════════════════════════════════════════ */
+  var PAYMENT = {
+    UPI_ID: '9899923644@ptsbi',
+    PAYEE:  'House of XIX',
+    QR:     'assets/upi-qr.svg'
   };
 
   var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -848,17 +1137,121 @@
   var errBox = document.getElementById('formError');
   var lastFocus = null;
 
+  var modalBox = modal.querySelector('.modal');
+  var payAmount = document.getElementById('payAmount');
+  var payFor = document.getElementById('payFor');
+  var payVpa = document.getElementById('payVpa');
+  var payLink = document.getElementById('payLink');
+  var payQr = document.getElementById('payQr');
+  var orderName = document.getElementById('orderName');
+  var orderPrice = document.getElementById('orderPrice');
+  var steps = form.querySelectorAll('.step');
+  var dots = modalForm.querySelectorAll('.step-dot');
+  var current = 1;
+
+  function inr(n) { return '\u20b9' + Number(n).toLocaleString('en-IN'); }
+
+  payVpa.textContent = PAYMENT.UPI_ID;
+  if (PAYMENT.QR) payQr.setAttribute('src', PAYMENT.QR);
+  // A QR that fails to load must not leave a broken icon where the
+  // payment details should be — the VPA line below it still works.
+  payQr.addEventListener('error', function () { payQr.style.display = 'none'; });
+
+  function selected() { return form.querySelector('input[name="day"]:checked'); }
+
+  function updatePay() {
+    var sel = selected();
+    if (!sel) {
+      payAmount.textContent = '\u20b9\u2014';
+      payFor.textContent = '';
+      orderName.textContent = '\u2014';
+      orderPrice.textContent = '\u2014';
+      return;
+    }
+    var amt = parseInt(sel.getAttribute('data-price'), 10);
+    payAmount.textContent = inr(amt);
+    payFor.textContent = sel.value;
+    orderName.textContent = sel.value;
+    orderPrice.textContent = inr(amt);
+    payLink.setAttribute('href',
+      'upi://pay?pa=' + encodeURIComponent(PAYMENT.UPI_ID) +
+      '&pn=' + encodeURIComponent(PAYMENT.PAYEE) +
+      '&am=' + amt + '&cu=INR' +
+      '&tn=' + encodeURIComponent('FFF ' + sel.value));
+  }
+
+  form.querySelectorAll('input[name="day"]').forEach(function (r) {
+    r.addEventListener('change', updatePay);
+  });
+
+  /* ── STEP NAVIGATION ── */
+  function clearError() {
+    form.querySelectorAll('.form-error').forEach(function (b) { b.classList.remove('show'); });
+  }
+
+  function goStep(n) {
+    current = n;
+    steps.forEach(function (st) {
+      st.classList.toggle('is-active', parseInt(st.getAttribute('data-step'), 10) === n);
+    });
+    dots.forEach(function (d) {
+      var i = parseInt(d.getAttribute('data-step'), 10);
+      d.classList.toggle('is-on', i === n);
+      d.classList.toggle('is-done', i < n);
+    });
+    clearError();
+    modalBox.scrollTop = 0;
+    setTimeout(function () {
+      var el = form.querySelector('.step.is-active input:not([type="radio"]), .step.is-active select');
+      if (el) el.focus();
+    }, 300);
+  }
+
+  function validateStep1() {
+    if (!selected()) { showError('Please choose which ticket you would like.'); return false; }
+    return true;
+  }
+
+  function validateStep2() {
+    var name = document.getElementById('pName').value.trim();
+    var state = document.getElementById('pState').value;
+    var email = document.getElementById('pEmail').value.trim();
+    var phone = document.getElementById('pPhone').value.trim();
+    if (!name) { showError('Please enter your name.'); return false; }
+    if (!state) { showError('Please select your state.'); return false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return false; }
+    if (phone.replace(/\D/g, '').length < 7) { showError('Please enter a valid phone number.'); return false; }
+    return true;
+  }
+
+  function advance(to) {
+    if (to === 2 && !validateStep1()) return;
+    if (to === 3 && !validateStep2()) return;
+    updatePay();
+    goStep(to);
+  }
+
+  modalForm.querySelectorAll('[data-next]').forEach(function (b) {
+    b.addEventListener('click', function () { advance(parseInt(this.getAttribute('data-next'), 10)); });
+  });
+  modalForm.querySelectorAll('[data-back]').forEach(function (b) {
+    b.addEventListener('click', function () { goStep(parseInt(this.getAttribute('data-back'), 10)); });
+  });
+
   function openModal(preselectDay) {
     lastFocus = document.activeElement;
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    modalForm.style.display = '';
+    modalSuccess.classList.remove('show');
     if (preselectDay) {
       var radios = form.querySelectorAll('input[name="day"]');
       for (var i = 0; i < radios.length; i++) {
         if (radios[i].value === preselectDay) { radios[i].checked = true; break; }
       }
     }
-    setTimeout(function () { document.getElementById('pName').focus(); }, 380);
+    updatePay();
+    goStep(1);
   }
   function closeModal() {
     modal.classList.remove('open');
@@ -879,50 +1272,72 @@
   });
 
   function showError(msg) {
-    errBox.textContent = msg;
-    errBox.classList.add('show');
+    var box = form.querySelector('.step.is-active .form-error') || errBox;
+    box.textContent = msg;
+    box.classList.add('show');
   }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    errBox.classList.remove('show');
+    clearError();
+
+    // Enter on steps 1 and 2 moves forward instead of ordering.
+    if (current < 3) { advance(current + 1); return; }
 
     var name = document.getElementById('pName').value.trim();
+    var state = document.getElementById('pState').value;
     var email = document.getElementById('pEmail').value.trim();
     var phone = document.getElementById('pPhone').value.trim();
-    var dayEl = form.querySelector('input[name="day"]:checked');
+    var txn = document.getElementById('pTxn').value.trim();
+    var payer = document.getElementById('pPayer').value.trim();
+    var dayEl = selected();
 
-    if (!name) { showError('Please enter your name.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showError('Please enter a valid email address.'); return; }
-    if (phone.replace(/\D/g, '').length < 7) { showError('Please enter a valid phone number.'); return; }
-    if (!dayEl) { showError('Please choose which ticket you would like.'); return; }
+    if (!dayEl) { goStep(1); showError('Please choose which ticket you would like.'); return; }
+    if (!validateStep2()) { goStep(2); validateStep2(); return; }
+    if (txn.length < 6) { showError('Please enter the transaction ID from your payment.'); return; }
+    if (!payer) { showError('Please enter the name the payment was made from.'); return; }
 
     var day = dayEl.value;
+    var amount = inr(parseInt(dayEl.getAttribute('data-price'), 10));
     var btn = document.getElementById('submitBtn');
     btn.disabled = true;
-    btn.textContent = 'Saving…';
+    btn.textContent = 'Placing order…';
 
     function succeed() {
       modalForm.style.display = 'none';
       modalSuccess.classList.add('show');
       form.reset();
+      updatePay();
+      goStep(1);
       btn.disabled = false;
-      btn.innerHTML = 'Pre-Save My Ticket <span class="btn-arrow">→</span>';
+      btn.innerHTML = 'Confirm My Order <span class="btn-arrow">→</span>';
     }
 
     if (PRESAVE.ACTION && PRESAVE.FIELDS.name) {
+      // Anything without its own entry id rides along in the ticket field
+      // so no part of the order is lost.
+      var dayValue = day + ' | Amount: ' + amount;
+      if (!PRESAVE.FIELDS.state) dayValue += ' | State: ' + state;
+      if (!PRESAVE.FIELDS.txn) dayValue += ' | Txn: ' + txn;
+      if (!PRESAVE.FIELDS.payer) dayValue += ' | Paid by: ' + payer;
+
       var fd = new FormData();
       fd.append(PRESAVE.FIELDS.name, name);
       fd.append(PRESAVE.FIELDS.email, email);
       fd.append(PRESAVE.FIELDS.phone, phone);
-      fd.append(PRESAVE.FIELDS.day, day);
+      fd.append(PRESAVE.FIELDS.day, dayValue);
+      if (PRESAVE.FIELDS.state) fd.append(PRESAVE.FIELDS.state, state);
+      if (PRESAVE.FIELDS.txn) fd.append(PRESAVE.FIELDS.txn, txn);
+      if (PRESAVE.FIELDS.payer) fd.append(PRESAVE.FIELDS.payer, payer);
       fetch(PRESAVE.ACTION, { method: 'POST', mode: 'no-cors', body: fd })
         .catch(function () {})
         .finally(succeed);
     } else {
-      // Fallback: hand off via email so no pre-save is lost before the form is wired.
-      var subject = 'Ticket Pre-Save — ' + day;
-      var body = 'Name: ' + name + '\nEmail: ' + email + '\nPhone: ' + phone + '\nTicket: ' + day;
+      // Fallback: hand off via email so no order is lost if the form is unwired.
+      var subject = 'Ticket Order — ' + day;
+      var body = 'Ticket: ' + day + '\nAmount: ' + amount + '\nTransaction ID: ' + txn +
+        '\nPaid by: ' + payer +
+        '\n\nName: ' + name + '\nState: ' + state + '\nEmail: ' + email + '\nPhone: ' + phone;
       window.location.href = 'mailto:' + PRESAVE.FALLBACK_EMAIL +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
